@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=1]
+[ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=2]
+[ext_resource path="res://UI/HealthUI.gd" type="Script" id=3]
+[ext_resource path="res://World/Gem.png" type="Texture" id=4]
+[ext_resource path="res://World/HoneyComb1.png" type="Texture" id=5]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://UI/MenuPopup.tscn" type="PackedScene" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "FadeOut"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="HealthUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartUIEmpty" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 13.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 2
+
+[node name="HeartUIFull" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 13.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 2 )
+
+[node name="Item" type="Node" parent="."]
+
+[node name="Gem" type="TextureRect" parent="Item"]
+margin_left = 260.0
+margin_right = 276.0
+margin_bottom = 16.0
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Item/Gem"]
+margin_left = 19.0
+margin_top = 2.0
+margin_right = 58.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "= "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Honey" type="TextureRect" parent="Item"]
+margin_left = 203.02
+margin_top = 1.94888
+margin_right = 219.02
+margin_bottom = 17.9489
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Item/Honey"]
+margin_left = 20.0
+margin_right = 52.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "= "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuPopup" parent="." instance=ExtResource( 7 )]

@@ -1,0 +1,269 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/InsideHouse.gd" type="Script" id=3]
+[ext_resource path="res://World/InsideHouse.png" type="Texture" id=4]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://UI/HealthUI.gd" type="Script" id=6]
+[ext_resource path="res://World/Gem.png" type="Texture" id=7]
+[ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=8]
+[ext_resource path="res://World/HoneyComb1.png" type="Texture" id=9]
+[ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=10]
+[ext_resource path="res://Levels/SleepPopup.gd" type="Script" id=11]
+[ext_resource path="res://UI/VirtualControl.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 2.08418, 16 )
+
+[sub_resource type="Animation" id=2]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "ShowAsk"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ask/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Answer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="InsideHouse" type="StaticBody2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 144, 200, 144, 160, 112, 160, 112, 96, 144, 96, 144, 64, 176, 64, 176, 56, 208, 56, 208, 128, 176, 128, 176, 144, 184, 144, 184, 160, 176, 160, 176, 200, 232, 200, 232, 24, 88, 24, 88, 200 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Level1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 192 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, 184 )
+
+[node name="Bed" type="Area2D" parent="."]
+position = Vector2( 144, 72 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+shape = SubResource( 1 )
+
+[node name="VirtualControl" parent="." instance=ExtResource( 12 )]
+
+[node name="HealthUI" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="HealthUI"]
+visible = false
+margin_right = 320.0
+margin_bottom = 180.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HeartUIEmpty" type="TextureRect" parent="HealthUI"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 13.0
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 2
+
+[node name="HeartUIFull" type="TextureRect" parent="HealthUI"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 77.0
+margin_bottom = 13.0
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthUI"]
+pause_mode = 2
+anims/FadeIn = SubResource( 2 )
+anims/FadeOut = SubResource( 3 )
+
+[node name="Item" type="Node" parent="HealthUI"]
+
+[node name="Gem" type="TextureRect" parent="HealthUI/Item"]
+margin_left = 260.0
+margin_right = 276.0
+margin_bottom = 16.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HealthUI/Item/Gem"]
+margin_left = 19.0
+margin_top = 2.0
+margin_right = 58.0
+margin_bottom = 18.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "= "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Honey" type="TextureRect" parent="HealthUI/Item"]
+margin_left = 203.02
+margin_top = 1.94888
+margin_right = 219.02
+margin_bottom = 17.9489
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HealthUI/Item/Honey"]
+margin_left = 20.0
+margin_right = 52.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "= "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SleepPopup" type="Popup" parent="HealthUI"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ask" type="ColorRect" parent="HealthUI/SleepPopup"]
+margin_left = 64.0
+margin_top = 96.0
+margin_right = 256.0
+margin_bottom = 160.0
+color = Color( 0.588235, 0.588235, 0.588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ask2" type="ColorRect" parent="HealthUI/SleepPopup/Ask"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 189.0
+margin_bottom = 61.0
+color = Color( 1, 0.862745, 0.705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HealthUI/SleepPopup/Ask"]
+margin_right = 192.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer" type="ColorRect" parent="HealthUI/SleepPopup"]
+visible = false
+margin_left = 96.0
+margin_top = 157.0
+margin_right = 224.0
+margin_bottom = 180.0
+color = Color( 0.588235, 0.588235, 0.588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="ColorRect" parent="HealthUI/SleepPopup/Answer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 125.0
+margin_bottom = 21.0
+color = Color( 1, 0.764706, 0.647059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="HealthUI/SleepPopup/Answer"]
+margin_right = 128.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0.313726, 1 )
+custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthUI/SleepPopup"]
+pause_mode = 2
+anims/ShowAsk = SubResource( 4 )
+[connection signal="body_entered" from="Bed" to="." method="_on_Bed_body_entered"]
+[connection signal="body_exited" from="Bed" to="." method="_on_Bed_body_exited"]
+[connection signal="animation_finished" from="HealthUI/SleepPopup/AnimationPlayer" to="HealthUI/SleepPopup" method="_on_AnimationPlayer_animation_finished"]
