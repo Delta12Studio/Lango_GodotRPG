@@ -196,9 +196,9 @@ __meta__ = {
 }
 
 [node name="Ask" type="ColorRect" parent="HealthUI/SleepPopup"]
-margin_left = 64.0
+margin_left = 56.0
 margin_top = 96.0
-margin_right = 256.0
+margin_right = 264.0
 margin_bottom = 160.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
@@ -208,7 +208,7 @@ __meta__ = {
 [node name="Ask2" type="ColorRect" parent="HealthUI/SleepPopup/Ask"]
 margin_left = 3.0
 margin_top = 3.0
-margin_right = 189.0
+margin_right = 205.0
 margin_bottom = 61.0
 color = Color( 1, 0.862745, 0.705882, 1 )
 __meta__ = {
@@ -216,7 +216,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HealthUI/SleepPopup/Ask"]
-margin_right = 192.0
+margin_right = 208.0
 margin_bottom = 64.0
 custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

@@ -20,6 +20,7 @@ func close_door():
 		pass
 
 func _on_Door_body_entered(_body):
+	_body.can_move = false
 	$AnimationPlayer.play("OpenDoor")
 	yield($AnimationPlayer, "animation_finished")
 # warning-ignore:return_value_discarded

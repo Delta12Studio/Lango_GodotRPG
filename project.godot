@@ -114,6 +114,12 @@ ui_menu={
 2d_physics/layer_4="EnemyHurtBox"
 2d_physics/layer_5="Enemy"
 
+[locale]
+
+fallback="en_US"
+translations=PoolStringArray( "res://Translation/language.en_US.translation", "res://Translation/language.pt_BR.translation" )
+locale_filter=[ 0, [ "en_US", "pt_BR" ] ]
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

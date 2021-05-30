@@ -142,7 +142,7 @@ margin_bottom = 136.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.368627, 0.533333, 0.658824, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
-text = "Created with"
+text = "CREATED"
 align = 1
 valign = 1
 percent_visible = 0.0
@@ -169,15 +169,7 @@ __meta__ = {
 margin_right = 320.0
 margin_bottom = 180.0
 custom_fonts/font = ExtResource( 3 )
-text = "
-Use the arrows or WASD keys to move 
-
-
-
-
-Use [J] or [Space] to ATTACK
-Use [K] to ROLL
-Press [Esc] to MENU"
+text = "INTRO"
 align = 1
 percent_visible = 0.0
 __meta__ = {

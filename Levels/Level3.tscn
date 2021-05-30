@@ -1059,7 +1059,7 @@ position = Vector2( 193.068, 165.127 )
 position = Vector2( 312, 104 )
 
 [node name="Bee3" parent="YSort/Bees" instance=ExtResource( 4 )]
-position = Vector2( 425, 48 )
+position = Vector2( 414.309, 53.3454 )
 
 [node name="Bee15" parent="YSort/Bees" instance=ExtResource( 4 )]
 position = Vector2( 456, 120.754 )

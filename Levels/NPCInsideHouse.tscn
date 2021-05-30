@@ -194,7 +194,6 @@ __meta__ = {
 
 [node name="DialoguePopup" type="Popup" parent="HealthUI"]
 pause_mode = 2
-visible = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 12 )
@@ -270,10 +269,9 @@ __meta__ = {
 }
 
 [node name="Lango" type="ColorRect" parent="HealthUI/DialoguePopup"]
-visible = false
-margin_left = 88.0
+margin_left = 72.0
 margin_top = 120.0
-margin_right = 168.0
+margin_right = 152.0
 margin_bottom = 136.0
 color = Color( 0.705882, 0.529412, 0.431373, 1 )
 __meta__ = {
@@ -304,10 +302,9 @@ __meta__ = {
 }
 
 [node name="Answer" type="ColorRect" parent="HealthUI/DialoguePopup"]
-visible = false
-margin_left = 88.0
+margin_left = 72.0
 margin_top = 136.0
-margin_right = 248.0
+margin_right = 255.0
 margin_bottom = 168.0
 color = Color( 0.705882, 0.529412, 0.431373, 1 )
 __meta__ = {
@@ -317,7 +314,7 @@ __meta__ = {
 [node name="Answer2" type="ColorRect" parent="HealthUI/DialoguePopup/Answer"]
 margin_left = 3.0
 margin_top = 3.0
-margin_right = 157.0
+margin_right = 180.0
 margin_bottom = 29.0
 color = Color( 0.784314, 0.698039, 0.627451, 1 )
 __meta__ = {
@@ -325,7 +322,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="HealthUI/DialoguePopup/Answer"]
-margin_right = 160.0
+margin_right = 183.0
 margin_bottom = 32.0
 custom_fonts/font = ExtResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Hitboxes and Hurtboxes/HurtBox.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Enemies/PlayerDetectionZone.tscn" type="PackedScene" id=2]
@@ -10,7 +10,7 @@
 [ext_resource path="res://Shadows/SmallShadow.png" type="Texture" id=8]
 [ext_resource path="res://Enemies/Bat.png" type="Texture" id=9]
 
-[sub_resource type="GDScript" id=12]
+[sub_resource type="GDScript" id=1]
 script/source = "extends KinematicBody2D
 
 const EnemyDeathEffect = preload(\"res://Effects/EnemyDeathEffect.tscn\")
@@ -138,51 +138,53 @@ func _on_HurtBox_area_exited(_area):
 				drop.position = position
 "
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.45932
+
+[sub_resource type="ShaderMaterial" id=3]
 resource_local_to_scene = true
 shader = ExtResource( 5 )
 shader_param/active = false
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 9 )
 region = Rect2( 0, 0, 16, 24 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 9 )
 region = Rect2( 16, 0, 16, 24 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 9 )
 region = Rect2( 32, 0, 16, 24 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 9 )
 region = Rect2( 48, 0, 16, 24 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 9 )
 region = Rect2( 64, 0, 16, 24 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ) ],
 "loop": true,
 "name": "Bat",
 "speed": 10.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=7]
+[sub_resource type="CapsuleShape2D" id=10]
 radius = 5.94641
 height = 5.32793
 
-[sub_resource type="CircleShape2D" id=8]
+[sub_resource type="CircleShape2D" id=11]
 radius = 68.8316
 
-[sub_resource type="CircleShape2D" id=9]
+[sub_resource type="CircleShape2D" id=12]
 radius = 2.49061
 
-[sub_resource type="Animation" id=10]
-resource_name = "Start"
+[sub_resource type="Animation" id=13]
 length = 0.2
 loop = true
 tracks/0/type = "value"
@@ -198,8 +200,7 @@ tracks/0/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=11]
-resource_name = "Stop"
+[sub_resource type="Animation" id=14]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:material:shader_param/active")
@@ -215,15 +216,19 @@ tracks/0/keys = {
 }
 
 [node name="Bat" type="KinematicBody2D"]
-script = SubResource( 12 )
+script = SubResource( 1 )
 HEALTH = 6
 enemy_type = 1
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -15.1704 )
+shape = SubResource( 2 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-material = SubResource( 1 )
-frames = SubResource( 6 )
+material = SubResource( 3 )
+frames = SubResource( 9 )
 animation = "Bat"
-frame = 1
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -236,12 +241,12 @@ collision_mask = 0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 position = Vector2( 0, -15 )
-shape = SubResource( 7 )
+shape = SubResource( 10 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 2 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 11 )
 
 [node name="HitBox" parent="." instance=ExtResource( 3 )]
 collision_layer = 0
@@ -250,7 +255,7 @@ damage = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 position = Vector2( 0, -15 )
-shape = SubResource( 9 )
+shape = SubResource( 12 )
 
 [node name="WanderController" parent="." instance=ExtResource( 4 )]
 script = ExtResource( 6 )
@@ -282,8 +287,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Stop"
-anims/Start = SubResource( 10 )
-anims/Stop = SubResource( 11 )
+anims/Start = SubResource( 13 )
+anims/Stop = SubResource( 14 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_exited" from="HurtBox" to="." method="_on_HurtBox_area_exited"]
 [connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]

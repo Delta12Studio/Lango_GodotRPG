@@ -6,6 +6,7 @@ var can_ask = true
 
 func _ready():
 	if Global.credits == true:
+# warning-ignore:return_value_discarded
 		get_tree().change_scene("res://UI/Credits.tscn")
 	SleepPopup = $HealthUI/SleepPopup
 	# Set SleepPopup to bed
@@ -13,8 +14,8 @@ func _ready():
 
 func ask(_answer = ""):
 	if can_ask == true:
-		SleepPopup.ask = "You can restore your health \n while you sleep! \n Do you want to sleep now?"
-		SleepPopup.answers = "[J]Yes [K]No"
+		SleepPopup.ask = "BED ASK"
+		SleepPopup.answers = "BED ANSWER"
 		SleepPopup.open()
 		
 		match _answer:

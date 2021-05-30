@@ -25,8 +25,8 @@ func talk(answer = ""):
 					# Update dialogue tree state
 					Global.dialogue_state = 1
 					# Show dialogue popup
-					dialoguePopup.dialogue = "Hello my little friend!\nCould you bring me 15 honeycombs?"
-					dialoguePopup.answers = "[J] Yes [K] No"
+					dialoguePopup.dialogue = "QS NS DS1 D"
+					dialoguePopup.answers = "QS NS DS1 A"
 					dialoguePopup.open()
 				1:
 					match answer:
@@ -34,15 +34,15 @@ func talk(answer = ""):
 							# Update dialogue tree state
 							Global.dialogue_state = 2
 							# Show dialogue popup
-							dialoguePopup.dialogue = "Thank you so much!\nYou're a great friend!"
-							dialoguePopup.answers = "[J] I will be back soon!"
+							dialoguePopup.dialogue = "QS NS DS2 D"
+							dialoguePopup.answers = "QS NS DS2 A"
 							dialoguePopup.open()
 						"K":
 							# Update dialogue tree state
 							Global.dialogue_state = 3
 							# Show dialogue popup
-							dialoguePopup.dialogue = "If you change your mind, I'll be here."
-							dialoguePopup.answers = "[J] Ok!"
+							dialoguePopup.dialogue = "QS NS DS3 D"
+							dialoguePopup.answers = "QS NS DS3 A"
 							dialoguePopup.open()
 				2:
 					# Update dialogue tree state
@@ -63,26 +63,26 @@ func talk(answer = ""):
 					# Update dialogue tree state
 					Global.dialogue_state = 1
 					# Show dialogue popup
-					dialoguePopup.dialogue = "Did you get all the honeycombs?"
+					dialoguePopup.dialogue = "QS S DS1 D"
 					if Honeycombs:
-						dialoguePopup.answers = "[J] Yes!"
+						dialoguePopup.answers = "QS S DS1 A"
 					else:
-						dialoguePopup.answers = "[J] I need to get more!"
+						dialoguePopup.answers = "QS S DS1 A1"
 					dialoguePopup.open()
 				1:
 					if Honeycombs and answer == "J":
 						# Update dialogue tree state
 						Global.dialogue_state = 2
 						# Show dialogue popup
-						dialoguePopup.dialogue = "Thanks my little friend!\nTake that reward!"
-						dialoguePopup.answers = "[J] Thank you so much!"
+						dialoguePopup.dialogue = "QS S DS2 D"
+						dialoguePopup.answers = "QS S DS2 A"
 						dialoguePopup.open()
 					else:
 						# Update dialogue tree state
 						Global.dialogue_state = 3
 						# Show dialogue popup
-						dialoguePopup.dialogue = "Watch out for the bees!"
-						dialoguePopup.answers = "[J] OK, I'll be back later!"
+						dialoguePopup.dialogue = "QS S DS3 D"
+						dialoguePopup.answers = "QS S DS3 A"
 						dialoguePopup.open()
 				2:
 					# Update dialogue tree state
@@ -108,8 +108,8 @@ func talk(answer = ""):
 					# Update dialogue tree state
 					Global.dialogue_state = 1
 					# Show dialogue popup
-					dialoguePopup.dialogue = "Thanks for the help!\nYou can go to home now!"
-					dialoguePopup.answers = "[J]This script is horrible!"
+					dialoguePopup.dialogue = "QS C DS1 D"
+					dialoguePopup.answers = "QS C DS1 A"
 					dialoguePopup.open()
 				1:
 					# Update dialogue tree state

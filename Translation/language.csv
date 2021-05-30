@@ -1,0 +1,225 @@
+,en_US,pt_BR
+CREATED,Created with,Criado com
+INTRO,"
+Use the arrows or WASD keys to move 
+
+
+
+
+Use [J] or [Space] to ATTACK 
+Use [K] to ROLL 
+Press [ESC] to MENU","
+Use as setas ou WASD para se mover 
+
+
+
+
+Use [J] ou [Space] para ATACAR 
+Use [K] para ROLAR 
+Pressione [ESC] para MENU"
+BED ASK,"You can restore your health 
+while you sleep! 
+Do you want to sleep now?","Você pode restaurar sua saúde 
+enquanto você dorme! 
+Gostaria de dormir agora?"
+BED ANSWER,[J]Yes [K]No,[J] Sim [K] Não
+QS NS DS1 D,"Hello my little friend!
+Could you bring me 15 honeycombs?","Fala meu amiguinho!
+Você poderia me trazer
+15 favos de mel?"
+QS NS DS1 A,[J] Yes [K] No,[J] Sim [K] Não
+QS NS DS2 D,"Thank you so much!
+You're a great friend!","Valeu maninho!
+Você é o cara mesmo! "
+QS NS DS2 A,[J] I will be back soon!,[J] Eu volto logo!
+QS NS DS3 D,"If you change your mind, I'll be here.","Se mudar de ideia 
+estarei aqui."
+QS NS DS3 A,[J] Ok!,[J] Ok!
+QS S DS1 D,Did you get all the honeycombs?,Já conseguiu todos os favos de mel?
+QS S DS1 A,[J] Yes!,[J] Sim!
+QS S DS1 A1,[J] I need to get more!,[J] Preciso conseguir mais!
+QS S DS2 D,"Thanks my little friend!
+Take that reward!","Valeu meu parça!
+Toma um presentinho! "
+QS S DS2 A,[J] Thank you so much!,[J] Valeu mano!
+QS S DS3 D,Watch out for the bees!,Cuidado com as abelhas!
+QS S DS3 A,"[J] OK, I'll be back later!",[J] Ok! Eu volto mais tarde!
+QS C DS1 D,"Thanks for the help!
+You can go to home now!","Valeu pela ajuda!
+Você pode voltar 
+pra casa agora!"
+QS C DS1 A,[J] This script is horrible!,[J] Esse roteiro é horrível!
+RESUME,RESUME,RESUMIR
+RESTART,RESTART,RECOMEÇAR
+QUIT,QUIT,SAIR
+CREDITS,"SPECIAL THANKS TO
+
+HEARTBEAST YOUTUBE CHANNEL
+AND
+DAVIDEPESCE.COM WEBSITE
+
+
+
+
+PRODUCED BY DELTA12 STUDIO
+
+
+
+
+
+DEDICATED TO
+
+JULHA CRISTHINE
+BRAYAM VICTOR
+NICOLE SCHÄEFER
+
+
+
+
+
+PRODUCER
+MICHAEL WILLIAM
+
+PRINCIPAL
+MICHAEL WILLIAM
+
+CHARACTER DESIGN
+MICHAEL WILLIAM
+
+SUPERVISOR
+MICHAEL WILLIAM
+
+SONG
+MICHAEL WILLIAM
+
+PROGRAMMER
+MICHAEL WILLIAM
+
+SOUND EFFECTS
+MICHAEL WILLIAM
+
+GRAPHIC DIRECTOR
+MICHAEL WILLIAM
+
+THE COFFEE GUY
+MICHAEL WILLIAM
+
+THE GUY RESPONSIBLE FOR ALL BUGS
+MICHAEL WILLIAM
+
+THE GUY WHO NEEDS A GREATER TEAM
+MICHAEL WILLIAM
+
+THE GUY THAT MADE THESE CREDITS
+
+OH MY GOD! I FORGOT HIS NAME!
+
+
+
+
+
+
+
+
+
+OK! I JUST REMEMBERED!
+MICHAEL WILLIAM
+
+
+
+
+
+THE GUY THAT MADE
+ALL THESE NOT FUNNY JOKES 
+MICHAEL WILLIAM
+
+
+
+
+THANK YOU FOR PLAYING THIS GAME !!!
+DELTA12 STUDIO","AGRADECIMENTOS ESPECIAIS  
+
+HEARTBEAST YOUTUBE 
+E
+DAVIDEPESCE.COM
+
+
+
+
+PRODUZIDO POR DELTA12 STUDIO
+
+
+
+
+
+DEDICADO A 
+
+JULHA CRISTHINE
+BRAYAM VICTOR
+NICOLE SCHÄEFER
+
+
+
+
+
+PRODUTOR
+MICHAEL WILLIAM
+
+DIRETOR
+MICHAEL WILLIAM
+
+DESIGNER DE PERSONAGENS
+MICHAEL WILLIAM
+
+SUPERVISOR
+MICHAEL WILLIAM
+
+MÚSICA
+MICHAEL WILLIAM
+
+PROGRAMADOR
+MICHAEL WILLIAM
+
+EFEITOS SONOROS
+MICHAEL WILLIAM
+
+DIRETOR DE DESIGN
+MICHAEL WILLIAM
+
+O CARA DO CAFÉ
+MICHAEL WILLIAM
+
+O CARA RESPONSÁVEL POR TODOS OS BUGS
+MICHAEL WILLIAM
+
+O CARA QUE PRECISA DE UMA EQUIPE MAIOR
+MICHAEL WILLIAM
+
+O CARA QUE FEZ ESSES CRÉDITOS
+
+OH MEU DEUS! ESQUECI O NOME DELE!
+
+
+
+
+
+
+
+
+
+OK! LEMBREI AGORA!
+MICHAEL WILLIAM
+
+
+
+
+
+O CARA QUE FEZ
+TODAS ESSAS PIADAS SEM GRAÇA
+MICHAEL WILLIAM
+
+
+
+
+OBRIGADO POR JOGAR ESSE JOGO!!!
+DELTA12 STUDIO"
