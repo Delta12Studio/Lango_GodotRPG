@@ -14,5 +14,6 @@ The game features
 * chests with random drop items 
 * a small quest system and more...
 
-You can the development tutorials on www.delta12studio.blogspot.com
+You can learn with the development tutorials on www.delta12studio.blogspot.com
+
 Special thanks to Heartbeast Youtube channel and dadivepesce.com website.
