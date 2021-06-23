@@ -1,5 +1,5 @@
-,en_US,pt_BR
-CREATED,Created with,Criado com
+,en_US,pt_BR,es
+CREATED,Created with,Criado com,Creado com
 INTRO,"
 Use the arrows or WASD keys to move 
 
@@ -16,42 +16,81 @@ Use as setas ou WASD para se mover
 
 Use [J] ou [Space] para ATACAR 
 Use [K] para ROLAR 
-Pressione [ESC] para MENU"
+Pressione [ESC] para MENU","
+Usa las flechas o las teclas WASD para moverte 
+
+
+
+
+Usa [J] o [Space] para ATACAR 
+Usa [K] para RODAR 
+Presiona [ESC] para MENÚ"
 BED ASK,"You can restore your health 
 while you sleep! 
 Do you want to sleep now?","Você pode restaurar sua saúde 
 enquanto você dorme! 
-Gostaria de dormir agora?"
-BED ANSWER,[J]Yes [K]No,[J] Sim [K] Não
+Gostaria de dormir agora?","¡Puedes restaurar tu salud
+mientras duermes!
+¿Te gustaría dormir ahora?"
+BED ANSWER,[J]Yes [K]No,[J] Sim [K] Não,[J] Sí [K] No 
 QS NS DS1 D,"Hello my little friend!
 Could you bring me 15 honeycombs?","Fala meu amiguinho!
 Você poderia me trazer
-15 favos de mel?"
-QS NS DS1 A,[J] Yes [K] No,[J] Sim [K] Não
+15 favos de mel?","¡Hola mi pequeño amigo! 
+¿Me podrías traer 15 panales? "
+QS NS DS1 A,[J] Yes [K] No,[J] Sim [K] Não,[J] Sí [K] No 
 QS NS DS2 D,"Thank you so much!
 You're a great friend!","Valeu maninho!
-Você é o cara mesmo! "
-QS NS DS2 A,[J] I will be back soon!,[J] Eu volto logo!
+Você é o cara mesmo! ","¡Muchas gracias! 
+¡Eres un gran amigo! "
+QS NS DS2 A,[J] I will be back soon!,[J] Eu volto logo!,[J] ¡Volveré pronto! 
 QS NS DS3 D,"If you change your mind, I'll be here.","Se mudar de ideia 
-estarei aqui."
-QS NS DS3 A,[J] Ok!,[J] Ok!
-QS S DS1 D,Did you get all the honeycombs?,Já conseguiu todos os favos de mel?
-QS S DS1 A,[J] Yes!,[J] Sim!
-QS S DS1 A1,[J] I need to get more!,[J] Preciso conseguir mais!
+estarei aqui.","Si cambias de opinión, estaré aquí. "
+QS NS DS3 A,[J] Ok!,[J] Ok!,[J] ¡Ok! 
+QS S DS1 D,Did you get all the honeycombs?,Já conseguiu todos os favos de mel?,¿Conseguiste todos los panales? 
+QS S DS1 A,[J] Yes!,[J] Sim!,[J] ¡Sí! 
+QS S DS1 A1,[J] I need to get more!,[J] Preciso conseguir mais!,[J] ¡Necesito más! 
 QS S DS2 D,"Thanks my little friend!
 Take that reward!","Valeu meu parça!
-Toma um presentinho! "
-QS S DS2 A,[J] Thank you so much!,[J] Valeu mano!
-QS S DS3 D,Watch out for the bees!,Cuidado com as abelhas!
-QS S DS3 A,"[J] OK, I'll be back later!",[J] Ok! Eu volto mais tarde!
+Toma um presentinho! ","¡Gracias mi amiguito! 
+¡Toma esa recompensa! "
+QS S DS2 A,[J] Thank you so much!,[J] Valeu mano!,[J] ¡Muchas gracias! 
+QS S DS3 D,Watch out for the bees!,Cuidado com as abelhas!,¡Cuidado con las abejas! 
+QS S DS3 A,"[J] OK, I'll be back later!",[J] Ok! Eu volto mais tarde!,[J] ¡Está bien!
 QS C DS1 D,"Thanks for the help!
 You can go to home now!","Valeu pela ajuda!
 Você pode voltar 
-pra casa agora!"
-QS C DS1 A,[J] This script is horrible!,[J] Esse roteiro é horrível!
-RESUME,RESUME,RESUMIR
-RESTART,RESTART,RECOMEÇAR
-QUIT,QUIT,SAIR
+pra casa agora!","¡Gracias por la ayuda! 
+¡Puedes irte a casa ahora! "
+QS C DS1 A,[J] This script is horrible!,[J] Esse roteiro é horrível!,[J] ¡Este guión es horrible! 
+HOUSE,Lango's House,Casa do Lango,Casa de Lango 
+NPC HOUSE,Bearnardo's House,Casa do Bearnardo,Casa de Bearnardo 
+RESUME,RESUME,RESUMIR,REGRESAR
+RESTART,RESTART,RECOMEÇAR,REANUDAR 
+QUIT,QUIT,SAIR,DEJAR 
+DANGEON1,"The Cave of Madness
+keep great treasures
+but the weak only
+ will find the exit
+through death!","A Caverna da Loucura
+guarda grandes tesouros
+mas, os fracos só
+ encontrarão a saída
+através da morte!   ","La Cueva de la Locura
+guarda grandes tesoros
+pero, solo los débiles
+ encontraras la salida
+por la muerte!"
+DANGEON7,"Who retreats
+in front of a
+great opportunity
+Certainly will regret it!","Quem recua 
+diante de uma 
+grande oportunidade
+certamente se arrependerá!","Quien regresa
+delante de una
+gran oportunidad 
+sin duda lo lamentaré!"
 CREDITS,"SPECIAL THANKS TO
 
 HEARTBEAST YOUTUBE CHANNEL
@@ -222,4 +261,89 @@ MICHAEL WILLIAM
 
 
 OBRIGADO POR JOGAR ESSE JOGO!!!
+DELTA12 STUDIO","GRACIAS ESPECIALES
+
+HEARTBEAST YOUTUBE
+Y
+DAVIDPESCE.COM
+
+
+
+
+PRODUCIDO POR DELTA12 STUDIO
+
+
+
+
+
+DEDICADO A
+
+JULIA CRISTHINE
+BRAYAM VICTOR
+NICOLE SCHÄEFER
+
+
+
+
+
+PRODUCTOR
+MICHAEL WILLIAM
+
+PRINCIPAL
+MICHAEL WILLIAM
+
+DISEÑADOR DE PERSONAJES
+MICHAEL WILLIAM
+
+SUPERVISOR
+MICHAEL WILLIAM
+
+CANCIÓN
+MICHAEL WILLIAM
+
+PROGRAMADOR
+MICHAEL WILLIAM
+
+EFECTOS SONOROS
+MICHAEL WILLIAM
+
+DIRECTOR DE DISEÑO
+MICHAEL WILLIAM
+
+EL TIPO QUE HIZO EL CAFÉ
+MICHAEL WILLIAM
+
+EL TIPO RESPONSABLE DE TODOS LOS ERRORES
+MICHAEL WILLIAM
+
+EL TIPO QUE NECESITA UN EQUIPO MÁS GRANDE
+MICHAEL WILLIAM
+
+EL TIPO QUE HIZO ESTOS CRÉDITOS
+
+¡OH DIOS MIO! ¡HE OLVIDADO SU NOMBRE!
+
+
+
+
+
+
+
+
+
+¡OK! RECORDADO AHORA!
+MICHAEL WILLIAM
+
+
+
+
+
+EL TIPO QUE HIZO
+TODOS ESTOS CHISTES
+MICHAEL WILLIAM
+
+
+
+
+GRACIAS POR JUGAR A ESTE JUEGO
 DELTA12 STUDIO"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=2]
+[gd_scene load_steps=112 format=2]
 
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=2]
@@ -10,8 +10,10 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=8]
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=9]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=10]
+[ext_resource path="res://World/Sign.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/Levels.gd" type="Script" id=12]
 [ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/Cave.tscn" type="PackedScene" id=16]
 
 [sub_resource type="StreamTexture" id=1]
 
@@ -958,12 +960,16 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -65518, 0, 0, -65517, 0, 2, 18, 0, 65536, 19, 0, 65538, 65554, 0, 65536, 65555, 0, 65538, 131090, 0, 65536, 131091, 0, 65538, 196626, 0, 65536, 196627, 0, 65538, 262162, 0, 65536, 262163, 0, 65538, 327698, 0, 65536, 327699, 0, 65538, 327710, 0, 0, 327711, 0, 1, 327712, 0, 2, 393234, 0, 65536, 393235, 0, 65538, 393245, 0, 196608, 393246, 0, 262150, 393247, 0, 65537, 393248, 0, 262149, 393249, 0, 196610, 458760, 0, 0, 458761, 0, 2, 458769, 0, 0, 458770, 0, 131078, 458771, 0, 65538, 458782, 0, 65536, 458783, 0, 65541, 458784, 0, 131074, 524296, 0, 65536, 524297, 0, 65538, 524304, 0, 0, 524305, 0, 131078, 524306, 0, 65537, 524307, 0, 65538, 524318, 0, 65536, 524319, 0, 65538, 589832, 0, 65536, 589833, 0, 131077, 589834, 0, 2, 589837, 0, 0, 589838, 0, 1, 589839, 0, 1, 589840, 0, 131078, 589841, 0, 65537, 589842, 0, 65537, 589843, 0, 65538, 589853, 0, 0, 589854, 0, 65545, 589855, 0, 131074, 655367, 0, 0, 655368, 0, 131078, 655369, 0, 65537, 655370, 0, 131077, 655371, 0, 1, 655372, 0, 1, 655373, 0, 131078, 655374, 0, 65537, 655375, 0, 65541, 655376, 0, 131073, 655377, 0, 131073, 655378, 0, 65542, 655379, 0, 65538, 655388, 0, 0, 655389, 0, 65545, 655390, 0, 131074, 720903, 0, 65536, 720904, 0, 65537, 720905, 0, 65537, 720906, 0, 65537, 720907, 0, 65537, 720908, 0, 65541, 720909, 0, 131073, 720910, 0, 131073, 720911, 0, 131074, 720914, 0, 65536, 720915, 0, 131077, 720916, 0, 2, 720924, 0, 65536, 720925, 0, 65538, 786438, 0, 0, 786439, 0, 131078, 786440, 0, 65537, 786441, 0, 65537, 786442, 0, 65541, 786443, 0, 131073, 786444, 0, 131074, 786450, 0, 131072, 786451, 0, 65542, 786452, 0, 65538, 786460, 0, 65536, 786461, 0, 65538, 851974, 0, 65536, 851975, 0, 65537, 851976, 0, 65537, 851977, 0, 65537, 851978, 0, 65538, 851987, 0, 65536, 851988, 0, 65538, 851995, 0, 0, 851996, 0, 131078, 851997, 0, 65538, 917510, 0, 65536, 917511, 0, 65537, 917512, 0, 65537, 917513, 0, 65541, 917514, 0, 131074, 917523, 0, 65536, 917524, 0, 131077, 917525, 0, 1, 917526, 0, 1, 917527, 0, 1, 917528, 0, 1, 917529, 0, 1, 917530, 0, 1, 917531, 0, 131078, 917532, 0, 65537, 917533, 0, 131077, 917534, 0, 1, 917535, 0, 1, 917536, 0, 2, 983046, 0, 65536, 983047, 0, 65537, 983048, 0, 65537, 983049, 0, 65538, 983059, 0, 131072, 983060, 0, 65542, 983061, 0, 65537, 983062, 0, 65537, 983063, 0, 65541, 983064, 0, 131073, 983065, 0, 131073, 983066, 0, 131073, 983067, 0, 131073, 983068, 0, 131073, 983069, 0, 131073, 983070, 0, 131073, 983071, 0, 65542, 983072, 0, 131077, 983073, 0, 2, 1048582, 0, 131072, 1048583, 0, 65542, 1048584, 0, 65537, 1048585, 0, 65538, 1048596, 0, 65536, 1048597, 0, 65541, 1048598, 0, 131073, 1048599, 0, 131074, 1048607, 0, 131072, 1048608, 0, 65542, 1048609, 0, 131077, 1048610, 0, 1, 1048611, 0, 1, 1048612, 0, 1, 1048613, 0, 1, 1048614, 0, 1, 1048615, 0, 1, 1048616, 0, 2, 1114119, 0, 131072, 1114120, 0, 65542, 1114121, 0, 131077, 1114122, 0, 2, 1114132, 0, 131072, 1114133, 0, 131074, 1114144, 0, 131072, 1114145, 0, 65542, 1114146, 0, 65537, 1114147, 0, 65537, 1114148, 0, 65537, 1114149, 0, 65541, 1114150, 0, 131073, 1114151, 0, 131073, 1114152, 0, 131074, 1179656, 0, 131072, 1179657, 0, 65542, 1179658, 0, 65538, 1179681, 0, 131072, 1179682, 0, 65542, 1179683, 0, 65537, 1179684, 0, 65541, 1179685, 0, 131074, 1245193, 0, 131072, 1245194, 0, 196613, 1245195, 0, 7, 1245218, 0, 131072, 1245219, 0, 131073, 1245220, 0, 131074, 1310731, 0, 131075 )
 
+[node name="CaveLevel2" parent="." instance=ExtResource( 16 )]
+position = Vector2( 496, 40 )
+level_type = 1
+
 [node name="NPCInsideHouse" parent="." instance=ExtResource( 6 )]
 position = Vector2( 145.357, 66.0712 )
 type = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 144.871, 150 )
+position = Vector2( 143, 150 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -972,10 +978,31 @@ limit_bottom = 360
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
+[node name="Sign" parent="." instance=ExtResource( 11 )]
+
+[node name="StaticBody2d" parent="Sign" index="0"]
+position = Vector2( 177.357, 114 )
+
+[node name="Popup" parent="Sign" index="1"]
+margin_left = 112.0
+margin_top = 76.0
+margin_right = 239.0
+margin_bottom = 100.0
+
+[node name="ColorRect" parent="Sign/Popup" index="0"]
+margin_right = 127.0
+
+[node name="ColorRect2" parent="Sign/Popup/ColorRect" index="0"]
+margin_right = 125.0
+
+[node name="Label" parent="Sign/Popup/ColorRect" index="1"]
+margin_right = 127.0
+text = "NPC HOUSE"
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 144.871, 150 )
+position = Vector2( 143, 150 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -1014,7 +1041,7 @@ position = Vector2( 37.6875, 328 )
 [node name="Bees" type="YSort" parent="YSort"]
 
 [node name="Bee" parent="YSort/Bees" instance=ExtResource( 3 )]
-position = Vector2( 504, 63.501 )
+position = Vector2( 520, 99.501 )
 
 [node name="Bee3" parent="YSort/Bees" instance=ExtResource( 3 )]
 position = Vector2( 560, 296 )
@@ -1069,9 +1096,6 @@ position = Vector2( 208, 336 )
 [node name="Grass5" parent="YSort/Grass" instance=ExtResource( 4 )]
 position = Vector2( 464, 46 )
 
-[node name="Grass6" parent="YSort/Grass" instance=ExtResource( 4 )]
-position = Vector2( 496, 45 )
-
 [node name="Grass7" parent="YSort/Grass" instance=ExtResource( 4 )]
 position = Vector2( 528, 45 )
 
@@ -1103,17 +1127,22 @@ position = Vector2( 336, 45 )
 position = Vector2( 336, 76 )
 
 [node name="Level1" parent="." instance=ExtResource( 13 )]
-position = Vector2( 304.056, -18.0312 )
+position = Vector2( 304, -8 )
 
 [node name="Level1Pos" type="Position2D" parent="."]
-position = Vector2( 304.011, 12.7942 )
+position = Vector2( 304.056, -2 )
 
 [node name="NPCInsideHousePos" type="Position2D" parent="."]
-position = Vector2( 144.871, 150.597 )
+position = Vector2( 143, 128 )
 
 [node name="Level3" parent="." instance=ExtResource( 13 )]
-position = Vector2( 663.393, 272.497 )
+position = Vector2( 657, 272 )
 rotation = 1.5708
 
+[node name="CaveLevel2Pos" type="Position2D" parent="."]
+position = Vector2( 496, 50.1307 )
+
 [node name="Level3Pos" type="Position2D" parent="."]
-position = Vector2( 647.346, 273.54 )
+position = Vector2( 649, 272 )
+
+[editable path="Sign"]

@@ -97,13 +97,13 @@ script = ExtResource( 1 )
 visible = false
 frames = SubResource( 6 )
 animation = "Gem"
-frame = 2
 playing = true
 
 [node name="Heart" type="AnimatedSprite" parent="."]
 visible = false
 frames = SubResource( 12 )
 animation = "Heart"
+frame = 3
 playing = true
 
 [node name="Honey" type="AnimatedSprite" parent="."]

@@ -216,6 +216,10 @@ tracks/0/keys = {
 }
 
 [node name="Bat" type="KinematicBody2D"]
+z_index = 2
+z_as_relative = false
+collision_layer = 16
+collision_mask = 16
 script = SubResource( 1 )
 HEALTH = 6
 enemy_type = 1
@@ -228,7 +232,7 @@ shape = SubResource( 2 )
 material = SubResource( 3 )
 frames = SubResource( 9 )
 animation = "Bat"
-frame = 3
+frame = 4
 playing = true
 offset = Vector2( 0, -12 )
 

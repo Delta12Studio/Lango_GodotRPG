@@ -81,6 +81,7 @@ anims/FadeOut = SubResource( 2 )
 [node name="Item" type="Node" parent="."]
 
 [node name="Gem" type="TextureRect" parent="Item"]
+visible = false
 margin_left = 260.0
 margin_right = 276.0
 margin_bottom = 16.0
@@ -104,6 +105,7 @@ __meta__ = {
 }
 
 [node name="Honey" type="TextureRect" parent="Item"]
+visible = false
 margin_left = 203.02
 margin_top = 1.94888
 margin_right = 219.02

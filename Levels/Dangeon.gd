@@ -12,3 +12,4 @@ func _ready():
 	canvas.add_child(control)
 	if Global.from != null:
 		get_node("YSort/Player").set_position(get_node(Global.from + "Pos").position)
+	print(self.name)

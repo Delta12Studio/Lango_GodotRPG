@@ -825,6 +825,8 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
+z_index = 2
+z_as_relative = false
 collision_layer = 2147483650
 script = ExtResource( 1 )
 
@@ -833,6 +835,7 @@ material = SubResource( 1 )
 position = Vector2( 0, -10 )
 texture = ExtResource( 2 )
 hframes = 64
+frame = 35
 
 [node name="Shadow" type="Sprite" parent="Sprite"]
 position = Vector2( 0, 10 )
@@ -904,11 +907,16 @@ stream = ExtResource( 10 )
 autoplay = "Stop"
 anims/Start = SubResource( 50 )
 anims/Stop = SubResource( 51 )
+
+[node name="Transition" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
-[connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
-[connection signal="invincibility_started" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_started" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_started"]
+[connection signal="timeout" from="Transition" to="." method="_on_Transition_timeout"]
 
 [editable path="HurtBox"]
 

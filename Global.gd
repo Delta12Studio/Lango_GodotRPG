@@ -1,9 +1,11 @@
 extends Node
 
-export(int) var max_health = 5
+export(int) var max_health = 5 setget set_max_health
 var health = max_health setget set_health
 var from
-var cave_was_opened = false
+var direction = Vector2.ZERO
+var cave
+var chest
 var gem = 0
 var honeycombs = 0
 
@@ -38,10 +40,14 @@ func reset():
 	$Music.stop()
 	credits = false
 	from = null
+	direction = Vector2.ZERO
+	cave = null
+	chest = null
 	gem = 0
 	honeycombs = 0
 	quest_status = QuestStatus.NOT_STARTED
-	health = 5
+	max_health = 5
+	health = max_health
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/Intro.tscn")
 

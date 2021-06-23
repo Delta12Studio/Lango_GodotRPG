@@ -212,6 +212,8 @@ tracks/0/keys = {
 }
 
 [node name="Bee" type="KinematicBody2D"]
+z_index = 2
+z_as_relative = false
 collision_layer = 16
 collision_mask = 16
 script = SubResource( 1 )
@@ -224,7 +226,7 @@ shape = SubResource( 2 )
 material = SubResource( 3 )
 frames = SubResource( 8 )
 animation = "Bee"
-frame = 2
+frame = 3
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -286,10 +288,10 @@ anims/Start = SubResource( 12 )
 anims/Stop = SubResource( 13 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_exited" from="HurtBox" to="." method="_on_HurtBox_area_exited"]
-[connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
-[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_started" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 
 [editable path="HurtBox"]
 

@@ -105,7 +105,7 @@ hframes = 3
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
-polygon = PoolVector2Array( -42.6824, -38.5216, 0.203354, -63.7485, 43.0891, -38.1011, 60.3275, 15.2958, 38.0437, 59.4429, 13.309, 59.7314, 11.7468, 55.2806, -11.9681, 55.2806, -13.5546, 59.3977, -35.9552, 59.8633, -60.7616, 14.4549 )
+polygon = PoolVector2Array( -48, -40, 0, -72, 48, -40, 72, 16, 48, 56, 17.1932, 59.7924, 14.0229, 51.116, -13.675, 51.116, -17.5126, 59.6256, -48, 56, -72, 16 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/CloseDoor = SubResource( 1 )

@@ -6,7 +6,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 15.9117
-height = 2.4849
+height = 15.1938
 
 [sub_resource type="Animation" id=2]
 resource_name = "OpenCave"
@@ -87,7 +87,7 @@ tracks/5/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 10, 2.91855 )
+extents = Vector2( 11.6133, 3.46341 )
 
 [node name="Cave" type="StaticBody2D"]
 script = ExtResource( 2 )

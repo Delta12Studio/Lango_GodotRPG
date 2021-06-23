@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var Honeycombs = false   #Indica se o Player terminou a Quest
+var can_talk = false
 var dialoguePopup
 
 func _ready():
@@ -118,6 +119,15 @@ func talk(answer = ""):
 					dialoguePopup.close()
 					$AnimatedSprite.play("Idle")
 
+func _input(_event):
+	if Input.is_action_just_pressed("ui_attack") and can_talk == true:
+		talk()
+		can_talk = false
+
 func _on_Area2D_body_entered(_body):
-	talk()
-	return
+	_body.can_attack = false
+	can_talk = true
+
+func _on_Area2D_body_exited(_body):
+	_body.can_attack = true
+	can_talk = false

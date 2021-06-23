@@ -1,5 +1,6 @@
 extends Node2D
 
+onready var player = $Player
 var SleepPopup
 var sleep
 var can_ask = true
@@ -25,13 +26,16 @@ func ask(_answer = ""):
 				yield($HealthUI/AnimationPlayer, "animation_finished")
 				$HealthUI/AnimationPlayer.play("FadeIn")
 				yield($HealthUI/AnimationPlayer, "animation_finished")
-				if Global.health < 5:
-					Global.health = 5
+				if Global.health < Global.max_health:
+					Global.health = Global.max_health
+#				if Global.health < 5:
+#					Global.health = 5
 				SleepPopup.close()
 			"K":
 				SleepPopup.close()
 
 func _on_Bed_body_entered(_body):
+	player.can_attack = false
 	if can_ask == true:
 		ask()
 	else:

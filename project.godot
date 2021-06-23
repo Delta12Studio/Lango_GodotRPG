@@ -117,8 +117,8 @@ ui_menu={
 [locale]
 
 fallback="en_US"
-translations=PoolStringArray( "res://Translation/language.en_US.translation", "res://Translation/language.pt_BR.translation" )
-locale_filter=[ 0, [ "en_US", "pt_BR" ] ]
+translations=PoolStringArray( "res://Translation/language.en_US.translation", "res://Translation/language.pt_BR.translation", "res://Translation/language.es.translation" )
+locale_filter=[ 1, [ "en_US", "es", "pt_BR" ] ]
 
 [rendering]
 
