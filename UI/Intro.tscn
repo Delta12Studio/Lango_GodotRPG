@@ -131,7 +131,6 @@ centered = false
 
 [node name="Icon" type="Sprite" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 160, 64 )
 texture = ExtResource( 2 )
 
@@ -177,9 +176,9 @@ __meta__ = {
 }
 
 [node name="WASD" type="Label" parent="."]
-margin_top = 80.0
+margin_top = 69.0
 margin_right = 320.0
-margin_bottom = 112.0
+margin_bottom = 101.0
 custom_fonts/font = ExtResource( 3 )
 text = "            W           A           S            D"
 valign = 1
@@ -192,21 +191,21 @@ __meta__ = {
 visible = false
 
 [node name="Up" type="Sprite" parent="Arrows"]
-position = Vector2( 63.5, 68.5 )
+position = Vector2( 63.5, 57.5 )
 texture = ExtResource( 4 )
 
 [node name="Left" type="Sprite" parent="Arrows"]
-position = Vector2( 128.5, 68.5 )
+position = Vector2( 128.5, 57.5 )
 rotation = -1.5708
 texture = ExtResource( 4 )
 
 [node name="Down" type="Sprite" parent="Arrows"]
-position = Vector2( 192.5, 68.5 )
+position = Vector2( 192.5, 57.5 )
 rotation = -3.14159
 texture = ExtResource( 4 )
 
 [node name="Right" type="Sprite" parent="Arrows"]
-position = Vector2( 256.5, 68.5 )
+position = Vector2( 256.5, 57.5 )
 rotation = 1.5708
 texture = ExtResource( 4 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

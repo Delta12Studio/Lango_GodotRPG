@@ -30,6 +30,7 @@ func _on_Area2D_area_entered(_area):
 			_opened_cave()
 		else:
 			Global.cave = Global.cave + ", " + cave_name
+			$AnimationPlayer.play("OpenCave")
 
 func _on_Area2D_body_entered(_body):
 	Global.direction = _body.roll_vector

@@ -1,0 +1,961 @@
+[gd_scene load_steps=53 format=2]
+
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://World/Map1.png" type="Texture" id=2]
+[ext_resource path="res://Player/Unarmed.png" type="Texture" id=3]
+[ext_resource path="res://Player/Ledi.png" type="Texture" id=4]
+[ext_resource path="res://World/Stone.png" type="Texture" id=5]
+[ext_resource path="res://World/Wood.png" type="Texture" id=6]
+[ext_resource path="res://World/Cacilda.png" type="Texture" id=7]
+[ext_resource path="res://World/PotionMP.png" type="Texture" id=8]
+[ext_resource path="res://World/Saber.png" type="Texture" id=9]
+[ext_resource path="res://World/Axe.png" type="Texture" id=10]
+[ext_resource path="res://World/PotionHP.png" type="Texture" id=11]
+[ext_resource path="res://World/Pickaxe.png" type="Texture" id=12]
+[ext_resource path="res://World/Bandana.png" type="Texture" id=13]
+[ext_resource path="res://World/Bomb.png" type="Texture" id=14]
+[ext_resource path="res://World/Map.png" type="Texture" id=15]
+[ext_resource path="res://World/Potion.png" type="Texture" id=16]
+[ext_resource path="res://Player/Legan.png" type="Texture" id=17]
+[ext_resource path="res://Player/Lyu.png" type="Texture" id=18]
+[ext_resource path="res://UI/Inventory.gd" type="Script" id=19]
+[ext_resource path="res://UI/Map.gd" type="Script" id=20]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 4 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 4 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 4 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 4 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 4 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 18 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 18 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 18 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 18 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 18 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 18 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 17 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 17 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 17 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 17 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 17 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 17 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 32, 16 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=24]
+atlas = ExtResource( 3 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 3 )
+region = Rect2( 240, 0, 48, 48 )
+
+[sub_resource type="SpriteFrames" id=27]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "Ledi",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
+"loop": true,
+"name": "Lyu",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
+"loop": true,
+"name": "Legan",
+"speed": 6.0
+}, {
+"frames": [ SubResource( 19 ) ],
+"loop": true,
+"name": "Pickaxe",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 20 ) ],
+"loop": true,
+"name": "Axe",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ) ],
+"loop": true,
+"name": "Unarmed",
+"speed": 6.0
+} ]
+
+[sub_resource type="Animation" id=28]
+resource_name = "Blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=29]
+resource_name = "Blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=30]
+resource_name = "Blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=31]
+resource_name = "Blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "Blink"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Inventory" type="Control"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 184.0
+color = Color( 0, 0, 0, 0.509804 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = 8.0
+margin_top = 32.0
+margin_right = 312.0
+margin_bottom = 168.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 301.0
+margin_bottom = 133.0
+color = Color( 0.768627, 0.705882, 0.556863, 1 )
+
+[node name="Inventory" type="Label" parent="Background"]
+margin_left = 56.0
+margin_top = 8.0
+margin_right = 248.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+text = "Inventory"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Label" parent="Background"]
+margin_top = 112.0
+margin_right = 304.0
+margin_bottom = 133.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+text = "- Item description -"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="ColorRect" parent="."]
+margin_left = 24.0
+margin_top = 88.0
+margin_right = 64.0
+margin_bottom = 128.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Player"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 38.0
+margin_bottom = 38.0
+color = Color( 0.862745, 0.654902, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player" type="AnimatedSprite" parent="Player"]
+position = Vector2( 20, 24 )
+frames = SubResource( 27 )
+animation = "Unarmed"
+frame = 4
+playing = true
+
+[node name="Label" type="Label" parent="Player"]
+margin_left = -5.0
+margin_top = 43.0
+margin_right = 44.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.27451, 0.27451, 0.27451, 1 )
+text = "Lango"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box1" type="ColorRect" parent="."]
+margin_left = 72.0
+margin_top = 72.0
+margin_right = 104.0
+margin_bottom = 104.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box1"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.215686, 1, 0.215686, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="Sprite" parent="Box1"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 15 )
+
+[node name="Box2" type="ColorRect" parent="."]
+margin_left = 112.0
+margin_top = 72.0
+margin_right = 144.0
+margin_bottom = 104.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box2"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cacilda" type="Sprite" parent="Box2"]
+position = Vector2( 19, 16 )
+texture = ExtResource( 7 )
+
+[node name="Box3" type="ColorRect" parent="."]
+margin_left = 152.0
+margin_top = 72.0
+margin_right = 184.0
+margin_bottom = 104.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box3"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Axe" type="Sprite" parent="Box3"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 10 )
+
+[node name="Box4" type="ColorRect" parent="."]
+margin_left = 192.0
+margin_top = 72.0
+margin_right = 224.0
+margin_bottom = 104.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box4"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Node2D" parent="Box4"]
+
+[node name="NumberRect" type="ColorRect" parent="Box4/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.231373, 0.203922, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Wood" type="Sprite" parent="Box4/Item"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 6 )
+
+[node name="Label" type="Label" parent="Box4/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box5" type="ColorRect" parent="."]
+margin_left = 232.0
+margin_top = 72.0
+margin_right = 264.0
+margin_bottom = 104.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box5"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Node2D" parent="Box5"]
+
+[node name="NumberRect" type="ColorRect" parent="Box5/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.231373, 0.203922, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PotionHP" type="Sprite" parent="Box5/Item"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 11 )
+
+[node name="Label" type="Label" parent="Box5/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box6" type="ColorRect" parent="."]
+margin_left = 272.0
+margin_top = 72.0
+margin_right = 304.0
+margin_bottom = 104.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box6"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Node2D" parent="Box6"]
+
+[node name="NumberRect" type="ColorRect" parent="Box6/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.231373, 0.203922, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Potion" type="Sprite" parent="Box6/Item"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 16 )
+
+[node name="Label" type="Label" parent="Box6/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box7" type="ColorRect" parent="."]
+margin_left = 72.0
+margin_top = 112.0
+margin_right = 104.0
+margin_bottom = 144.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box7"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bandana" type="Sprite" parent="Box7"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 13 )
+
+[node name="Box8" type="ColorRect" parent="."]
+margin_left = 112.0
+margin_top = 112.0
+margin_right = 144.0
+margin_bottom = 144.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box8"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Saber" type="Sprite" parent="Box8"]
+position = Vector2( 16, 16 )
+scale = Vector2( 0.8, 1 )
+texture = ExtResource( 9 )
+
+[node name="Box9" type="ColorRect" parent="."]
+margin_left = 152.0
+margin_top = 112.0
+margin_right = 184.0
+margin_bottom = 144.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box9"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pickaxe" type="Sprite" parent="Box9"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 12 )
+
+[node name="Box10" type="ColorRect" parent="."]
+margin_left = 192.0
+margin_top = 112.0
+margin_right = 224.0
+margin_bottom = 144.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box10"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Node2D" parent="Box10"]
+
+[node name="NumberRect" type="ColorRect" parent="Box10/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.231373, 0.203922, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Stone" type="Sprite" parent="Box10/Item"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 5 )
+
+[node name="Label" type="Label" parent="Box10/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box11" type="ColorRect" parent="."]
+margin_left = 232.0
+margin_top = 112.0
+margin_right = 264.0
+margin_bottom = 144.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box11"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Node2D" parent="Box11"]
+
+[node name="NumberRect" type="ColorRect" parent="Box11/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.231373, 0.203922, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PotionMP" type="Sprite" parent="Box11/Item"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 8 )
+
+[node name="Label" type="Label" parent="Box11/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Box12" type="ColorRect" parent="."]
+margin_left = 272.0
+margin_top = 112.0
+margin_right = 304.0
+margin_bottom = 144.0
+color = Color( 0.235294, 0.196078, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Box12"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.980392, 0.941176, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Item" type="Node2D" parent="Box12"]
+
+[node name="NumberRect" type="ColorRect" parent="Box12/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 30.0
+margin_bottom = 30.0
+color = Color( 0.231373, 0.203922, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Bomb" type="Sprite" parent="Box12/Item"]
+position = Vector2( 16, 16 )
+texture = ExtResource( 14 )
+region_enabled = true
+region_rect = Rect2( 32, 0, 16, 16 )
+
+[node name="Label" type="Label" parent="Box12/Item"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 32.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map" type="ColorRect" parent="."]
+visible = false
+margin_left = 11.0
+margin_top = 35.0
+margin_right = 309.0
+margin_bottom = 165.0
+color = Color( 0.85098, 0.627451, 0.4, 1 )
+script = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LangoIsland" type="Label" parent="Map"]
+margin_right = 297.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.27451, 0, 1 )
+text = "Lango Island"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelName" type="Label" parent="Map"]
+margin_top = 111.0
+margin_right = 298.0
+margin_bottom = 130.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.27451, 0, 1 )
+text = "Lango Island"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Map1" type="Sprite" parent="Map"]
+position = Vector2( 149, 65.5 )
+scale = Vector2( 2, 1.8913 )
+texture = ExtResource( 2 )
+
+[node name="Level1" type="Node2D" parent="Map"]
+position = Vector2( 101, 22 )
+
+[node name="Blink" type="ColorRect" parent="Map/Level1"]
+visible = false
+margin_right = 50.0
+margin_bottom = 30.0
+color = Color( 0, 1, 0, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Level1/Blink"]
+autoplay = "Blink"
+anims/Blink = SubResource( 28 )
+
+[node name="Hide" type="ColorRect" parent="Map/Level1"]
+margin_right = 50.0
+margin_bottom = 30.0
+color = Color( 0.85098, 0.627451, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level2" type="Node2D" parent="Map"]
+position = Vector2( 101, 52 )
+
+[node name="Blink" type="ColorRect" parent="Map/Level2"]
+visible = false
+margin_right = 49.0
+margin_bottom = 29.0
+color = Color( 0, 1, 0, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Level2/Blink"]
+autoplay = "Blink"
+anims/Blink = SubResource( 29 )
+
+[node name="Hide" type="ColorRect" parent="Map/Level2"]
+margin_right = 49.0
+margin_bottom = 29.0
+color = Color( 0.85098, 0.627451, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level3" type="Node2D" parent="Map"]
+position = Vector2( 150, 52 )
+
+[node name="Blink" type="ColorRect" parent="Map/Level3"]
+visible = false
+margin_right = 47.0
+margin_bottom = 29.0
+color = Color( 0, 1, 0, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Level3/Blink"]
+autoplay = "Blink"
+anims/Blink = SubResource( 30 )
+
+[node name="Hide" type="ColorRect" parent="Map/Level3"]
+margin_right = 47.0
+margin_bottom = 29.0
+color = Color( 0.85098, 0.627451, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level4" type="Node2D" parent="Map"]
+position = Vector2( 150, 81 )
+
+[node name="Blink" type="ColorRect" parent="Map/Level4"]
+visible = false
+margin_right = 47.0
+margin_bottom = 28.0
+color = Color( 0, 1, 0, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Level4/Blink"]
+autoplay = "Blink"
+anims/Blink = SubResource( 31 )
+
+[node name="Hide" type="ColorRect" parent="Map/Level4"]
+margin_right = 47.0
+margin_bottom = 28.0
+color = Color( 0.85098, 0.627451, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level5" type="Node2D" parent="Map"]
+position = Vector2( 101, 81 )
+
+[node name="Blink" type="ColorRect" parent="Map/Level5"]
+visible = false
+margin_right = 49.0
+margin_bottom = 28.0
+color = Color( 0, 1, 0, 0.352941 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Map/Level5/Blink"]
+autoplay = "Blink"
+anims/Blink = SubResource( 32 )
+
+[node name="Hide" type="ColorRect" parent="Map/Level5"]
+margin_right = 49.0
+margin_bottom = 28.0
+color = Color( 0.85098, 0.627451, 0.4, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

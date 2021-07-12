@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=2]
+[gd_scene load_steps=116 format=2]
 
 [ext_resource path="res://World/CliffTileset.png" type="Texture" id=1]
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=2]
@@ -10,11 +10,13 @@
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemies/Bee.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=10]
-[ext_resource path="res://World/Sign.tscn" type="PackedScene" id=11]
 [ext_resource path="res://World/Chest.tscn" type="PackedScene" id=12]
 [ext_resource path="res://World/House.tscn" type="PackedScene" id=13]
-[ext_resource path="res://UI/HealthUI.tscn" type="PackedScene" id=14]
+[ext_resource path="res://World/Rock.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Levels/Levels.gd" type="Script" id=15]
+[ext_resource path="res://World/Wood.tscn" type="PackedScene" id=16]
+[ext_resource path="res://World/Stone.tscn" type="PackedScene" id=17]
+[ext_resource path="res://World/Cave.tscn" type="PackedScene" id=19]
 [ext_resource path="res://World/Grass.tscn" type="PackedScene" id=20]
 
 [sub_resource type="StreamTexture" id=1]
@@ -969,11 +971,17 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 262174, 0, 0, 262175, 0, 1, 262176, 0, 1, 262177, 0, 2, 327708, 0, 196608, 327709, 0, 6, 327710, 0, 131078, 327711, 0, 65537, 327712, 0, 65537, 327713, 0, 131077, 327714, 0, 2, 393245, 0, 131072, 393246, 0, 65542, 393247, 0, 65537, 393248, 0, 65537, 393249, 0, 65537, 393250, 0, 131077, 393251, 0, 2, 458782, 0, 131072, 458783, 0, 65542, 458784, 0, 65537, 458785, 0, 65537, 458786, 0, 65537, 458787, 0, 131077, 458788, 0, 2, 524319, 0, 131072, 524320, 0, 131073, 524321, 0, 65542, 524322, 0, 65537, 524323, 0, 65537, 524324, 0, 65538, 589857, 0, 65536, 589858, 0, 65537, 589859, 0, 65537, 589860, 0, 65538, 655393, 0, 65536, 655394, 0, 65537, 655395, 0, 65537, 655396, 0, 65538, 720929, 0, 131072, 720930, 0, 65542, 720931, 0, 65537, 720932, 0, 65538, 786466, 0, 65536, 786467, 0, 65537, 786468, 0, 65538, 852002, 0, 65536, 852003, 0, 65537, 852004, 0, 65538, 917517, 0, 0, 917518, 0, 1, 917519, 0, 1, 917520, 0, 2, 917538, 0, 65536, 917539, 0, 65537, 917540, 0, 65538, 983052, 0, 196608, 983053, 0, 262150, 983054, 0, 65537, 983055, 0, 65537, 983056, 0, 131077, 983057, 0, 2, 983074, 0, 65536, 983075, 0, 65537, 983076, 0, 65538, 1048589, 0, 65536, 1048590, 0, 65537, 1048591, 0, 65537, 1048592, 0, 65537, 1048593, 0, 65538, 1048609, 0, 0, 1048610, 0, 131078, 1048611, 0, 65537, 1048612, 0, 65538, 1114125, 0, 131072, 1114126, 0, 131073, 1114127, 0, 65542, 1114128, 0, 65537, 1114129, 0, 65538, 1114135, 0, 0, 1114136, 0, 2, 1114144, 0, 0, 1114145, 0, 131078, 1114146, 0, 65537, 1114147, 0, 65541, 1114148, 0, 131074, 1179663, 0, 131072, 1179664, 0, 65542, 1179665, 0, 131077, 1179666, 0, 2, 1179669, 0, 0, 1179670, 0, 1, 1179671, 0, 131078, 1179672, 0, 131077, 1179673, 0, 1, 1179674, 0, 1, 1179675, 0, 1, 1179676, 0, 1, 1179677, 0, 1, 1179678, 0, 1, 1179679, 0, 1, 1179680, 0, 131078, 1179681, 0, 65541, 1179682, 0, 131073, 1179683, 0, 131074, 1245200, 0, 131072, 1245201, 0, 65542, 1245202, 0, 131077, 1245203, 0, 1, 1245204, 0, 1, 1245205, 0, 131078, 1245206, 0, 65537, 1245207, 0, 65537, 1245208, 0, 65541, 1245209, 0, 131073, 1245210, 0, 131073, 1245211, 0, 131073, 1245212, 0, 131073, 1245213, 0, 131073, 1245214, 0, 131073, 1245215, 0, 65542, 1245216, 0, 65541, 1245217, 0, 131074, 1310737, 0, 131072, 1310738, 0, 65542, 1310739, 0, 65541, 1310740, 0, 131073, 1310741, 0, 131073, 1310742, 0, 131073, 1310743, 0, 131073, 1310744, 0, 131074, 1310751, 0, 131072, 1310752, 0, 131074, 1376274, 0, 65536, 1376275, 0, 65538, 1441810, 0, 65536, 1441811, 0, 65538, 1507346, 0, 131072, 1507347, 0, 131074 )
 
-[node name="InsideHouse" parent="." instance=ExtResource( 13 )]
-position = Vector2( 145.357, 66.0712 )
+[node name="Cave" parent="." instance=ExtResource( 19 )]
+position = Vector2( 336, 38 )
+
+[node name="Cave2" parent="." instance=ExtResource( 19 )]
+position = Vector2( 392, 38 )
+
+[node name="Cave3" parent="." instance=ExtResource( 19 )]
+position = Vector2( 456, 40 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 504, 88 )
+position = Vector2( 365, 221 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -982,10 +990,16 @@ limit_bottom = 360
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
+[node name="Cave4" parent="." instance=ExtResource( 19 )]
+position = Vector2( 512, 40 )
+
+[node name="InsideHouse" parent="." instance=ExtResource( 13 )]
+position = Vector2( 145.357, 66.0712 )
+
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
-position = Vector2( 504, 88 )
+position = Vector2( 365, 221 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -993,6 +1007,18 @@ remote_path = NodePath("../../../Camera2D")
 [node name="Trees" type="YSort" parent="YSort"]
 
 [node name="Tree" parent="YSort/Trees" instance=ExtResource( 7 )]
+position = Vector2( 336, 205 )
+
+[node name="Tree2" parent="YSort/Trees" instance=ExtResource( 7 )]
+position = Vector2( 303, 229 )
+
+[node name="Rocks" type="YSort" parent="YSort"]
+
+[node name="Rock" parent="YSort/Rocks" instance=ExtResource( 14 )]
+position = Vector2( 584, 304 )
+
+[node name="Rock2" parent="YSort/Rocks" instance=ExtResource( 14 )]
+position = Vector2( 552, 278.056 )
 
 [node name="Bushes" type="YSort" parent="YSort"]
 
@@ -1017,42 +1043,77 @@ position = Vector2( 193.272, 173.435 )
 [node name="Grass2" parent="YSort/Grass" instance=ExtResource( 20 )]
 position = Vector2( 413.212, 276.999 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Grass3" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 440, 276.999 )
 
-[node name="HealthUI" parent="CanvasLayer" instance=ExtResource( 14 )]
+[node name="Grass4" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 466, 276.999 )
 
-[node name="Sign" parent="." instance=ExtResource( 11 )]
+[node name="Grass5" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 493, 276.999 )
 
-[node name="StaticBody2d" parent="Sign" index="0"]
-position = Vector2( 450, 39.9489 )
+[node name="Grass6" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 413.212, 296 )
 
-[node name="Popup" parent="Sign" index="1"]
-margin_left = 402.0
-margin_right = 498.0
+[node name="Grass7" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 440, 296 )
 
-[node name="Chest" parent="." instance=ExtResource( 12 )]
-position = Vector2( 504, 54 )
-chest_drop_type = 1
-drop_type = 1
+[node name="Grass8" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 466, 296 )
 
-[node name="Chest3" parent="." instance=ExtResource( 12 )]
+[node name="Grass9" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 493, 296 )
+
+[node name="Grass10" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 413.212, 317.438 )
+
+[node name="Grass11" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 440, 317.438 )
+
+[node name="Grass12" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 466, 317.438 )
+
+[node name="Grass13" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 493, 317.438 )
+
+[node name="Grass14" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 413.212, 336 )
+
+[node name="Grass15" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 440, 336 )
+
+[node name="Grass16" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 466, 336 )
+
+[node name="Grass17" parent="YSort/Grass" instance=ExtResource( 20 )]
+position = Vector2( 493, 336 )
+
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest3" parent="YSort/Chests" instance=ExtResource( 12 )]
 position = Vector2( 568, 112 )
 drop_type = 1
 
-[node name="Chest4" parent="." instance=ExtResource( 12 )]
+[node name="Chest4" parent="YSort/Chests" instance=ExtResource( 12 )]
 position = Vector2( 504, 114 )
 drop_type = 1
 
-[node name="Chest5" parent="." instance=ExtResource( 12 )]
+[node name="Chest5" parent="YSort/Chests" instance=ExtResource( 12 )]
 position = Vector2( 568, 168 )
 
-[node name="Chest6" parent="." instance=ExtResource( 12 )]
+[node name="Chest6" parent="YSort/Chests" instance=ExtResource( 12 )]
 position = Vector2( 568, 224 )
 
-[node name="Chest2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 568, 54 )
+[node name="Chest2" parent="YSort/Chests" instance=ExtResource( 12 )]
+position = Vector2( 248, 32 )
 drop_type = 2
+
+[node name="Wood" parent="." instance=ExtResource( 16 )]
+position = Vector2( 352, 66 )
+
+[node name="Stone" parent="." instance=ExtResource( 17 )]
+position = Vector2( 336, 102 )
 
 [editable path="YSort/Trees/Tree"]
 
-[editable path="Sign"]
+[editable path="YSort/Trees/Tree2"]

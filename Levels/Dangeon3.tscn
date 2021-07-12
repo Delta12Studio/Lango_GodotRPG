@@ -963,13 +963,19 @@ remote_path = NodePath("../../../Camera2D")
 [node name="Bat" type="YSort" parent="YSort"]
 
 [node name="Bat" parent="YSort/Bat" instance=ExtResource( 3 )]
-position = Vector2( 88, 96 )
+position = Vector2( 88, 136 )
 
 [node name="Bat2" parent="YSort/Bat" instance=ExtResource( 3 )]
 position = Vector2( 224, 96 )
 
 [node name="Bat3" parent="YSort/Bat" instance=ExtResource( 3 )]
-position = Vector2( 152, 96 )
+position = Vector2( 88, 72 )
+
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest" parent="YSort/Chests" instance=ExtResource( 4 )]
+position = Vector2( 272, 29 )
+drop_type = 2
 
 [node name="Dangeon2Pos" type="Position2D" parent="."]
 position = Vector2( 144, 16 )
@@ -997,7 +1003,3 @@ rotation = 1.5708
 position = Vector2( -16, 80 )
 rotation = 1.5708
 puzzle = 1
-
-[node name="Chest" parent="." instance=ExtResource( 4 )]
-position = Vector2( 272, 29 )
-drop_type = 2

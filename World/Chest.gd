@@ -10,7 +10,11 @@ export var gems_amount = 20
 var can_open = false
 var can_take = false
 
+signal update_items
+
 func _ready():
+# warning-ignore:return_value_discarded
+	self.connect("update_items", Global, "_on_update_status")
 	_close()
 	_vanish()
 
@@ -30,11 +34,11 @@ func _drop():
 			$Gem.visible = true
 		elif drop_type == drop.HEART:
 			$Heart.visible = true
-		elif drop_type == drop.BIG_HEART:
+		else:                        #if drop_type == drop.BIG_HEART:
 			$Heart.scale.x = 2
 			$Heart.scale.y = 2
 			$Heart.visible = true
-	else:
+	if chest_drop_type == chest_style.RANDOM:
 		var rng = RandomNumberGenerator.new()
 		rng.randomize()
 		drop_type = rng.randi() % 2
@@ -49,6 +53,7 @@ func _take():
 		$Collected.play()
 		yield(get_tree().create_timer(0.2), "timeout")
 		Global.gem = Global.gem + gems_amount
+		emit_signal("update_items")
 		chest_status = chest.EMPTY
 		yield(get_tree().create_timer(0.3), "timeout")
 		$AnimationPlayer.play("Close")
@@ -65,17 +70,16 @@ func _take():
 			self.modulate = Color(0.8,0.8,0.8,1)
 		else:
 			$Full.play()
-	elif drop_type == drop.BIG_HEART:
+	else:
 		Global.set_max_health(Global.max_health + 1)
 		Global.set_health(Global.max_health)
 		$Collected.play()
-		yield(get_tree().create_timer(0.2), "timeout")
 		$Heart.visible = false
 		chest_status = chest.EMPTY
 		yield(get_tree().create_timer(0.3), "timeout")
 		$AnimationPlayer.play("Close")
 		self.modulate = Color(0.8,0.8,0.8,1)
-		var chest_name = str($".".get_parent().name) + self.name
+		var chest_name = str(get_parent().get_parent().get_parent().name) + self.name
 		if Global.chest == null:
 			Global.chest = chest_name
 		else:
@@ -94,7 +98,7 @@ func _input(_event):
 
 func _vanish():
 	if Global.chest != null:
-		if str($".".get_parent().name) + self.name in Global.chest:
+		if str(get_parent().get_parent().get_parent().name) + self.name in Global.chest:
 			queue_free()
 
 func _on_Area2D_body_entered(_body):

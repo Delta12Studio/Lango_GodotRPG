@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://World/sign.png" type="Texture" id=1]
+[ext_resource path="res://World/Sign.png" type="Texture" id=1]
 [ext_resource path="res://Font/Font.tres" type="DynamicFont" id=2]
 [ext_resource path="res://UI/Popup.gd" type="Script" id=3]
+
 
 [sub_resource type="RectangleShape2D" id=101]
 extents = Vector2( 13.3333, 5.64949 )

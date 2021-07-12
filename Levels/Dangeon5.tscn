@@ -968,6 +968,12 @@ position = Vector2( 80, 96 )
 [node name="Bat2" parent="YSort/Bat" instance=ExtResource( 4 )]
 position = Vector2( 216, 96 )
 
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest" parent="YSort/Chests" instance=ExtResource( 3 )]
+position = Vector2( 184, 24 )
+drop_type = 2
+
 [node name="RightPos" type="Position2D" parent="."]
 position = Vector2( -8, 80 )
 
@@ -994,7 +1000,3 @@ rotation = 1.5708
 [node name="Left" parent="." instance=ExtResource( 1 )]
 position = Vector2( -16, 80 )
 rotation = 1.5708
-
-[node name="Chest" parent="." instance=ExtResource( 3 )]
-position = Vector2( 184, 24 )
-drop_type = 2

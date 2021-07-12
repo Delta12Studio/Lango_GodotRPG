@@ -5,7 +5,7 @@ var MAX_SPEED = 80
 var FRICTION = 500
 var ROLL_SPEED = 120
 
-enum { MOVE, ROLL, ATTACK, TRANSITION}
+enum { MOVE, ROLL, ATTACK, TRANSITION, TRANSFORM }
 
 var state = MOVE
 var velocity = Vector2.ZERO
@@ -20,15 +20,16 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var hurtbox = $HurtBox
 onready var blinkAnimationPlayer = $BlinkAnimationPlayer
 
+signal update_mana
+
 func _ready():
 	randomize()
 # warning-ignore:return_value_discarded
 	Global.connect("no_health", self, "dying_state")
+# warning-ignore:return_value_discarded
+	self.connect("update_mana", Global, "_on_update_status")
 	animationTree.active = true
 	swordHitbox.knockback_vector = roll_vector
-	if Global.direction != Vector2.ZERO:
-		transition()
-		roll_vector = Global.direction
 
 func _process(delta):
 	if can_move == true:
@@ -41,6 +42,9 @@ func _process(delta):
 				attack_state()
 			TRANSITION:
 				transition_state()
+			TRANSFORM:
+				transform_state()
+	_invisible()
 
 func move_state(delta):
 	
@@ -70,6 +74,7 @@ func move_state(delta):
 			state = ROLL
 		if Input.is_action_just_pressed("ui_attack"):
 			state = ATTACK
+			_power()
 
 func move():
 	velocity = move_and_slide(velocity)
@@ -92,6 +97,7 @@ func attack_animation_finished():
 
 func transition():
 	$Transition.start()
+	roll_vector = Global.direction
 	state = TRANSITION
 
 func transition_state():
@@ -107,6 +113,54 @@ func _on_Transition_timeout():
 	animationState.travel("Idle")
 	state = MOVE
 
+func player_transform():
+	roll_vector = Global.direction
+	state = TRANSFORM
+
+func transform_state():
+	animationTree.set("parameters/Run/blend_position", Global.direction)
+	animationTree.set("parameters/Attack/blend_position", Global.direction)
+	animationTree.set("parameters/Roll/blend_position", Global.direction)
+	animationTree.set("parameters/Idle/blend_position", Global.direction)
+	animationState.travel("Idle")
+	state = MOVE
+
+func cut_left():
+	can_move = false
+	animationState.travel("Idle")
+	$AnimationPlayer.play("CutLeft")
+	yield($AnimationPlayer,"animation_finished")
+	animationState.travel("Idle")
+	state = MOVE
+	can_move = true
+
+func cut_right():
+	can_move = false
+	animationState.travel("Idle")
+	$AnimationPlayer.play("CutRight")
+	yield($AnimationPlayer,"animation_finished")
+	animationState.travel("Idle")
+	state = MOVE
+	can_move = true
+
+func break_left():
+	can_move = false
+	animationState.travel("Idle")
+	$AnimationPlayer.play("BreakLeft")
+	yield($AnimationPlayer,"animation_finished")
+	animationState.travel("Idle")
+	state = MOVE
+	can_move = true
+
+func break_right():
+	can_move = false
+	animationState.travel("Idle")
+	$AnimationPlayer.play("BreakRight")
+	yield($AnimationPlayer,"animation_finished")
+	animationState.travel("Idle")
+	state = MOVE
+	can_move = true
+
 func _on_HurtBox_area_entered(area):
 	$Hurt.play()
 	Global.health -= area.damage
@@ -119,7 +173,7 @@ func dying_state():
 	can_move = false
 	animationPlayer.play("Dying")
 	yield($AnimationPlayer, "animation_finished")
-	Global.health = Global.max_health #antes tava = 5
+	Global.health = Global.max_health
 # warning-ignore:return_value_discarded
 	Global.from = null
 	Global.direction = Vector2.ZERO
@@ -130,3 +184,21 @@ func _on_HurtBox_invincibility_started():
 
 func _on_HurtBox_invincibility_ended():
 	blinkAnimationPlayer.play("Stop")
+
+func _power():
+	if Global.player == "Lyu":
+		emit_signal("update_mana")
+		if Global.mana > 0:
+			Global.mana -= 10
+			emit_signal("update_mana")
+			$HitBoxPivot/Ladu.visible = true
+			$HitBoxPivot/SwordHitBox.monitorable = true
+		else:
+			$HitBoxPivot/Ladu.visible = false
+			$HitBoxPivot/SwordHitBox.monitorable = false
+
+func _invisible():
+	if Global.repellent == true:
+		self.modulate = Color(1,1,1,0.3)
+	else:
+		self.modulate = Color(1,1,1,1)

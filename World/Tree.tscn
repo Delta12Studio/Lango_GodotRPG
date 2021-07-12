@@ -1,22 +1,76 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://World/Tree.png" type="Texture" id=1]
 [ext_resource path="res://World/Z_Index.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Tree.gd" type="Script" id=3]
+[ext_resource path="res://World/Circle.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-height = 11.3839
+radius = 6.01267
+height = 4.79017
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 9.93175
+height = 6.97164
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 21.6818
 
 [node name="Tree" type="StaticBody2D"]
-position = Vector2( 302.453, 204.589 )
 z_index = 1
 z_as_relative = false
+script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 13.8591 )
+position = Vector2( -0.0883884, 18.0134 )
 rotation = 1.5708
 shape = SubResource( 1 )
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -10.5406, 16 )
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 10.498, 2.31825 )
+rotation = 1.5708
+shape = SubResource( 2 )
+
 [node name="Z_Index" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="CollisionPolygon2D" parent="Z_Index" index="0"]
+polygon = PoolVector2Array( -15.537, 13.2513, -8.69387, 17.4987, 8.29586, 17.9707, 15.7289, 13.4873, 13.5466, -10.8854, 8.54099, -21.731, 0.0313721, -23.7332, -8.47824, -21.5641, -13.4839, -10.7186 )
+
+[node name="Circles" type="Area2D" parent="."]
+position = Vector2( -10.5406, 16 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Circles"]
+position = Vector2( 10.498, 2.31825 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="Left" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 1, 0, 0.509804 )
+position = Vector2( -16, 23 )
+scale = Vector2( 1, 0.537373 )
+texture = ExtResource( 4 )
+
+[node name="Right" type="Sprite" parent="."]
+visible = false
+modulate = Color( 0, 1, 0, 0.509804 )
+position = Vector2( 16, 23 )
+scale = Vector2( 1, 0.537373 )
+texture = ExtResource( 4 )
+[connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
+[connection signal="body_entered" from="Circles" to="." method="_on_Circles_body_entered"]
+[connection signal="body_exited" from="Circles" to="." method="_on_Circles_body_exited"]
+
+[editable path="Z_Index"]

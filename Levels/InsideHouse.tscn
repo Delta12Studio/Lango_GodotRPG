@@ -1,53 +1,24 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/InsideHouse.gd" type="Script" id=3]
+[ext_resource path="res://Levels/Bed.gd" type="Script" id=3]
 [ext_resource path="res://World/InsideHouse.png" type="Texture" id=4]
 [ext_resource path="res://Font/Font.tres" type="DynamicFont" id=5]
-[ext_resource path="res://UI/HealthUI.gd" type="Script" id=6]
-[ext_resource path="res://World/Gem.png" type="Texture" id=7]
-[ext_resource path="res://UI/HeartUIFull.png" type="Texture" id=8]
-[ext_resource path="res://World/HoneyComb1.png" type="Texture" id=9]
-[ext_resource path="res://UI/HeartUIEmpty.png" type="Texture" id=10]
+[ext_resource path="res://Levels/Levels.gd" type="Script" id=6]
+[ext_resource path="res://World/Map.png" type="Texture" id=7]
+[ext_resource path="res://World/Map.gd" type="Script" id=8]
 [ext_resource path="res://UI/SleepPopup.gd" type="Script" id=11]
-[ext_resource path="res://UI/VirtualControl.tscn" type="PackedScene" id=12]
 [ext_resource path="res://World/Chest.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/Bed.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17.9406, 11.2748 )
+
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 2.08418, 16 )
 
-[sub_resource type="Animation" id=2]
-tracks/0/type = "value"
-tracks/0/path = NodePath("Fade:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
-}
-
 [sub_resource type="Animation" id=3]
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("Fade:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5, 1.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "ShowAsk"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Ask/Label:percent_visible")
 tracks/0/interp = 1
@@ -75,7 +46,7 @@ tracks/1/keys = {
 
 [node name="InsideHouse" type="StaticBody2D"]
 z_as_relative = false
-script = ExtResource( 3 )
+script = ExtResource( 6 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( 144, 208, 144, 160, 112, 160, 112, 96, 144, 96, 144, 64, 176, 64, 176, 56, 208, 56, 208, 128, 176, 128, 176, 144, 184, 144, 184, 160, 176, 160, 176, 208, 232, 208, 232, 24, 88, 24, 88, 208 )
@@ -87,114 +58,49 @@ centered = false
 [node name="Level1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 160, 208 )
 
-[node name="Chest" parent="." instance=ExtResource( 13 )]
-position = Vector2( 192, 48 )
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
+[node name="Level1Pos" type="Position2D" parent="."]
 position = Vector2( 160, 201 )
-z_index = 0
+
+[node name="Map" type="Area2D" parent="."]
+position = Vector2( 192, 128 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 8 )
+
+[node name="Map" type="Sprite" parent="Map"]
+position = Vector2( 0, 3.7755 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
+position = Vector2( 0, 5.89922 )
+shape = SubResource( 1 )
 
 [node name="Bed" type="Area2D" parent="."]
 position = Vector2( 144, 72 )
 collision_layer = 0
 collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Bed"]
+position = Vector2( -16, 0 )
+texture = ExtResource( 14 )
+hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="VirtualControl" parent="." instance=ExtResource( 12 )]
+[node name="YSort" type="YSort" parent="."]
 
-[node name="HealthUI" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 160, 86.0953 )
 
-[node name="Fade" type="ColorRect" parent="HealthUI"]
-visible = false
-margin_right = 320.0
-margin_bottom = 180.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Chests" type="YSort" parent="YSort"]
 
-[node name="HeartUIEmpty" type="TextureRect" parent="HealthUI"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 77.0
-margin_bottom = 13.0
-texture = ExtResource( 10 )
-expand = true
-stretch_mode = 2
+[node name="Chest" parent="YSort/Chests" instance=ExtResource( 13 )]
+position = Vector2( 192, 48 )
 
-[node name="HeartUIFull" type="TextureRect" parent="HealthUI"]
-margin_left = 2.0
-margin_top = 2.0
-margin_right = 77.0
-margin_bottom = 13.0
-texture = ExtResource( 8 )
-expand = true
-stretch_mode = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthUI"]
-pause_mode = 2
-anims/FadeIn = SubResource( 2 )
-anims/FadeOut = SubResource( 3 )
-
-[node name="Item" type="Node" parent="HealthUI"]
-
-[node name="Gem" type="TextureRect" parent="HealthUI/Item"]
-visible = false
-margin_left = 260.0
-margin_right = 276.0
-margin_bottom = 16.0
-texture = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="HealthUI/Item/Gem"]
-margin_left = 19.0
-margin_top = 2.0
-margin_right = 58.0
-margin_bottom = 18.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "= "
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Honey" type="TextureRect" parent="HealthUI/Item"]
-visible = false
-margin_left = 203.02
-margin_top = 1.94888
-margin_right = 219.02
-margin_bottom = 17.9489
-texture = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="HealthUI/Item/Honey"]
-margin_left = 20.0
-margin_right = 52.0
-margin_bottom = 16.0
-custom_fonts/font = ExtResource( 5 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "= "
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SleepPopup" type="Popup" parent="HealthUI"]
+[node name="SleepPopup" type="Popup" parent="."]
 pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
@@ -203,7 +109,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ask" type="ColorRect" parent="HealthUI/SleepPopup"]
+[node name="Ask" type="ColorRect" parent="SleepPopup"]
 margin_left = 56.0
 margin_top = 96.0
 margin_right = 264.0
@@ -213,7 +119,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Ask2" type="ColorRect" parent="HealthUI/SleepPopup/Ask"]
+[node name="Ask2" type="ColorRect" parent="SleepPopup/Ask"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 205.0
@@ -223,7 +129,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HealthUI/SleepPopup/Ask"]
+[node name="Label" type="Label" parent="SleepPopup/Ask"]
 margin_right = 208.0
 margin_bottom = 64.0
 custom_fonts/font = ExtResource( 5 )
@@ -236,7 +142,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer" type="ColorRect" parent="HealthUI/SleepPopup"]
+[node name="Answer" type="ColorRect" parent="SleepPopup"]
 visible = false
 margin_left = 96.0
 margin_top = 157.0
@@ -247,7 +153,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Answer2" type="ColorRect" parent="HealthUI/SleepPopup/Answer"]
+[node name="Answer2" type="ColorRect" parent="SleepPopup/Answer"]
 margin_left = 3.0
 margin_top = 3.0
 margin_right = 125.0
@@ -257,7 +163,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="HealthUI/SleepPopup/Answer"]
+[node name="Label" type="Label" parent="SleepPopup/Answer"]
 margin_right = 128.0
 margin_bottom = 23.0
 custom_fonts/font = ExtResource( 5 )
@@ -269,9 +175,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HealthUI/SleepPopup"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SleepPopup"]
 pause_mode = 2
-anims/ShowAsk = SubResource( 4 )
-[connection signal="body_entered" from="Bed" to="." method="_on_Bed_body_entered"]
-[connection signal="body_exited" from="Bed" to="." method="_on_Bed_body_exited"]
-[connection signal="animation_finished" from="HealthUI/SleepPopup/AnimationPlayer" to="HealthUI/SleepPopup" method="_on_AnimationPlayer_animation_finished"]
+anims/ShowAsk = SubResource( 3 )
+[connection signal="body_entered" from="Map" to="Map" method="_on_Map_body_entered"]
+[connection signal="body_exited" from="Map" to="Map" method="_on_Map_body_exited"]
+[connection signal="body_entered" from="Bed" to="Bed" method="_on_Bed_body_entered"]
+[connection signal="body_exited" from="Bed" to="Bed" method="_on_Bed_body_exited"]
+[connection signal="animation_finished" from="SleepPopup/AnimationPlayer" to="SleepPopup" method="_on_AnimationPlayer_animation_finished"]

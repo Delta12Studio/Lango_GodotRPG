@@ -983,6 +983,12 @@ position = Vector2( 452.278, 80.4263 )
 [node name="Bat4" parent="YSort/Bat" instance=ExtResource( 1 )]
 position = Vector2( 351.869, 327.207 )
 
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest" parent="YSort/Chests" instance=ExtResource( 9 )]
+position = Vector2( 343.887, 28.5088 )
+drop_type = 2
+
 [node name="Level1" parent="." instance=ExtResource( 7 )]
 position = Vector2( 80, 382.5 )
 
@@ -994,7 +1000,3 @@ position = Vector2( 560.189, 382.5 )
 
 [node name="Level3Pos" type="Position2D" parent="."]
 position = Vector2( 560.189, 370 )
-
-[node name="Chest" parent="." instance=ExtResource( 9 )]
-position = Vector2( 343.887, 28.5088 )
-drop_type = 2
