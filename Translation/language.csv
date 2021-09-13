@@ -1,5 +1,29 @@
 ,en_US,pt_BR,es
 CREATED,Created with,Criado com,Creado com
+THANKS,"Lango is not a complete RPG game.
+It's just a Godot Engine study project.
+Created with the help of tutorials from:
+ HeartBeast on Youtube and davidepesce.com
+
+
+
+Thank you very much for the tutorials!","Lango não é um jogo RPG completo.
+É apenas um projeto de estudo da Godot Engine.
+O jogo foi criado com ajuda dos tutoriais de:
+ HeartBeast no Youtube e davidepesce.com
+
+
+
+Muito obrigado pelos tutorias!
+ ","Lango no es un juego de rol completo.
+Es solo un proyecto de estudio de Godot Engine.
+El juego fue creado con la ayuda de tutoriales de:
+ HeartBeast en Youtube y davidepesce.com
+
+
+
+¡Muchas gracias por los tutoriales!
+ "
 INTRO,"Use the arrows or WASD keys to move 
 
 

@@ -15,7 +15,7 @@ var chest
 var player = "Player"
 var axe_equipped = false
 var pickaxe_equipped = false
-
+var data
 ################# Items ################
 var honeycombs = 0
 var gem = 0
@@ -25,7 +25,7 @@ var Hpotion = 0
 var Mpotion = 0
 var Rpotion = 0
 var bomb = 0
-var map = "empty"
+var map = "empty" #"empty" or "equipped"
 var Cacilda = "empty"
 var axe = "empty"
 var bandana = "empty"
@@ -44,7 +44,6 @@ enum QuestStatus {
 }
 var quest_status = QuestStatus.NOT_STARTED
 var dialogue_state = 0
-var credits = false
 var restart = false
 
 signal no_health
@@ -94,7 +93,7 @@ func _on_repellent():
 
 func _countdown():
 	while timer > 0:
-		yield(get_tree().create_timer(1),"timeout")
+		yield(get_tree().create_timer(1 , false),"timeout")
 		timer -= 1
 		if repellent == true:
 			emit_signal("repellent_time")
@@ -104,13 +103,87 @@ func _countdown():
 func play_music():
 	$Music.play()
 
+func stop_music():
+	$Music.stop()
+
 func _on_update_status():
 	emit_signal("update_status")
 
+func save_game():
+	data = {
+		"current_level" : current_level,
+		"from" : from,
+		"direction" : direction,
+		"cave" : cave,
+		"chest" : chest,
+		"axe_equipped" : axe_equipped,
+		"pickaxe_equipped" : pickaxe_equipped,
+		"quest_status" : quest_status,
+		"max_health" : max_health,
+		"health" : health,
+		"player" : player,
+		"visited" : visited,
+		"honeycombs" : honeycombs,
+		"gem" : gem,
+		"wood" : wood,
+		"stone" : stone,
+		"Hpotion" : Hpotion,
+		"Mpotion" : Mpotion,
+		"Rpotion" : Rpotion,
+		"bomb" : bomb,
+		"map" : map,
+		"Cacilda" : Cacilda,
+		"axe" : axe,
+		"bandana" : bandana,
+		"saber" : saber,
+		"pickaxe" : pickaxe,
+	}
+	var file = File.new()
+	file.open("user://savegame.json", File.WRITE)
+	var json = to_json(data)
+	file.store_line(json)
+	file.close()
+
+func load_game():
+	var file = File.new()
+	if file.file_exists("user://savegame.json"):
+		file.open("user://savegame.json", File.READ)
+		data = parse_json(file.get_as_text())
+		file.close()
+		current_level = data.current_level
+		from = data.from
+		direction = Vector2(data.direction , data.direction)
+		cave = data.cave
+		chest = data.chest
+		chest = data.chest
+		pickaxe_equipped = data.pickaxe_equipped
+		quest_status = int(data.quest_status)
+		max_health = data.max_health
+		health = data.health
+		player = data.player
+		visited = data.visited
+		honeycombs = data.honeycombs
+		gem = data.gem
+		wood = data.wood
+		stone = data.stone
+		Hpotion = data.Hpotion
+		Mpotion = data.Mpotion
+		Rpotion = data.Rpotion
+		bomb = data.bomb
+		map = data.map
+		Cacilda = data.Cacilda
+		axe = data.axe
+		bandana = data.bandana
+		saber = data.saber
+		pickaxe = data.pickaxe
+		
+	# warning-ignore:return_value_discarded
+		get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+		get_tree().paused = false
+
 ################### Restart ##########################
 func reset():
-	$Music.stop()
-	credits = false
+	stop_music()
 	from = null
 	direction = Vector2.ZERO
 	cave = null
@@ -139,5 +212,4 @@ func reset():
 	pickaxe = "empty"
 	########################################
 # warning-ignore:return_value_discarded
-	get_tree().change_scene("res://UI/Intro.tscn")
-
+	get_tree().change_scene("res://UI/FirstMenu.tscn")

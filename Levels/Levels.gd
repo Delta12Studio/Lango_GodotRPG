@@ -11,6 +11,7 @@ var VC = preload("res://UI/VirtualControl.tscn")
 var Level = preload("res://UI/LevelName.tscn")
 
 func _ready():
+
 	Global.current_level = self.name
 	var level_name = Level.instance()
 	add_child(level_name)

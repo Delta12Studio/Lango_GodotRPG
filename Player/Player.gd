@@ -202,3 +202,4 @@ func _invisible():
 		self.modulate = Color(1,1,1,0.3)
 	else:
 		self.modulate = Color(1,1,1,1)
+

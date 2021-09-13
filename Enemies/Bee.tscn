@@ -99,7 +99,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 7 )
 animation = "Bee"
-frame = 3
+frame = 1
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -171,10 +171,10 @@ anims/Start = SubResource( 11 )
 anims/Stop = SubResource( 12 )
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_exited" from="HurtBox" to="." method="_on_HurtBox_area_exited"]
-[connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
-[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_started" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 
 [editable path="HurtBox"]
 

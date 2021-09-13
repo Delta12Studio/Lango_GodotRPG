@@ -5,9 +5,6 @@ var sleep
 var can_ask = true
 
 func _ready():
-	if Global.credits == true:
-# warning-ignore:return_value_discarded
-		get_tree().change_scene("res://UI/Credits.tscn")
 	SleepPopup = get_parent().get_node("SleepPopup")
 	# Set SleepPopup to bed
 	SleepPopup.bed = self

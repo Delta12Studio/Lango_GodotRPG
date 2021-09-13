@@ -48,3 +48,6 @@ func _ready():
 	elif get_parent().name == "Dangeon7":
 		$Label.text = "Cave of Treasures"
 		_show_name()
+	elif get_parent().name == "Boss":
+		$Label.text = "Boss"
+		_show_name()

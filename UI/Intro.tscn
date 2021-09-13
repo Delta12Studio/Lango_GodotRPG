@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Font/Avenixel/Avenixel-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Intro/Icon.png" type="Texture" id=2]
@@ -6,10 +6,13 @@
 [ext_resource path="res://UI/arrow.png" type="Texture" id=4]
 [ext_resource path="res://UI/Intro.gd" type="Script" id=5]
 [ext_resource path="res://UI/Lango.png" type="Texture" id=6]
+[ext_resource path="res://Intro/hb.png" type="Texture" id=7]
+[ext_resource path="res://Intro/dp.png" type="Texture" id=8]
+[ext_resource path="res://Intro/delta12.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Intro"
-length = 20.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Created:percent_visible")
 tracks/0/interp = 1
@@ -65,7 +68,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 10.2, 14.2 ),
+"times": PoolRealArray( 0, 20.6, 24.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 1.0 ]
@@ -77,7 +80,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 11.6, 13.2 ),
+"times": PoolRealArray( 0, 22, 23.6 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, 0.0, 1.0 ]
@@ -89,7 +92,7 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 11.6 ),
+"times": PoolRealArray( 0, 22 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -101,10 +104,70 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 2, 4 ),
+"times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Thanks:percent_visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.1, 9.9, 14 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Thanks:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 10.1, 20.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Thanks/hb:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 12.4, 12.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Thanks/dp:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 13, 13.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("delta12:self_modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 3.3, 3.7, 4.2, 4.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="DynamicFont" id=2]
@@ -131,6 +194,7 @@ centered = false
 
 [node name="Icon" type="Sprite" parent="."]
 visible = false
+modulate = Color( 1, 1, 1, 0.625 )
 position = Vector2( 160, 64 )
 texture = ExtResource( 2 )
 
@@ -163,6 +227,32 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Thanks" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 9.0
+margin_right = 317.0
+margin_bottom = 177.0
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "THANKS"
+align = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hb" type="Sprite" parent="Thanks"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 55.7567, 103.524 )
+scale = Vector2( 0.416226, 0.416226 )
+texture = ExtResource( 7 )
+
+[node name="dp" type="Sprite" parent="Thanks"]
+self_modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 210.412, 103.17 )
+scale = Vector2( 0.831641, 0.831641 )
+texture = ExtResource( 8 )
 
 [node name="Text" type="Label" parent="."]
 margin_right = 320.0
@@ -208,4 +298,9 @@ texture = ExtResource( 4 )
 position = Vector2( 256.5, 57.5 )
 rotation = 1.5708
 texture = ExtResource( 4 )
+
+[node name="delta12" type="Sprite" parent="."]
+self_modulate = Color( 1, 1, 1, 0 )
+texture = ExtResource( 9 )
+centered = false
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
