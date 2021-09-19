@@ -22,23 +22,23 @@ region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 15 )
-region = Rect2( 0, 0, 32, 32 )
+region = Rect2( 32, 0, 32, 32 )
 
 [sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 15 )
-region = Rect2( 32, 0, 32, 32 )
+region = Rect2( 0, 0, 32, 32 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ SubResource( 1 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
 "loop": true,
 "name": "Talk",
 "speed": 10.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=5]
@@ -213,6 +213,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="body_entered" from="PandaArea" to="Panda" method="_on_PandaArea_body_entered"]
 [connection signal="body_exited" from="PandaArea" to="Panda" method="_on_PandaArea_body_exited"]
 [connection signal="body_entered" from="Table1" to="Panda" method="_on_Table1_body_entered"]

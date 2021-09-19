@@ -17,10 +17,12 @@ func _ready():
 	add_child(level_name)
 	var canvas = CanvasLayer.new()
 	add_child(canvas)
-	var health = HealthUI.instance()
-	add_child(health)
+	canvas.layer = 2
 	var control = VC.instance()
 	canvas.add_child(control)
+	var health = HealthUI.instance()
+	add_child(health)
+
 	_transform()
 	if Global.from != null:
 		get_node("YSort/" + Global.player).set_position(get_node(Global.from + "Pos").position)

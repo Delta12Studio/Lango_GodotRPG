@@ -1,5 +1,6 @@
 extends Node2D
 
+var VC = preload("res://UI/VirtualControl.tscn")
 var selected_menu = 0
 
 func change_menu_color():
@@ -17,12 +18,16 @@ func change_menu_color():
 
 func _ready():
 	change_menu_color()
+#	var canvas = CanvasLayer.new()
+#	add_child(canvas)
+	var control = VC.instance()
+	add_child(control)
 
 func _input(_event):
-	if Input.is_action_just_pressed("ui_down"):
+	if Input.is_action_just_pressed("ui_up"):
 		selected_menu = (selected_menu + 1) % 3;
 		change_menu_color()
-	elif Input.is_action_just_pressed("ui_up"):
+	elif Input.is_action_just_pressed("ui_down"):
 		if selected_menu > 0:
 			selected_menu = selected_menu - 1
 		else:

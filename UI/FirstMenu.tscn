@@ -5,6 +5,9 @@
 
 [node name="FirstMenu" type="Node2D"]
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_vertical_guides_": [ 96.0, 224.0 ]
+}
 
 [node name="Background" type="ColorRect" parent="."]
 margin_right = 320.0
@@ -15,17 +18,18 @@ __meta__ = {
 }
 
 [node name="New" type="ColorRect" parent="."]
-margin_left = 64.0
+margin_left = 96.0
 margin_top = 32.0
-margin_right = 256.0
+margin_right = 224.0
 margin_bottom = 56.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="New"]
-margin_right = 192.0
+margin_right = 128.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -33,19 +37,23 @@ custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "New Game"
 align = 1
 valign = 1
-
-[node name="Load" type="ColorRect" parent="."]
-margin_left = 64.0
-margin_top = 80.0
-margin_right = 256.0
-margin_bottom = 104.0
-color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Load" type="ColorRect" parent="."]
+margin_left = 96.0
+margin_top = 80.0
+margin_right = 224.0
+margin_bottom = 104.0
+color = Color( 0.588235, 0.588235, 0.588235, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
 [node name="Label" type="Label" parent="Load"]
-margin_right = 192.0
+margin_right = 128.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -55,17 +63,18 @@ align = 1
 valign = 1
 
 [node name="Quit" type="ColorRect" parent="."]
-margin_left = 64.0
+margin_left = 96.0
 margin_top = 128.0
-margin_right = 256.0
+margin_right = 224.0
 margin_bottom = 152.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Quit"]
-margin_right = 192.0
+margin_right = 128.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )

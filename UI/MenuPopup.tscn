@@ -14,9 +14,9 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 64.0
-margin_top = 8.0
-margin_right = 256.0
+margin_left = 88.0
+margin_top = 48.0
+margin_right = 232.0
 margin_bottom = 176.0
 color = Color( 0, 0, 0, 0.588235 )
 __meta__ = {
@@ -24,17 +24,18 @@ __meta__ = {
 }
 
 [node name="Resume" type="ColorRect" parent="."]
-margin_left = 88.0
-margin_top = 16.0
-margin_right = 232.0
-margin_bottom = 40.0
+margin_left = 91.0
+margin_top = 50.0
+margin_right = 229.0
+margin_bottom = 74.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Resume"]
-margin_right = 144.0
+margin_right = 138.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -47,17 +48,18 @@ __meta__ = {
 }
 
 [node name="Restart" type="ColorRect" parent="."]
-margin_left = 88.0
-margin_top = 48.0
-margin_right = 232.0
-margin_bottom = 72.0
+margin_left = 91.0
+margin_top = 75.0
+margin_right = 229.0
+margin_bottom = 99.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="Restart"]
-margin_right = 144.0
+margin_right = 138.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
@@ -70,12 +72,13 @@ __meta__ = {
 }
 
 [node name="Save" type="ColorRect" parent="."]
-margin_left = 88.0
-margin_top = 80.0
-margin_right = 152.0
-margin_bottom = 104.0
+margin_left = 91.0
+margin_top = 100.0
+margin_right = 156.0
+margin_bottom = 124.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -93,12 +96,13 @@ __meta__ = {
 }
 
 [node name="Load" type="ColorRect" parent="."]
-margin_left = 160.0
-margin_top = 80.0
-margin_right = 232.0
-margin_bottom = 104.0
+margin_left = 157.0
+margin_top = 100.0
+margin_right = 229.0
+margin_bottom = 124.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -116,12 +120,13 @@ __meta__ = {
 }
 
 [node name="MusicOn" type="ColorRect" parent="."]
-margin_left = 88.0
-margin_top = 112.0
-margin_right = 152.0
-margin_bottom = 136.0
+margin_left = 91.0
+margin_top = 125.0
+margin_right = 156.0
+margin_bottom = 149.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -139,12 +144,13 @@ __meta__ = {
 }
 
 [node name="MusicOff" type="ColorRect" parent="."]
-margin_left = 160.0
-margin_top = 112.0
-margin_right = 232.0
-margin_bottom = 136.0
+margin_left = 157.0
+margin_top = 125.0
+margin_right = 229.0
+margin_bottom = 149.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -162,17 +168,18 @@ __meta__ = {
 }
 
 [node name="ShowCredits" type="ColorRect" parent="."]
-margin_left = 88.0
-margin_top = 144.0
-margin_right = 232.0
-margin_bottom = 168.0
+margin_left = 91.0
+margin_top = 150.0
+margin_right = 229.0
+margin_bottom = 174.0
 color = Color( 0.588235, 0.588235, 0.588235, 1 )
 __meta__ = {
+"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="ShowCredits"]
-margin_right = 144.0
+margin_right = 138.0
 margin_bottom = 24.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
