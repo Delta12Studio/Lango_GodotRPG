@@ -1,0 +1,226 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Levels/Levels.gd" type="Script" id=3]
+[ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=4]
+[ext_resource path="res://World/Bomb.png" type="Texture" id=5]
+[ext_resource path="res://World/Saber.png" type="Texture" id=6]
+[ext_resource path="res://World/PotionHP.png" type="Texture" id=7]
+[ext_resource path="res://World/Cacilda.png" type="Texture" id=8]
+[ext_resource path="res://World/Bandana.png" type="Texture" id=9]
+[ext_resource path="res://World/PotionMP.png" type="Texture" id=10]
+[ext_resource path="res://NPC/Panda.gd" type="Script" id=11]
+[ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=12]
+[ext_resource path="res://NPC/Shop.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/Shop.png" type="Texture" id=14]
+[ext_resource path="res://NPC/Panda.png" type="Texture" id=15]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 15 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "Talk",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 3 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 11.1261
+height = 10.3123
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 7.92265, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 8 )
+
+[node name="PandaShop" type="StaticBody2D"]
+z_as_relative = false
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 144, 208, 144, 160, 112, 160, 112, 144, 144, 144, 144, 128, 112, 128, 112, 112, 143.82, 112, 144, 104, 176, 104, 175.869, 112, 208, 112, 208, 128, 176, 128, 176, 144, 208, 144, 208, 160, 176, 160, 176, 208, 232, 208, 232, 24, 88, 24, 88, 208 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Level5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 160, 208 )
+
+[node name="Level5Pos" type="Position2D" parent="."]
+position = Vector2( 160.042, 201.131 )
+
+[node name="Panda" type="KinematicBody2D" parent="."]
+position = Vector2( 160, 80 )
+script = ExtResource( 11 )
+
+[node name="Shadow" type="Sprite" parent="Panda"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Panda"]
+frames = SubResource( 4 )
+animation = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Panda"]
+shape = SubResource( 5 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 160, 201 )
+
+[node name="PandaArea" type="Area2D" parent="."]
+position = Vector2( 160, 96 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PandaArea"]
+position = Vector2( 0, 3 )
+shape = SubResource( 6 )
+
+[node name="Table1" type="Area2D" parent="."]
+position = Vector2( 128, 104 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table1"]
+position = Vector2( 2, 2 )
+shape = SubResource( 7 )
+
+[node name="Bandana" type="Sprite" parent="Table1"]
+position = Vector2( 1, -6 )
+texture = ExtResource( 9 )
+
+[node name="PotionHP" type="Sprite" parent="Table1"]
+visible = false
+position = Vector2( 1, -7 )
+texture = ExtResource( 7 )
+
+[node name="Table2" type="Area2D" parent="."]
+position = Vector2( 192, 104 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
+position = Vector2( -2, 2 )
+shape = SubResource( 7 )
+
+[node name="PotionMP" type="Sprite" parent="Table2"]
+position = Vector2( -2, -7 )
+texture = ExtResource( 10 )
+
+[node name="Table3" type="Area2D" parent="."]
+position = Vector2( 128, 136 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table3"]
+position = Vector2( 2, 2 )
+shape = SubResource( 7 )
+
+[node name="Cacilda" type="Sprite" parent="Table3"]
+position = Vector2( 4, -3 )
+texture = ExtResource( 8 )
+
+[node name="Bomb" type="Sprite" parent="Table3"]
+visible = false
+position = Vector2( 1, -5 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Table4" type="Area2D" parent="."]
+position = Vector2( 192, 136 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table4"]
+position = Vector2( -2, 2 )
+shape = SubResource( 7 )
+
+[node name="Saber" type="Sprite" parent="Table4"]
+position = Vector2( -2, -3 )
+texture = ExtResource( 6 )
+
+[node name="Bomb" type="Sprite" parent="Table4"]
+visible = false
+position = Vector2( -2, -5 )
+texture = ExtResource( 5 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Shop" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="Dialogue" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 304.0
+margin_bottom = 176.0
+color = Color( 0.705882, 0.509804, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 286.0
+margin_bottom = 54.0
+color = Color( 0.94902, 0.819608, 0.694118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dialogue/ColorRect"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 286.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+text = "PANDA"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="PandaArea" to="Panda" method="_on_PandaArea_body_entered"]
+[connection signal="body_exited" from="PandaArea" to="Panda" method="_on_PandaArea_body_exited"]
+[connection signal="body_entered" from="Table1" to="Panda" method="_on_Table1_body_entered"]
+[connection signal="body_exited" from="Table1" to="Panda" method="_on_Table1_body_exited"]
+[connection signal="body_entered" from="Table2" to="Panda" method="_on_Table2_body_entered"]
+[connection signal="body_exited" from="Table2" to="Panda" method="_on_Table2_body_exited"]
+[connection signal="body_entered" from="Table3" to="Panda" method="_on_Table3_body_entered"]
+[connection signal="body_exited" from="Table3" to="Panda" method="_on_Table3_body_exited"]
+[connection signal="body_entered" from="Table4" to="Panda" method="_on_Table4_body_entered"]
+[connection signal="body_exited" from="Table4" to="Panda" method="_on_Table4_body_exited"]

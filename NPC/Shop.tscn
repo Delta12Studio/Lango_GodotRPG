@@ -1,0 +1,186 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://NPC/Shop.gd" type="Script" id=2]
+
+[node name="Shop" type="Control"]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+margin_left = 64.0
+margin_top = 24.0
+margin_right = 256.0
+margin_bottom = 88.0
+color = Color( 0.705882, 0.509804, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 67.0
+margin_top = 27.0
+margin_right = 253.0
+margin_bottom = 85.0
+color = Color( 0.94902, 0.819608, 0.694118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Number" type="Label" parent="."]
+margin_left = 151.02
+margin_top = 48.0
+margin_right = 181.02
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+text = "500"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="Label" parent="."]
+margin_left = 64.0
+margin_top = 29.0
+margin_right = 256.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Price" type="Label" parent="."]
+margin_left = 106.617
+margin_top = 48.0
+margin_right = 148.617
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+text = "PRICE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gems" type="Label" parent="."]
+margin_left = 183.0
+margin_top = 48.0
+margin_right = 215.0
+margin_bottom = 65.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+text = "GEMS"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Amount" type="ColorRect" parent="."]
+margin_left = 80.0
+margin_top = 48.0
+margin_right = 96.0
+margin_bottom = 64.0
+color = Color( 0.807843, 0.556863, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Amount"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 15.0
+margin_bottom = 15.0
+color = Color( 1, 0.764706, 0.545098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Amount"]
+margin_right = 16.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.705882, 0.509804, 0.392157, 1 )
+text = "10"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buy" type="ColorRect" parent="."]
+margin_left = 120.0
+margin_top = 65.6518
+margin_right = 200.0
+margin_bottom = 81.6518
+color = Color( 0.807843, 0.556863, 0.313726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Buy"]
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 79.0
+margin_bottom = 15.0
+color = Color( 1, 0.764706, 0.545098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buy" type="Label" parent="Buy"]
+margin_right = 80.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.705882, 0.509804, 0.392157, 1 )
+text = "BUY"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Warning" type="ColorRect" parent="."]
+visible = false
+margin_left = 98.0
+margin_top = 63.0
+margin_right = 240.0
+margin_bottom = 85.0
+color = Color( 1, 0.392157, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Warning"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 140.0
+margin_bottom = 20.0
+color = Color( 1, 0.764706, 0.545098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Warning"]
+margin_left = 2.0
+margin_right = 140.0
+margin_bottom = 22.0
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

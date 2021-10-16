@@ -1,0 +1,219 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Levels/Levels.gd" type="Script" id=1]
+[ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=2]
+[ext_resource path="res://World/Potion.png" type="Texture" id=3]
+[ext_resource path="res://World/Axe.png" type="Texture" id=4]
+[ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=5]
+[ext_resource path="res://World/PotionHP.png" type="Texture" id=6]
+[ext_resource path="res://World/Pickaxe.png" type="Texture" id=7]
+[ext_resource path="res://NPC/Polar.gd" type="Script" id=8]
+[ext_resource path="res://NPC/Shop.tscn" type="PackedScene" id=9]
+[ext_resource path="res://World/Bomb.png" type="Texture" id=10]
+[ext_resource path="res://World/Shop.png" type="Texture" id=11]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://NPC/Polar.png" type="Texture" id=13]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=14]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 13 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ) ],
+"loop": true,
+"name": "Talk",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 11.1261
+height = 10.3123
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 7.92265, 8 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 8 )
+
+[node name="PolarShop" type="StaticBody2D"]
+z_as_relative = false
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 144, 208, 144, 160, 112, 160, 112, 144, 144, 144, 144, 128, 112, 128, 112, 112, 143.82, 112, 144, 104, 176, 104, 175.869, 112, 208, 112, 208, 128, 176, 128, 176, 144, 208, 144, 208, 160, 176, 160, 176, 208, 232, 208, 232, 24, 88, 24, 88, 208 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 11 )
+centered = false
+
+[node name="Level4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, 208 )
+
+[node name="Level4Pos" type="Position2D" parent="."]
+position = Vector2( 160.042, 201.131 )
+
+[node name="Polar" type="KinematicBody2D" parent="."]
+position = Vector2( 160, 80 )
+script = ExtResource( 8 )
+
+[node name="Shadow" type="Sprite" parent="Polar"]
+position = Vector2( 0, 16 )
+texture = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Polar"]
+frames = SubResource( 4 )
+animation = "Talk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Polar"]
+shape = SubResource( 5 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 12 )]
+position = Vector2( 160, 201 )
+
+[node name="PolarArea" type="Area2D" parent="."]
+position = Vector2( 160, 96 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PolarArea"]
+position = Vector2( 0, 3 )
+shape = SubResource( 6 )
+
+[node name="Table1" type="Area2D" parent="."]
+position = Vector2( 128, 104 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table1"]
+position = Vector2( 2, 2 )
+shape = SubResource( 7 )
+
+[node name="PotionHP" type="Sprite" parent="Table1"]
+position = Vector2( 2, -6.74384 )
+texture = ExtResource( 6 )
+
+[node name="Table2" type="Area2D" parent="."]
+position = Vector2( 192, 104 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
+position = Vector2( -2, 2 )
+shape = SubResource( 7 )
+
+[node name="Potion" type="Sprite" parent="Table2"]
+position = Vector2( -1.83052, -6.95419 )
+texture = ExtResource( 3 )
+
+[node name="Table3" type="Area2D" parent="."]
+position = Vector2( 128, 136 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table3"]
+position = Vector2( 2, 2 )
+shape = SubResource( 7 )
+
+[node name="Axe" type="Sprite" parent="Table3"]
+position = Vector2( 2, -3 )
+texture = ExtResource( 4 )
+
+[node name="Bomb" type="Sprite" parent="Table3"]
+visible = false
+position = Vector2( 1, -5 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Table4" type="Area2D" parent="."]
+position = Vector2( 192, 136 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table4"]
+position = Vector2( -2, 2 )
+shape = SubResource( 7 )
+
+[node name="Pickaxe" type="Sprite" parent="Table4"]
+position = Vector2( -2, -2 )
+texture = ExtResource( 7 )
+
+[node name="Bomb" type="Sprite" parent="Table4"]
+visible = false
+position = Vector2( -2, -5 )
+texture = ExtResource( 10 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="Shop" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Dialogue" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue"]
+margin_left = 16.0
+margin_top = 120.0
+margin_right = 304.0
+margin_bottom = 176.0
+color = Color( 0.705882, 0.509804, 0.392157, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Dialogue/ColorRect"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 286.0
+margin_bottom = 54.0
+color = Color( 0.94902, 0.819608, 0.694118, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Dialogue/ColorRect"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 286.0
+margin_bottom = 54.0
+custom_fonts/font = ExtResource( 14 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.509804, 0.509804, 0.509804, 1 )
+text = "POLAR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="PolarArea" to="Polar" method="_on_PolarArea_body_entered"]
+[connection signal="body_exited" from="PolarArea" to="Polar" method="_on_PolarArea_body_exited"]
+[connection signal="body_entered" from="Table1" to="Polar" method="_on_Table1_body_entered"]
+[connection signal="body_exited" from="Table1" to="Polar" method="_on_Table1_body_exited"]
+[connection signal="body_entered" from="Table2" to="Polar" method="_on_Table2_body_entered"]
+[connection signal="body_exited" from="Table2" to="Polar" method="_on_Table2_body_exited"]
+[connection signal="body_entered" from="Table3" to="Polar" method="_on_Table3_body_entered"]
+[connection signal="body_exited" from="Table3" to="Polar" method="_on_Table3_body_exited"]
+[connection signal="body_entered" from="Table4" to="Polar" method="_on_Table4_body_entered"]
+[connection signal="body_exited" from="Table4" to="Polar" method="_on_Table4_body_exited"]

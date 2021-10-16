@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Lango_exploration.ogg-6a314eeb50c4cf3ba4f4f7dab1418e71.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Lango_exploration.ogg"
+dest_files=[ "res://.import/Lango_exploration.ogg-6a314eeb50c4cf3ba4f4f7dab1418e71.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
