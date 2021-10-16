@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Font/Avenixel/Avenixel-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Intro/Icon.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Intro/hb.png" type="Texture" id=7]
 [ext_resource path="res://Intro/dp.png" type="Texture" id=8]
 [ext_resource path="res://Intro/delta12.png" type="Texture" id=9]
+[ext_resource path="res://Music and Sounds/Lango_Mackup_theme.ogg" type="AudioStream" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Intro"
@@ -303,4 +304,10 @@ texture = ExtResource( 4 )
 self_modulate = Color( 1, 1, 1, 0 )
 texture = ExtResource( 9 )
 centered = false
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -10.0
+autoplay = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -16,4 +16,7 @@ The game features
 
 You can learn with the development tutorials on www.delta12studio.blogspot.com
 
+The great intro music was made by Dark Reaven
+https://www.youtube.com/watch?v=mDokP-LgiR0
+
 Special thanks to Heartbeast Youtube channel and dadivepesce.com website.
