@@ -170,6 +170,20 @@ tracks/12/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/13/type = "audio"
+tracks/13/path = NodePath("Intro")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 10 )
+} ],
+"times": PoolRealArray( 2.3 )
+}
 
 [sub_resource type="DynamicFont" id=2]
 size = 25
@@ -195,7 +209,7 @@ centered = false
 
 [node name="Icon" type="Sprite" parent="."]
 visible = false
-modulate = Color( 1, 1, 1, 0.625 )
+modulate = Color( 1, 1, 1, 0.375 )
 position = Vector2( 160, 64 )
 texture = ExtResource( 2 )
 
@@ -307,7 +321,6 @@ centered = false
 
 [node name="Intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
-volume_db = -10.0
-autoplay = true
+volume_db = -16.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
