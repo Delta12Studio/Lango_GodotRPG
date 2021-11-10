@@ -1,0 +1,185 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Bed.gd" type="Script" id=3]
+[ext_resource path="res://World/InsideHouse.png" type="Texture" id=4]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Levels/Levels.gd" type="Script" id=6]
+[ext_resource path="res://World/Map.png" type="Texture" id=7]
+[ext_resource path="res://World/Map.gd" type="Script" id=8]
+[ext_resource path="res://UI/SleepPopup.gd" type="Script" id=11]
+[ext_resource path="res://World/Chest.tscn" type="PackedScene" id=13]
+[ext_resource path="res://World/Bed.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17.9406, 11.2748 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 2.08418, 16 )
+
+[sub_resource type="Animation" id=3]
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ask/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Answer:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="InsideHouse" type="StaticBody2D"]
+z_as_relative = false
+script = ExtResource( 6 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 144, 208, 144, 160, 112, 160, 112, 96, 144, 96, 144, 64, 176, 64, 176, 56, 208, 56, 208, 128, 176, 128, 176, 144, 184, 144, 184, 160, 176, 160, 176, 208, 232, 208, 232, 24, 88, 24, 88, 208 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Level1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 208 )
+
+[node name="Level1Pos" type="Position2D" parent="."]
+position = Vector2( 160, 201 )
+
+[node name="Map" type="Area2D" parent="."]
+position = Vector2( 192, 128 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 8 )
+
+[node name="Map" type="Sprite" parent="Map"]
+position = Vector2( 0, 3.7755 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map"]
+position = Vector2( 0, 5.89922 )
+shape = SubResource( 1 )
+
+[node name="Bed" type="Area2D" parent="."]
+position = Vector2( 144, 72 )
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Bed"]
+position = Vector2( -16, 0 )
+texture = ExtResource( 14 )
+hframes = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
+shape = SubResource( 2 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 2 )]
+position = Vector2( 160, 86.0953 )
+
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest" parent="YSort/Chests" instance=ExtResource( 13 )]
+position = Vector2( 192, 48 )
+
+[node name="SleepPopup" type="Popup" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ask" type="ColorRect" parent="SleepPopup"]
+margin_left = 56.0
+margin_top = 96.0
+margin_right = 264.0
+margin_bottom = 160.0
+color = Color( 0.588235, 0.588235, 0.588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Ask2" type="ColorRect" parent="SleepPopup/Ask"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 205.0
+margin_bottom = 61.0
+color = Color( 1, 0.862745, 0.705882, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SleepPopup/Ask"]
+margin_right = 208.0
+margin_bottom = 64.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+align = 1
+valign = 1
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer" type="ColorRect" parent="SleepPopup"]
+visible = false
+margin_left = 96.0
+margin_top = 157.0
+margin_right = 224.0
+margin_bottom = 180.0
+color = Color( 0.588235, 0.588235, 0.588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="ColorRect" parent="SleepPopup/Answer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 125.0
+margin_bottom = 21.0
+color = Color( 1, 0.764706, 0.647059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="SleepPopup/Answer"]
+margin_right = 128.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 5 )
+custom_colors/font_color = Color( 0, 0, 0.313726, 1 )
+custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SleepPopup"]
+pause_mode = 2
+anims/ShowAsk = SubResource( 3 )
+[connection signal="body_entered" from="Map" to="Map" method="_on_Map_body_entered"]
+[connection signal="body_exited" from="Map" to="Map" method="_on_Map_body_exited"]
+[connection signal="body_entered" from="Bed" to="Bed" method="_on_Bed_body_entered"]
+[connection signal="body_exited" from="Bed" to="Bed" method="_on_Bed_body_exited"]
+[connection signal="animation_finished" from="SleepPopup/AnimationPlayer" to="SleepPopup" method="_on_AnimationPlayer_animation_finished"]

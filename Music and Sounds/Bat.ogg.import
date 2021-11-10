@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bat.ogg-aad84d41e6d2d902f86b783d1a59be93.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Bat.ogg"
+dest_files=[ "res://.import/Bat.ogg-aad84d41e6d2d902f86b783d1a59be93.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

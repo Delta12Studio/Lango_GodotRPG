@@ -1,0 +1,228 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Entrace.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Levels.gd" type="Script" id=3]
+[ext_resource path="res://World/InsideHouse.png" type="Texture" id=4]
+[ext_resource path="res://NPC/NPC.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Font/Font.tres" type="DynamicFont" id=6]
+[ext_resource path="res://NPC/DialoguePopup.gd" type="Script" id=12]
+[ext_resource path="res://World/Chest.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ShowDialogue"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Dialogue/Label:percent_visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Lango:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Answer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[node name="NPCInsideHouse" type="StaticBody2D"]
+script = ExtResource( 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 144, 208, 144, 160, 136, 160, 136, 144, 144, 144, 144, 128, 112, 128, 112, 56, 144, 56, 144, 64, 176, 64, 176, 96, 208, 96, 208, 160, 176, 160, 176, 208, 232, 208, 232, 24, 88, 24, 88, 208 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 4 )
+centered = false
+flip_h = true
+
+[node name="Level2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, 206 )
+
+[node name="Bearnardo" parent="." instance=ExtResource( 5 )]
+pause_mode = 2
+position = Vector2( 192, 96 )
+z_as_relative = false
+
+[node name="Level2Pos" type="Position2D" parent="."]
+position = Vector2( 160, 201 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Player" parent="YSort" instance=ExtResource( 1 )]
+position = Vector2( 160, 201 )
+z_index = 0
+
+[node name="Chests" type="YSort" parent="YSort"]
+
+[node name="Chest" parent="YSort/Chests" instance=ExtResource( 13 )]
+position = Vector2( 128, 45 )
+
+[node name="DialoguePopup" type="Popup" parent="."]
+pause_mode = 2
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NPCName" type="ColorRect" parent="DialoguePopup"]
+margin_left = 8.0
+margin_top = 29.0
+margin_right = 88.0
+margin_bottom = 45.0
+color = Color( 0.705882, 0.529412, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NPCName2" type="ColorRect" parent="DialoguePopup/NPCName"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 78.0
+margin_bottom = 14.0
+color = Color( 0.941176, 0.843137, 0.764706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialoguePopup/NPCName"]
+margin_right = 80.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.27451, 0.27451, 0.27451, 1 )
+text = "Bearnardo"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="ColorRect" parent="DialoguePopup"]
+margin_left = 8.0
+margin_top = 43.0
+margin_right = 176.0
+margin_bottom = 123.0
+color = Color( 0.705882, 0.529412, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue2" type="ColorRect" parent="DialoguePopup/Dialogue"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 165.0
+margin_bottom = 77.0
+color = Color( 0.784314, 0.647059, 0.588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialoguePopup/Dialogue"]
+margin_right = 168.0
+margin_bottom = 80.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.27451, 0.27451, 0.27451, 1 )
+align = 1
+valign = 1
+autowrap = true
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lango" type="ColorRect" parent="DialoguePopup"]
+margin_left = 72.0
+margin_top = 128.0
+margin_right = 152.0
+margin_bottom = 144.0
+color = Color( 0.705882, 0.529412, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Lango2" type="ColorRect" parent="DialoguePopup/Lango"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 78.0
+margin_bottom = 16.0
+color = Color( 0.941176, 0.843137, 0.764706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialoguePopup/Lango"]
+margin_right = 80.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.27451, 0.27451, 0.27451, 1 )
+text = "Lango"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer" type="ColorRect" parent="DialoguePopup"]
+margin_left = 72.0
+margin_top = 144.0
+margin_right = 255.0
+margin_bottom = 176.0
+color = Color( 0.705882, 0.529412, 0.431373, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Answer2" type="ColorRect" parent="DialoguePopup/Answer"]
+margin_left = 3.0
+margin_top = 3.0
+margin_right = 180.0
+margin_bottom = 29.0
+color = Color( 0.784314, 0.698039, 0.627451, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="DialoguePopup/Answer"]
+margin_right = 183.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0.27451, 0.27451, 0.27451, 1 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialoguePopup"]
+pause_mode = 2
+anims/ShowDialogue = SubResource( 1 )
+[connection signal="animation_finished" from="DialoguePopup/AnimationPlayer" to="DialoguePopup" method="_on_AnimationPlayer_animation_finished"]

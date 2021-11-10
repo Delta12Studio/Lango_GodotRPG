@@ -1,0 +1,458 @@
+,en_US,pt_BR,es
+CREATED,Created with,Criado com,Creado com
+THANKS,"Lango is not a complete RPG game.
+It's just a Godot Engine study project.
+Created with the help of tutorials from:
+ HeartBeast on Youtube and davidepesce.com
+
+
+
+Thank you very much for the tutorials!","Lango não é um jogo RPG completo.
+É apenas um projeto de estudo na Godot Engine.
+O jogo foi criado com ajuda dos tutoriais de:
+ HeartBeast no Youtube e davidepesce.com
+
+
+
+Muito obrigado pelos tutorias!
+ ","Lango no es un juego de rol completo.
+Es solo un proyecto de estudio em la Godot.
+El juego fue creado con la ayuda de tutoriales de:
+ HeartBeast en Youtube y davidepesce.com
+
+
+
+¡Muchas gracias por los tutoriales!
+ "
+INTRO,"Use the arrows or WASD keys to move 
+
+
+
+
+Use [J] or [Space] to ATTACK 
+Use [K] to ROLL 
+Press [ESC] to MENU
+Press [ i ] to INVENTORY","Use as setas ou WASD para se mover 
+
+
+
+
+Use [J] ou [Space] para ATACAR 
+Use [K] para ROLAR 
+Pressione [ESC] para MENU
+Use [ i ] para INVENTÁRIO","Usa las flechas o las teclas WASD para moverte 
+
+
+
+
+Usa [J] o [Space] para ATACAR 
+Usa [K] para RODAR 
+Presiona [ESC] para MENÚ
+Presiona [ i ] para INVENTARIO"
+BED ASK,"You can restore your health 
+while you sleep! 
+Do you want to sleep now?","Você pode restaurar sua saúde 
+enquanto você dorme! 
+Gostaria de dormir agora?","¡Puedes restaurar tu salud
+mientras duermes!
+¿Te gustaría dormir ahora?"
+BED ANSWER,[J]Yes [K]No,[J] Sim [K] Não,[J] Sí [K] No 
+QS NS DS1 D,"Hello my little friend!
+Could you bring me 15 honeycombs?","Fala meu amiguinho!
+Você poderia me trazer
+15 favos de mel?","¡Hola mi pequeño amigo! 
+¿Me podrías traer 15 panales? "
+QS NS DS1 A,[J] Yes [K] No,[J] Sim [K] Não,[J] Sí [K] No 
+QS NS DS2 D,"Thank you so much!
+You're a great friend!","Valeu maninho!
+Você é o cara mesmo! ","¡Muchas gracias! 
+¡Eres un gran amigo! "
+QS NS DS2 A,[J] I will be back soon!,[J] Eu volto logo!,[J] ¡Volveré pronto! 
+QS NS DS3 D,"If you change your mind, I'll be here.","Se mudar de ideia 
+estarei aqui.","Si cambias de opinión, estaré aquí. "
+QS NS DS3 A,[J] Ok!,[J] Ok!,[J] ¡Ok! 
+QS S DS1 D,Did you get all the honeycombs?,Já conseguiu todos os favos de mel?,¿Conseguiste todos los panales? 
+QS S DS1 A,[J] Yes!,[J] Sim!,[J] ¡Sí! 
+QS S DS1 A1,[J] I need to get more!,[J] Preciso conseguir mais!,[J] ¡Necesito más! 
+QS S DS2 D,"Thanks my little friend!
+Take that reward!","Valeu meu parça!
+Toma um presentinho! ","¡Gracias mi amiguito! 
+¡Toma esa recompensa! "
+QS S DS2 A,[J] Thank you so much!,[J] Valeu mano!,[J] ¡Muchas gracias! 
+QS S DS3 D,Watch out for the bees!,Cuidado com as abelhas!,¡Cuidado con las abejas! 
+QS S DS3 A,"[J] OK, I'll be back later!",[J] Ok! Eu volto mais tarde!,[J] ¡Está bien!
+QS C DS1 D,"Thanks for the help!
+Would you like to do me another favor?","Valeu pela ajuda!
+Gostaria de me fazer outro favor?","¡Gracias por la ayuda!
+¿Quieres hacerme otro favor?"
+QS C DS1 A,[J] Yes [K] No,[J] Sim [K] Não,[J] Sí [K] No
+QS C DS2 D,"I want to build a fireplace!
+Could you bring me 20 stones?","Quero construir uma lareira!
+Poderia me trazer 20 pedras?","¡Quiero construir una chimenea!
+¿Podrías traerme 20 piedras?"
+QS C DS2 A,[J] Yes,[J] Pagando bem!,[J] Sí
+QS C DS3 D,"If you change your mind,
+I will be here!","Se mudar de ideia,
+Eu estarei aqui!","Si cambias tu mente,
+¡Voy a estar aquí!"
+QS C DS3 A,[J] Ok!,[J] Ok!,[J] Ok!
+QS SS DS1 D,Did you get all the stones?,Já conseguiu todas as pedras?,¿Conseguiste todas las piedras?
+QS SS DS1 A,[J] Yes!,[J] Sim!,[J] ¡Sí! 
+QS SS DS1 A1,[J] I need to get more!,[J] Preciso conseguir mais!,[J] ¡Necesito más! 
+QS SS DS2 D,"Thanks my little friend!
+Take that reward!","Valeu meu parça!
+Toma um presentinho! ","¡Gracias mi amiguito! 
+¡Toma esa recompensa! "
+QS SS DS2 A,[J] Thank you so much!,[J] Valeu mano!,[J] ¡Muchas gracias! 
+QS SS DS3 D,Watch out for the bees!,Cuidado com as abelhas!,¡Cuidado con las abejas! 
+QS SS DS3 A,"[J] OK, I'll be back later!",[J] Ok! Eu volto mais tarde!,[J] ¡Está bien!
+QS SC DS1 D,"Thanks for the help!
+Would you like to do me another favor?","Valeu pela ajuda!
+Gostaria de me fazer outro favor?","¡Gracias por la ayuda!
+¿Quieres hacerme otro favor?"
+QS SC DS1 A,[J] Yes [K] No,[J] Sim [K] Não,[J] Sí [K] No
+QS SC DS2 D,"Now i need wood
+could you bring me 30?","Agora eu preciso de madeira 
+pode me trazer 30?","Ahora necesito madera
+me puedes traer 30?"
+QS SC DS2 A,[J] Yes,[J] E lá vamos nós!,[J] Sí
+QS SC DS3 D,"If you change your mind,
+I will be here!","Se mudar de ideia,
+Eu estarei aqui!","Si cambias tu mente,
+¡Voy a estar aquí!"
+QS SC DS3 A,[J] Ok!,[J] Ok!,[J] Ok!
+QS ST DS1 D,Did you get all the wood?,Já conseguiu todas a madeira?,¿Conseguiste todas la madera?
+QS ST DS1 A,[J] Yes!,[J] Sim!,[J] ¡Sí! 
+QS ST DS1 A1,[J] I need to get more!,[J] Preciso conseguir mais!,[J] ¡Necesito más! 
+QS ST DS2 D,"Thanks my little friend!
+Take that reward!","Valeu meu parça!
+Toma um presentinho! ","¡Gracias mi amiguito! 
+¡Toma esa recompensa! "
+QS ST DS2 A,[J] Thank you so much!,[J] Valeu mano!,[J] ¡Muchas gracias! 
+QS ST DS3 D,Watch out for the bees!,Cuidado com as abelhas!,¡Cuidado con las abejas! 
+QS ST DS3 A,"[J] OK, I'll be back later!",[J] Ok! Eu volto mais tarde!,[J] ¡Está bien!
+HOUSE,Lango's House,Casa do Lango,Casa de Lango 
+NPC HOUSE,Bearnardo's House,Casa do Bearnardo,Casa de Bearnardo 
+RESUME,RESUME,RESUMIR,REGRESAR
+RESTART,RESTART,RECOMEÇAR,REANUDAR 
+QUIT,QUIT,SAIR,DEJAR 
+DANGEON1,"The Cave of Madness
+keep great treasures
+but the weak only
+ will find the exit
+through death!","A Caverna da Loucura
+guarda grandes tesouros
+mas, os fracos só
+ encontrarão a saída
+através da morte!   ","La Cueva de la Locura
+guarda grandes tesoros
+pero, solo los débiles
+ encontraras la salida
+por la muerte!"
+DANGEON7,"Who retreats
+in front of a
+great opportunity
+Certainly will regret it!","Quem recua 
+diante de uma 
+grande oportunidade
+certamente se arrependerá!","Quien regresa
+delante de una
+gran oportunidad 
+sin duda lo lamentaré!"
+BUY,Buy,Comprar,Compra
+GEMS,Gems,Gemas,Gemas
+PRICE,Price:,Preço:,Precio:
+Insufficient gems,Insufficient Gems,Gemas Insuficientes,Gemas Insuficientes
+Already equipped,Already equipped,Já foi equipado,Ya ha sido equipado
+Health Potion,Health Potion,Poção de Saúde,Poción de Salud
+Insufficient space,Insufficient space,Espaço Insuficiente,Espacio Insuficiente
+Repellent Potion,Repellent Potion,Poção Repelente,Poción Repelente
+Mana Potion,Mana Potion,Poção de Mana,Poción de Mana
+Bomb,Bomb,Bomba,Bomba
+Axe,Axe,Machado,Hacha
+Pickaxe,Pickaxe,Picareta,Pico
+Swon's Saber,Swon's Saber,Sabre de Swon,Sable de Swon
+Map,Map,Mapa,Mapa
+Wood,Wood,Madeira,Madera
+Stone,Stone,Pedra,Piedra
+PANDA,Welcome to Panda Store!,"LAMBDA, LAMBDA, LAMBDA!
+SEJA BEM VINDO A PANDA STORE!",¡Bienvenido a Panda Store!
+POLAR,"Welcome to Polar Shop!
+The best store in all of the Lango Island!","Seja bem vindo a Polar Shop!
+A melhor loja de toda Lango Island!","¡Bienvenido a Polar Shop!
+¡La mejor tienda de toda la Lango Island!"
+Inventory,Inventory,Inventário,Inventario
+Backyard of Lango,Backyard of Lango,Quintal do Lango,Patio de Lango
+Backyard of Bearnardo,Backyard of Bearnardo,Quintal do Bearnardo,Patio de Bearnardo
+Bees' Forest,Bees' Forest,Bosque das Abelhas,Bosque de las abejas
+Backyard of Polar,Backyard of Polar,Quintal do Polar,Patio de Polar
+Panda’s Forest,Panda’s Forest,Floresta do Panda,Bosque del Panda
+Lango's House,Lango's House,Casa do Lango,Casa de Lango 
+Bearnardo’s House,Bearnardo’s House,Casa do Bearnardo,Casa de Bearnardo 
+Too dark to read the map,Too dark to read the map,Muito escuro para ler o mapa,Demasiado oscuro para leer el mapa
+Bat Cave,Bat Cave,Caverna dos morcegos,Cueva de murciélagos
+Lost Cave,Lost Cave,Caverna Perdida,Cueva Perdida
+Cave of Madness 1,Cave of Madness 1,Caverna da Loucura 1,Cueva de la Locura 1
+Cave of Madness 2,Cave of Madness 2,Caverna da Loucura 2,Cueva de la Locura 2
+Cave of Madness 3,Cave of Madness 3,Caverna da Loucura 3,Cueva de la Locura 3
+Cave of Madness 4,Cave of Madness 4,Caverna da Loucura 4,Cueva de la Locura 4
+Cave of Madness 5,Cave of Madness 5,Caverna da Loucura 5,Cueva de la Locura 5
+Cave of Madness 6,Cave of Madness 6,Caverna da Loucura 6,Cueva de la Locura 6
+Cave of Treasures,Cave of Treasures,Caverna dos Tesouros,Cueva de Tesoros
+,,,
+CREDITS,"SPECIAL THANKS TO
+
+HEARTBEAST YOUTUBE CHANNEL
+AND
+DAVIDEPESCE.COM WEBSITE
+
+
+
+
+PRODUCED BY DELTA12 STUDIO
+
+
+
+
+
+DEDICATED TO
+
+JULHA CRISTHINE
+BRAYAM VICTOR
+NICOLE SCHÄEFER
+
+
+
+
+
+MUSIC
+DARK REAVEN
+
+PRINCIPAL
+MICHAEL WILLIAM
+
+CHARACTER DESIGN
+MICHAEL WILLIAM
+
+SUPERVISOR
+MICHAEL WILLIAM
+
+UI DESIGNER
+MICHAEL WILLIAM
+
+PROGRAMMER
+MICHAEL WILLIAM
+
+SOUND EFFECTS
+MICHAEL WILLIAM
+
+GRAPHIC DIRECTOR
+MICHAEL WILLIAM
+
+THE COFFEE GUY
+MICHAEL WILLIAM
+
+THE GUY RESPONSIBLE FOR ALL BUGS
+MICHAEL WILLIAM
+
+THE GUY WHO NEEDS A GREATER TEAM
+MICHAEL WILLIAM
+
+THE GUY THAT MADE THESE CREDITS
+
+OH MY GOD! I FORGOT HIS NAME!
+
+
+
+
+
+
+
+
+
+OK! I JUST REMEMBERED!
+MICHAEL WILLIAM
+
+
+
+
+
+THE GUY THAT MADE
+ALL THESE NOT FUNNY JOKES 
+MICHAEL WILLIAM
+
+
+
+
+THANK YOU FOR PLAYING THIS GAME !!!
+DELTA12 STUDIO","AGRADECIMENTOS ESPECIAIS  
+
+HEARTBEAST YOUTUBE 
+E
+DAVIDEPESCE.COM
+
+
+
+
+PRODUZIDO POR DELTA12 STUDIO
+
+
+
+
+
+DEDICADO A 
+
+JULHA CRISTHINE
+BRAYAM VICTOR
+NICOLE SCHÄEFER
+
+
+
+
+
+MÚSICA
+DARK REAVEN
+
+DIRETOR
+MICHAEL WILLIAM
+
+DESIGNER DE PERSONAGENS
+MICHAEL WILLIAM
+
+SUPERVISOR
+MICHAEL WILLIAM
+
+UI DESIGNER
+MICHAEL WILLIAM
+
+PROGRAMADOR
+MICHAEL WILLIAM
+
+EFEITOS SONOROS
+MICHAEL WILLIAM
+
+DIRETOR DE DESIGN
+MICHAEL WILLIAM
+
+O CARA DO CAFÉ
+MICHAEL WILLIAM
+
+O CARA RESPONSÁVEL POR TODOS OS BUGS
+MICHAEL WILLIAM
+
+O CARA QUE PRECISA DE UMA EQUIPE MAIOR
+MICHAEL WILLIAM
+
+O CARA QUE FEZ ESSES CRÉDITOS
+
+OH MEU DEUS! ESQUECI O NOME DELE!
+
+
+
+
+
+
+
+
+
+OK! LEMBREI AGORA!
+MICHAEL WILLIAM
+
+
+
+
+
+O CARA QUE FEZ
+TODAS ESSAS PIADAS SEM GRAÇA
+MICHAEL WILLIAM
+
+
+
+
+OBRIGADO POR JOGAR ESSE JOGO!!!
+DELTA12 STUDIO","GRACIAS ESPECIALES
+
+HEARTBEAST YOUTUBE
+Y
+DAVIDPESCE.COM
+
+
+
+
+PRODUCIDO POR DELTA12 STUDIO
+
+
+
+
+
+DEDICADO A
+
+JULIA CRISTHINE
+BRAYAM VICTOR
+NICOLE SCHÄEFER
+
+
+
+
+
+MÚSICA
+DARK REAVEN
+
+PRINCIPAL
+MICHAEL WILLIAM
+
+DISEÑADOR DE PERSONAJES
+MICHAEL WILLIAM
+
+SUPERVISOR
+MICHAEL WILLIAM
+
+UI DESIGNER
+MICHAEL WILLIAM
+
+PROGRAMADOR
+MICHAEL WILLIAM
+
+EFECTOS SONOROS
+MICHAEL WILLIAM
+
+DIRECTOR DE DISEÑO
+MICHAEL WILLIAM
+
+EL TIPO QUE HIZO EL CAFÉ
+MICHAEL WILLIAM
+
+EL TIPO RESPONSABLE DE TODOS LOS ERRORES
+MICHAEL WILLIAM
+
+EL TIPO QUE NECESITA UN EQUIPO MÁS GRANDE
+MICHAEL WILLIAM
+
+EL TIPO QUE HIZO ESTOS CRÉDITOS
+
+¡OH DIOS MIO! ¡HE OLVIDADO SU NOMBRE!
+
+
+
+
+
+
+
+
+
+¡OK! RECORDADO AHORA!
+MICHAEL WILLIAM
+
+
+
+
+
+EL TIPO QUE HIZO
+TODOS ESTOS CHISTES
+MICHAEL WILLIAM
+
+
+
+
+GRACIAS POR JUGAR A ESTE JUEGO
+DELTA12 STUDIO"

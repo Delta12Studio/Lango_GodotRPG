@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Tree.ogg-294cda17689ed423edebe6c1e7d06f75.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Tree.ogg"
+dest_files=[ "res://.import/Tree.ogg-294cda17689ed423edebe6c1e7d06f75.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

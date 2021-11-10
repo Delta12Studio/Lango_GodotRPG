@@ -1,0 +1,155 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://World/House.png" type="Texture" id=1]
+[ext_resource path="res://Music and Sounds/Door.ogg" type="AudioStream" id=2]
+[ext_resource path="res://World/NPCHouse.png" type="Texture" id=3]
+[ext_resource path="res://World/House.gd" type="Script" id=4]
+[ext_resource path="res://World/NPCHouse1.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "CloseDoor"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Red:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Yellow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0 ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Blue:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 1, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "OpenDoor"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Red:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Yellow:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0.1 )
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Blue:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 14.9897, 1.2957 )
+
+[node name="House" type="StaticBody2D"]
+script = ExtResource( 4 )
+
+[node name="Red" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+hframes = 3
+
+[node name="Blue" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+hframes = 3
+
+[node name="Yellow" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -48, -40, 0, -72, 48, -40, 72, 16, 48, 56, 17.1932, 59.7924, 14.0229, 51.116, -13.675, 51.116, -17.5126, 59.6256, -48, 56, -72, 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/CloseDoor = SubResource( 1 )
+anims/OpenDoor = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="Door" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
+position = Vector2( 0, 55 )
+shape = SubResource( 3 )
+[connection signal="body_entered" from="Door" to="." method="_on_Door_body_entered"]
