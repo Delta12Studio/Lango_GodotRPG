@@ -1,4 +1,4 @@
-[gd_scene load_steps=106 format=2]
+[gd_scene load_steps=107 format=2]
 
 [ext_resource path="res://World/Sign.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=7]
 [ext_resource path="res://World/DirtCaveBackground.png" type="Texture" id=8]
 [ext_resource path="res://Levels/DangeonEntrace.tscn" type="PackedScene" id=9]
+[ext_resource path="res://UI/Music.gd" type="Script" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -1018,5 +1019,8 @@ rotation = 1.5708
 position = Vector2( -16, 80 )
 rotation = 1.5708
 puzzle = 1
+
+[node name="CaveMusic" type="Node2D" parent="."]
+script = ExtResource( 10 )
 
 [editable path="Sign"]

@@ -951,7 +951,7 @@ cell_size = Vector2( 16, 16 )
 format = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 80.1894, 369.886 )
+position = Vector2( 332, 65 )
 current = true
 limit_left = 0
 limit_top = 0
@@ -963,7 +963,7 @@ drag_margin_v_enabled = true
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 2 )]
-position = Vector2( 80.1894, 369.886 )
+position = Vector2( 332, 65 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")

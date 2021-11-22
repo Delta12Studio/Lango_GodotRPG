@@ -51,7 +51,7 @@ height = 5.32793
 radius = 68.8316
 
 [sub_resource type="CircleShape2D" id=10]
-radius = 2.49061
+radius = 1.0
 
 [sub_resource type="Animation" id=11]
 length = 0.2
@@ -99,7 +99,7 @@ shape = SubResource( 1 )
 material = SubResource( 2 )
 frames = SubResource( 7 )
 animation = "Bee"
-frame = 1
+frame = 2
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -169,15 +169,14 @@ __meta__ = {
 autoplay = "Stop"
 anims/Start = SubResource( 11 )
 anims/Stop = SubResource( 12 )
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="area_exited" from="HurtBox" to="." method="_on_HurtBox_area_exited"]
-[connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
-[connection signal="invincibility_started" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
+[connection signal="invincibility_started" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_started"]
 
 [editable path="HurtBox"]
-
 [editable path="PlayerDetectionZone"]
-
 [editable path="HitBox"]

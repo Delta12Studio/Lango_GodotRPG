@@ -1140,8 +1140,8 @@ radius = 3.37961
 height = 5.89922
 
 [sub_resource type="CapsuleShape2D" id=52]
-radius = 6.00885
-height = 9.00359
+radius = 6.0
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id=53]
 radius = 7.10229
@@ -1251,12 +1251,12 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2( 0, -8 )
+position = Vector2( 0, -10 )
 shape = SubResource( 52 )
 
 [node name="HitBoxPivot" type="Position2D" parent="."]
 position = Vector2( 0, -8 )
-rotation = 3.14159
+rotation = 1.5708
 
 [node name="SwordHitBox" parent="HitBoxPivot" instance=ExtResource( 1 )]
 collision_layer = 0
@@ -1279,6 +1279,7 @@ anims/Stop = SubResource( 55 )
 [node name="Transition" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_ended" from="HurtBox" to="HurtBox" method="_on_HurtBox_invincibility_ended"]
@@ -1287,5 +1288,4 @@ one_shot = true
 [connection signal="timeout" from="Transition" to="." method="_on_Transition_timeout"]
 
 [editable path="HurtBox"]
-
 [editable path="HitBoxPivot/SwordHitBox"]

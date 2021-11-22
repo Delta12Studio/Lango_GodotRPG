@@ -168,7 +168,8 @@ func _on_HurtBox_area_entered(area):
 	hurtbox.create_hit_effect()
 
 func dying_state():
-	$HurtBox.set_deferred("monitoring", false)
+	#$HurtBox.set_deferred("monitoring", false)
+	$HurtBox.queue_free()
 	animationTree.active = false
 	can_move = false
 	animationPlayer.play("Dying")
@@ -177,7 +178,9 @@ func dying_state():
 # warning-ignore:return_value_discarded
 	Global.from = null
 	Global.direction = Vector2.ZERO
+	Global.stop_music()
 	get_tree().change_scene("res://Levels/Level1.tscn")
+	Global.play_music()
 
 func _on_HurtBox_invincibility_started():
 	blinkAnimationPlayer.play("Start")

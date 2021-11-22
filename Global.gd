@@ -21,10 +21,10 @@ var honeycombs = 0
 var gem = 0
 var wood = 0
 var stone = 0
-var Hpotion = 0
-var Mpotion = 0
-var Rpotion = 0
-var bomb = 0
+var Hpotion = 1
+var Mpotion = 1
+var Rpotion = 1
+var bomb = 1
 var map = "empty" #"empty" or "equipped"
 var Cacilda = "empty"
 var axe = "empty"
@@ -32,7 +32,7 @@ var bandana = "empty"
 var saber = "empty"
 var pickaxe = "empty"
 ########################################
-
+enum dangeons{ Dangeon1, Dangeon2, Dangeon3, Dangeon4, Dangeon5, Dangeon6, Dangeon7}
 enum QuestStatus { 
 	NOT_STARTED, 
 	STARTED, 
@@ -100,11 +100,15 @@ func _countdown():
 	if timer == 0:
 		print("time over")
 
+func cave_play():
+	$CaveMusic.play()
+
 func play_music():
 	$Music.play()
 
 func stop_music():
 	$Music.stop()
+	$CaveMusic.stop()
 
 func _on_update_status():
 	emit_signal("update_status")
@@ -176,9 +180,17 @@ func load_game():
 		bandana = data.bandana
 		saber = data.saber
 		pickaxe = data.pickaxe
-		
-	# warning-ignore:return_value_discarded
-		get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+
+		if not current_level in dangeons:
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+		else:
+			stop_music()
+			current_level = "CaveLevel2"
+			from = null
+# warning-ignore:return_value_discarded
+			get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+			play_music()
 		get_tree().paused = false
 
 ################### Restart ##########################
