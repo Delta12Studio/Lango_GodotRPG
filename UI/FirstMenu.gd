@@ -24,10 +24,10 @@ func _ready():
 	add_child(control)
 
 func _input(_event):
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_down"):
 		selected_menu = (selected_menu + 1) % 3;
 		change_menu_color()
-	elif Input.is_action_just_pressed("ui_down"):
+	elif Input.is_action_just_pressed("ui_up"):
 		if selected_menu > 0:
 			selected_menu = selected_menu - 1
 		else:
@@ -39,7 +39,7 @@ func _input(_event):
 			0:
 				# New game
 # warning-ignore:return_value_discarded
-				get_tree().change_scene("res://Levels/Level1.tscn")
+				get_tree().change_scene("res://Levels/InsideHouse.tscn")
 			1:
 				# Load game
 				Global.load_game()

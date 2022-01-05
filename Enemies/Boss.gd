@@ -1,18 +1,20 @@
 extends KinematicBody2D
 
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
-const Drop = preload("res://World/Item.tscn")
-const Bee = preload("res://Enemies/Bee.tscn")
+const Drop             = preload("res://World/Item.tscn")
+const Bee              = preload("res://Enemies/Bee.tscn")
 
-var dead = false
-var rng = RandomNumberGenerator.new()
+signal boss_is_dead
+
+var dead               = false
+var rng                = RandomNumberGenerator.new()
 var my_number
 
-export var ACCELERATION = 300
-export var MAX_SPEED = 75
-export var FRICTION = 200
+export var ACCELERATION        = 300
+export var MAX_SPEED           = 75
+export var FRICTION            = 200
 export var WANDER_TARGET_RANGE = 4
-export var HEALTH = 50
+export var HEALTH              = 50
 
 enum{
 	IDLE,
@@ -33,6 +35,8 @@ onready var animationPlayer = $AnimationPlayer
 
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
+# warning-ignore:return_value_discarded
+	self.connect("boss_is_dead", get_parent().get_parent(), "drop_key")
 
 func _physics_process(delta):
 
@@ -108,6 +112,7 @@ func _on_HurtBox_area_exited(_area):
 			drop.type = 2
 			get_parent().add_child(drop)
 			drop.global_position = global_position + Vector2(rand_range(-16,16),rand_range(-16,16))
+			emit_signal("boss_is_dead")
 
 func _on_Timer_timeout():
 	var bee = Bee.instance()

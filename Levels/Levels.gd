@@ -1,14 +1,14 @@
 extends Node2D
 
-onready var Player = preload("res://Player/Player.tscn")
-onready var Ledi = preload("res://Player/Ledi.tscn")
-onready var Lyu = preload("res://Player/Lyu.tscn")
-onready var Legan = preload("res://Player/Legan.tscn")
-onready var Bomb = preload("res://World/Bomb.tscn")
-
-var HealthUI = preload("res://UI/HealthUI.tscn") 
-var VC = preload("res://UI/VirtualControl.tscn")
-var Level = preload("res://UI/LevelName.tscn")
+onready var Player   = preload("res://Player/Player.tscn")
+onready var Ledi     = preload("res://Player/Ledi.tscn")
+onready var Lyu      = preload("res://Player/Lyu.tscn")
+onready var Legan    = preload("res://Player/Legan.tscn")
+onready var Bomb     = preload("res://World/Bomb.tscn")
+onready var Canvas   = preload("res://World/KeyCanvas.tscn")
+onready var HealthUI = preload("res://UI/HealthUI.tscn") 
+onready var VC       = preload("res://UI/VirtualControl.tscn")
+onready var Level    = preload("res://UI/LevelName.tscn")
 
 func _ready():
 	Global.current_level = self.name
@@ -26,6 +26,16 @@ func _ready():
 	if Global.from != null:
 		get_node("YSort/" + Global.player).set_position(get_node(Global.from + "Pos").position)
 		get_node("YSort/" + Global.player).transition()
+
+	key_collect()
+
+func key_collect():
+	if Global.key_founded != []:
+		if not has_node("KeyCanvas"):
+			var canvas = Canvas.instance()
+			add_child(canvas)
+		else:
+			get_node("KeyCanvas").show_key()
 
 func _transform():
 	if Global.player == "Legan":

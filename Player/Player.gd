@@ -1,17 +1,17 @@
 extends KinematicBody2D
 
 var ACCELERATION = 500
-var MAX_SPEED = 80
-var FRICTION = 500
-var ROLL_SPEED = 120
+var MAX_SPEED    = 80
+var FRICTION     = 500
+var ROLL_SPEED   = 120
 
 enum { MOVE, ROLL, ATTACK, TRANSITION, TRANSFORM }
 
-var state = MOVE
-var velocity = Vector2.ZERO
-var roll_vector = Vector2.DOWN
-var can_move = true 
-var can_attack = true 
+var state        = MOVE
+var velocity     = Vector2.ZERO
+var roll_vector  = Vector2.DOWN
+var can_move     = true 
+var can_attack   = true 
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -173,13 +173,15 @@ func dying_state():
 	animationTree.active = false
 	can_move = false
 	animationPlayer.play("Dying")
+	Global.stop_music()
+	Global.death_play()
 	yield($AnimationPlayer, "animation_finished")
 	Global.health = Global.max_health
 # warning-ignore:return_value_discarded
 	Global.from = null
 	Global.direction = Vector2.ZERO
-	Global.stop_music()
-	get_tree().change_scene("res://Levels/Level1.tscn")
+	yield(get_tree().create_timer(2),"timeout")
+	get_tree().change_scene("res://Levels/InsideHouse.tscn")
 	Global.play_music()
 
 func _on_HurtBox_invincibility_started():

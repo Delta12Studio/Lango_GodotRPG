@@ -31,9 +31,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="New"]
 margin_right = 128.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "New Game"
 align = 1
 valign = 1
@@ -55,9 +55,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="Load"]
 margin_right = 128.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Load Game"
 align = 1
 valign = 1
@@ -76,9 +76,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="Quit"]
 margin_right = 128.0
 margin_bottom = 24.0
-custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 1 )
 text = "Quit Game"
 align = 1
 valign = 1

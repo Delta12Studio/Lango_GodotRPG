@@ -1115,5 +1115,6 @@ position = Vector2( 352, 66 )
 position = Vector2( 336, 102 )
 
 [editable path="YSort/Trees/Tree"]
-
+[editable path="YSort/Trees/Tree/Z_Index"]
 [editable path="YSort/Trees/Tree2"]
+[editable path="YSort/Trees/Tree2/Z_Index"]

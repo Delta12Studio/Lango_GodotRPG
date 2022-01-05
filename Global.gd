@@ -1,36 +1,38 @@
 extends Node
 
 export(int) var max_health = 5 setget set_max_health
-var health = max_health setget set_health
-var health_bar = 0 setget set_health_bar
-var repellent = false
+var health           = max_health setget set_health
+var health_bar       = 0 setget set_health_bar
+var repellent        = false
 var timer
-var mana = 0
+var mana             = 0
 var from
 var current_level
-var visited = ["Level1"]
-var direction = Vector2.ZERO
+var visited          = ["Level1"]
+var key_founded      = []
+var opened_doors     = []
+var direction        = Vector2.ZERO
 var cave
 var chest
-var player = "Player"
-var axe_equipped = false
+var player           = "Player"
+var axe_equipped     = false
 var pickaxe_equipped = false
 var data
 ################# Items ################
-var honeycombs = 0
-var gem = 0
-var wood = 0
-var stone = 0
-var Hpotion = 1
-var Mpotion = 1
-var Rpotion = 1
-var bomb = 1
-var map = "empty" #"empty" or "equipped"
-var Cacilda = "empty"
-var axe = "empty"
-var bandana = "empty"
-var saber = "empty"
-var pickaxe = "empty"
+var honeycombs       = 0
+var gem              = 0
+var wood             = 0
+var stone            = 0
+var Hpotion          = 1
+var Mpotion          = 1
+var Rpotion          = 1
+var bomb             = 1
+var map              = "empty" #"empty" or "equipped"
+var Cacilda          = "empty"
+var axe              = "empty"
+var bandana          = "empty"
+var saber            = "empty"
+var pickaxe          = "empty"
 ########################################
 enum dangeons{ Dangeon1, Dangeon2, Dangeon3, Dangeon4, Dangeon5, Dangeon6, Dangeon7}
 enum QuestStatus { 
@@ -103,6 +105,9 @@ func _countdown():
 func cave_play():
 	$CaveMusic.play()
 
+func death_play():
+	$Death.play()
+
 func play_music():
 	$Music.play()
 
@@ -115,32 +120,35 @@ func _on_update_status():
 
 func save_game():
 	data = {
-		"current_level" : current_level,
-		"from" : from,
-		"direction" : direction,
-		"cave" : cave,
-		"chest" : chest,
-		"axe_equipped" : axe_equipped,
+		"current_level"    : current_level,
+		"from"             : from,
+		"direction"        : [direction.x, direction.y],
+		"cave"             : cave,
+		"chest"            : chest,
+		"axe_equipped"     : axe_equipped,
 		"pickaxe_equipped" : pickaxe_equipped,
-		"quest_status" : quest_status,
-		"max_health" : max_health,
-		"health" : health,
-		"player" : player,
-		"visited" : visited,
-		"honeycombs" : honeycombs,
-		"gem" : gem,
-		"wood" : wood,
-		"stone" : stone,
-		"Hpotion" : Hpotion,
-		"Mpotion" : Mpotion,
-		"Rpotion" : Rpotion,
-		"bomb" : bomb,
-		"map" : map,
-		"Cacilda" : Cacilda,
-		"axe" : axe,
-		"bandana" : bandana,
-		"saber" : saber,
-		"pickaxe" : pickaxe,
+		"quest_status"     : quest_status,
+		"max_health"       : max_health,
+		"health"           : health,
+		"player"           : player,
+		"visited"          : visited,
+		"honeycombs"       : honeycombs,
+		"gem"              : gem,
+		"wood"             : wood,
+		"stone"            : stone,
+		"Hpotion"          : Hpotion,
+		"Mpotion"          : Mpotion,
+		"Rpotion"          : Rpotion,
+		"bomb"             : bomb,
+		"map"              : map,
+		"Cacilda"          : Cacilda,
+		"axe"              : axe,
+		"bandana"          : bandana,
+		"saber"            : saber,
+		"pickaxe"          : pickaxe,
+		"key_founded"      : key_founded,
+		"opened_doors"     : opened_doors,
+
 	}
 	var file = File.new()
 	file.open("user://savegame.json", File.WRITE)
@@ -154,32 +162,35 @@ func load_game():
 		file.open("user://savegame.json", File.READ)
 		data = parse_json(file.get_as_text())
 		file.close()
-		current_level = data.current_level
-		from = data.from
-		direction = Vector2(data.direction , data.direction)
-		cave = data.cave
-		chest = data.chest
-		chest = data.chest
+
+		current_level    = data.current_level
+		from             = data.from
+		direction        = Vector2(data.direction[0], data.direction[1])
+		cave             = data.cave
+		chest            = data.chest
+		chest            = data.chest
 		pickaxe_equipped = data.pickaxe_equipped
-		quest_status = int(data.quest_status)
-		max_health = data.max_health
-		health = data.health
-		player = data.player
-		visited = data.visited
-		honeycombs = data.honeycombs
-		gem = data.gem
-		wood = data.wood
-		stone = data.stone
-		Hpotion = data.Hpotion
-		Mpotion = data.Mpotion
-		Rpotion = data.Rpotion
-		bomb = data.bomb
-		map = data.map
-		Cacilda = data.Cacilda
-		axe = data.axe
-		bandana = data.bandana
-		saber = data.saber
-		pickaxe = data.pickaxe
+		quest_status     = int(data.quest_status)
+		max_health       = data.max_health
+		health           = data.health
+		player           = data.player
+		visited          = data.visited
+		honeycombs       = data.honeycombs
+		gem              = data.gem
+		wood             = data.wood
+		stone            = data.stone
+		Hpotion          = data.Hpotion
+		Mpotion          = data.Mpotion
+		Rpotion          = data.Rpotion
+		bomb             = data.bomb
+		map              = data.map
+		Cacilda          = data.Cacilda
+		axe              = data.axe
+		bandana          = data.bandana
+		saber            = data.saber
+		pickaxe          = data.pickaxe
+		key_founded      = data.key_founded
+		opened_doors     = data.opened_doors
 
 		if not current_level in dangeons:
 # warning-ignore:return_value_discarded
@@ -196,32 +207,34 @@ func load_game():
 ################### Restart ##########################
 func reset():
 	stop_music()
-	from = null
-	direction = Vector2.ZERO
-	cave = null
-	chest = null
-	axe_equipped = false
+	from             = null
+	direction        = Vector2.ZERO
+	cave             = null
+	chest            = null
+	axe_equipped     = false
 	pickaxe_equipped = false
-	quest_status = QuestStatus.NOT_STARTED
-	max_health = 5
-	health = max_health
-	player = "Player"
-	visited = ["Level1"]
+	quest_status     = QuestStatus.NOT_STARTED
+	max_health       = 5
+	health           = max_health
+	player           = "Player"
+	visited          = ["Level1"]
+	key_founded      = []
+	opened_doors     = []
 	################# Items ################
-	honeycombs = 0
-	gem = 0
-	wood = 0
-	stone = 0
-	Hpotion = 0
-	Mpotion = 0
-	Rpotion = 0
-	bomb = 0
-	map = "empty"
-	Cacilda = "empty"
-	axe = "empty"
-	bandana = "empty"
-	saber = "empty"
-	pickaxe = "empty"
+	honeycombs       = 0
+	gem              = 0
+	wood             = 0
+	stone            = 0
+	Hpotion          = 1
+	Mpotion          = 1
+	Rpotion          = 1
+	bomb             = 1
+	map              = "empty"
+	Cacilda          = "empty"
+	axe              = "empty"
+	bandana          = "empty"
+	saber            = "empty"
+	pickaxe          = "empty"
 	########################################
 # warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/FirstMenu.tscn")
