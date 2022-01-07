@@ -1,8 +1,8 @@
 extends Area2D
 
-const HitEffect = preload("res://Effects/HitEffect.tscn")
+const HitEffect   = preload("res://Effects/HitEffect.tscn")
 
-var invincible = false setget set_invincible
+var invincible    = false setget set_invincible
 onready var timer = $Timer
 
 signal invincibility_started

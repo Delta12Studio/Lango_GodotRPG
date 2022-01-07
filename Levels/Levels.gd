@@ -1,15 +1,12 @@
 extends Node2D
 
-onready var Player   = preload("res://Player/Player.tscn")
-onready var Ledi     = preload("res://Player/Ledi.tscn")
-onready var Lyu      = preload("res://Player/Lyu.tscn")
-onready var Legan    = preload("res://Player/Legan.tscn")
 onready var Bomb     = preload("res://World/Bomb.tscn")
 onready var Canvas   = preload("res://World/KeyCanvas.tscn")
 onready var HealthUI = preload("res://UI/HealthUI.tscn") 
 onready var VC       = preload("res://UI/VirtualControl.tscn")
 onready var Level    = preload("res://UI/LevelName.tscn")
 
+##################################################################
 func _ready():
 	Global.current_level = self.name
 	var level_name = Level.instance()
@@ -22,13 +19,13 @@ func _ready():
 	var health = HealthUI.instance()
 	add_child(health)
 
-	_transform()
 	if Global.from != null:
-		get_node("YSort/" + Global.player).set_position(get_node(Global.from + "Pos").position)
-		get_node("YSort/" + Global.player).transition()
+		get_node("YSort/Player").set_position(get_node(Global.from + "Pos").position)
+		get_node("YSort/Player").transition()
 
 	key_collect()
 
+#################################################################
 func key_collect():
 	if Global.key_founded != []:
 		if not has_node("KeyCanvas"):
@@ -37,83 +34,29 @@ func key_collect():
 		else:
 			get_node("KeyCanvas").show_key()
 
-func _transform():
-	if Global.player == "Legan":
-		var _Player = Legan.instance()
-		$YSort.add_child(_Player)
-		_Player.position = $YSort/Player.position
-		$YSort/Player.queue_free()
-		var _Camera = RemoteTransform2D.new()
-		_Player.add_child(_Camera)
-		_Camera.remote_path = "../../../Camera2D"
-
-	if Global.player == "Ledi":
-		var _Player = Ledi.instance()
-		$YSort.add_child(_Player)
-		_Player.position = $YSort/Player.position
-		$YSort/Player.queue_free()
-		var _Camera = RemoteTransform2D.new()
-		_Player.add_child(_Camera)
-		_Camera.remote_path = "../../../Camera2D"
-
-	if Global.player == "Lyu":
-		var _Player = Lyu.instance()
-		$YSort.add_child(_Player)
-		_Player.position = $YSort/Player.position
-		$YSort/Player.queue_free()
-		var _Camera = RemoteTransform2D.new()
-		_Player.add_child(_Camera)
-		_Camera.remote_path = "../../../Camera2D"
-
+######################################### Transformations #######
 func _on_transform_Legan():
-	Global.direction = get_node("YSort/" + Global.player).roll_vector
-	var _Player = Legan.instance()
-	$YSort.add_child(_Player)
-	_Player.player_transform()
-	_Player.position = get_node("YSort/" + Global.player).position
-	get_node("YSort/" + Global.player).queue_free()
-	var _Camera = RemoteTransform2D.new()
-	_Player.add_child(_Camera)
-	_Camera.remote_path = "../../../Camera2D"
 	Global.player = "Legan"
+	$YSort/Player.transformation()
+	$YSort/Player.smoke_effect()
 
 func _on_transform_Ledi():
-	Global.direction = get_node("YSort/" + Global.player).roll_vector
-	var _Player = Ledi.instance()
-	$YSort.add_child(_Player)
-	_Player.player_transform()
-	_Player.position = get_node("YSort/" + Global.player).position
-	get_node("YSort/" + Global.player).queue_free()
-	var _Camera = RemoteTransform2D.new()
-	_Player.add_child(_Camera)
-	_Camera.remote_path = "../../../Camera2D"
 	Global.player = "Ledi"
+	$YSort/Player.transformation()
+	$YSort/Player.smoke_effect()
 
 func _on_transform_Lyu():
-	Global.direction = get_node("YSort/" + Global.player).roll_vector
-	var _Player = Lyu.instance()
-	$YSort.add_child(_Player)
-	_Player.player_transform()
-	_Player.position = get_node("YSort/" + Global.player).position
-	get_node("YSort/" + Global.player).queue_free()
-	var _Camera = RemoteTransform2D.new()
-	_Player.add_child(_Camera)
-	_Camera.remote_path = "../../../Camera2D"
 	Global.player = "Lyu"
+	$YSort/Player.transformation()
+	$YSort/Player.smoke_effect()
 
 func _on_transform_Player():
-	Global.direction = get_node("YSort/" + Global.player).roll_vector
-	var _Player = Player.instance()
-	$YSort.add_child(_Player)
-	_Player.player_transform()
-	_Player.position = get_node("YSort/" + Global.player).position
-	get_node("YSort/" + Global.player).queue_free()
-	var _Camera = RemoteTransform2D.new()
-	_Player.add_child(_Camera)
-	_Camera.remote_path = "../../../Camera2D"
 	Global.player = "Player"
+	$YSort/Player.transformation()
+	$YSort/Player.smoke_effect()
 
+########################################## Droping Bombs ######################
 func _on_bomb():
 	var bomb = Bomb.instance()
 	add_child(bomb)
-	bomb.position = get_node("YSort/" + Global.player).position + Vector2(0,-8)
+	bomb.position = get_node("YSort/Player").position + Vector2(0,-8)

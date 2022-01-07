@@ -1,41 +1,36 @@
 extends KinematicBody2D
 
-const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
-const Drop             = preload("res://World/Item.tscn")
-const Bee              = preload("res://Enemies/Bee.tscn")
+const EnemyDeathEffect          = preload("res://Effects/EnemyDeathEffect.tscn")
+const Drop                      = preload("res://World/Item.tscn")
+const Bee                       = preload("res://Enemies/Bee.tscn")
+
+export var ACCELERATION         = 300
+export var MAX_SPEED            = 75
+export var FRICTION             = 200
+export var WANDER_TARGET_RANGE  = 4
+export var HEALTH               = 50
+
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var wanderController    = $WanderController
+onready var animationPlayer     = $AnimationPlayer
+onready var hurtbox             = $HurtBox
+onready var sprite              = $AnimatedSprite
+
+var velocity                    = Vector2.ZERO
+var knockback                   = Vector2.ZERO
+var rng                         = RandomNumberGenerator.new()
+var dead                        = false
+var my_number
+
+enum{ IDLE, WANDER, CHASE }
+var state = CHASE 
 
 signal boss_is_dead
 
-var dead               = false
-var rng                = RandomNumberGenerator.new()
-var my_number
-
-export var ACCELERATION        = 300
-export var MAX_SPEED           = 75
-export var FRICTION            = 200
-export var WANDER_TARGET_RANGE = 4
-export var HEALTH              = 50
-
-enum{
-	IDLE,
-	WANDER,
-	CHASE
-}
-
-var velocity = Vector2.ZERO
-var knockback = Vector2.ZERO
-
-var state = CHASE 
-
-onready var hurtbox = $HurtBox
-onready var playerDetectionZone = $PlayerDetectionZone
-onready var wanderController = $WanderController
-onready var sprite = $AnimatedSprite
-onready var animationPlayer = $AnimationPlayer
-
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
-# warning-ignore:return_value_discarded
+
+	# warning-ignore:return_value_discarded
 	self.connect("boss_is_dead", get_parent().get_parent(), "drop_key")
 
 func _physics_process(delta):

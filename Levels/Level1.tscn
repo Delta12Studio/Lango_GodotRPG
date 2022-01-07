@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=2]
+[gd_scene load_steps=114 format=2]
 
 [ext_resource path="res://World/Cave.tscn" type="PackedScene" id=1]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=2]
@@ -939,6 +939,8 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 0/shapes = [  ]
 0/z_index = 0
 
+[sub_resource type="AnimationNodeStateMachinePlayback" id=98]
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 13 )
 
@@ -1005,6 +1007,9 @@ margin_right = 127.0
 
 [node name="Player" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 160, 146.057 )
+
+[node name="AnimationTree" parent="YSort/Player" index="6"]
+parameters/playback = SubResource( 98 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
 remote_path = NodePath("../../../Camera2D")
@@ -1135,3 +1140,5 @@ position = Vector2( 496, 50.1307 )
 position = Vector2( 287.557, 81.6317 )
 
 [editable path="Sign"]
+[editable path="YSort/Player"]
+[editable path="YSort/Player/HurtBox"]

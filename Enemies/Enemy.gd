@@ -1,39 +1,34 @@
 extends KinematicBody2D
 
-const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
-const Drop = preload("res://World/Item.tscn")
+const EnemyDeathEffect          = preload("res://Effects/EnemyDeathEffect.tscn")
+const Drop                      = preload("res://World/Item.tscn")
 
-var dead = false
-var rng = RandomNumberGenerator.new()
+onready var hurtbox             = $HurtBox
+onready var bar                 = $Health/Bar
+onready var playerDetectionZone = $PlayerDetectionZone
+onready var wanderController    = $WanderController
+onready var sprite              = $AnimatedSprite
+onready var animationPlayer     = $AnimationPlayer
+
+export var ACCELERATION         = 300
+export var MAX_SPEED            = 50
+export var FRICTION             = 200
+export var WANDER_TARGET_RANGE  = 4
+export var HEALTH               = 3
+
+var rng                         = RandomNumberGenerator.new()
+var velocity                    = Vector2.ZERO
+var knockback                   = Vector2.ZERO
+var dead                        = false
 var my_number
-
-export var ACCELERATION = 300
-export var MAX_SPEED = 50
-export var FRICTION = 200
-export var WANDER_TARGET_RANGE = 4
-export var HEALTH = 3
 
 enum enemy { BEE, BAT }
 export(enemy) var enemy_type = enemy.BEE
 
-enum{
-	IDLE,
-	WANDER,
-	CHASE
-}
+enum{ IDLE, WANDER, CHASE }
+var state     = CHASE 
 
-var velocity = Vector2.ZERO
-var knockback = Vector2.ZERO
-
-var state = CHASE 
-
-onready var hurtbox = $HurtBox
-onready var bar = $Health/Bar
-onready var playerDetectionZone = $PlayerDetectionZone
-onready var wanderController = $WanderController
-onready var sprite = $AnimatedSprite
-onready var animationPlayer = $AnimationPlayer
-
+##############################################################
 func _ready():
 	state = pick_random_state([IDLE, WANDER])
 
@@ -129,8 +124,8 @@ func _on_HurtBox_area_exited(_area):
 func _repellent():
 	if Global.repellent == true:
 		$PlayerDetectionZone.monitoring = false
-		$HitBox.monitorable = false
+		$HitBox.monitorable             = false
 	else:
-		$HitBox.monitorable = true
+		$HitBox.monitorable             = true
 		$PlayerDetectionZone.monitoring = true
 

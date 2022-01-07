@@ -132,9 +132,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="SleepPopup/Ask"]
 margin_right = 208.0
 margin_bottom = 64.0
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 align = 1
 valign = 1
 percent_visible = 0.0
@@ -166,9 +166,9 @@ __meta__ = {
 [node name="Label" type="Label" parent="SleepPopup/Answer"]
 margin_right = 128.0
 margin_bottom = 23.0
-custom_fonts/font = ExtResource( 5 )
 custom_colors/font_color = Color( 0, 0, 0.313726, 1 )
 custom_colors/font_color_shadow = Color( 0.392157, 0.392157, 0.392157, 1 )
+custom_fonts/font = ExtResource( 5 )
 align = 1
 valign = 1
 __meta__ = {
@@ -178,6 +178,7 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SleepPopup"]
 pause_mode = 2
 anims/ShowAsk = SubResource( 3 )
+
 [connection signal="body_entered" from="Map" to="Map" method="_on_Map_body_entered"]
 [connection signal="body_exited" from="Map" to="Map" method="_on_Map_body_exited"]
 [connection signal="body_entered" from="Bed" to="Bed" method="_on_Bed_body_entered"]

@@ -1,14 +1,20 @@
 extends Control
 
-var hearts = 10 setget set_hearts
-var max_hearts = 10 setget set_max_hearts
-var health_bar = 0 setget set_health_bar
+var hearts               = 10 setget set_hearts
+var max_hearts           = 10 setget set_max_hearts
+var health_bar           = 0 setget set_health_bar
 
-onready var heartUIFull = $HeartUIFull
+onready var heartUIFull  = $HeartUIFull
 onready var heartUIEmpty = $HeartUIEmpty
-onready var healthBar = $HealthBar/Bar
+onready var healthBar    = $HealthBar/Bar
 
 func _ready():
+
+	self.max_hearts      = Global.max_health
+	self.hearts          = Global.health
+	self.health_bar      = Global.health_bar
+	_fade_in()
+	_on_update_status()
 
 ####################### Connections ###########################
 # warning-ignore:return_value_discarded
@@ -23,15 +29,8 @@ func _ready():
 	Global.connect("health_bar_size", self, "set_health_bar")
 # warning-ignore:return_value_discarded
 	Global.connect("update_status", self, "_on_update_status")
-###############################################################
 
-	self.max_hearts = Global.max_health
-	self.hearts = Global.health
-	self.health_bar = Global.health_bar
-	_fade_in()
-	_on_update_status()
 ###############################################################
-
 func set_hearts(value):
 	hearts = clamp(value, 0, max_hearts)
 	if heartUIFull != null:
@@ -49,16 +48,16 @@ func set_health_bar(value):
 	else:
 		$HealthBar.visible = true
 
-############## Countdown #################
+###################################################### Countdown ###
 func _on_repellent_time():
 	if Global.repellent == true and Global.timer > 0:
 		$Repellent.visible = true
-		$Repellent.text = str(Global.timer)
+		$Repellent.text    = str(Global.timer)
 	else:
 		$Repellent.visible = false
-		Global.repellent = false
+		Global.repellent   = false
 
-###### update gems, honeycombs and mana bar ######
+########################### update gems, honeycombs and mana bar ###
 func _on_update_status():
 	$Item/Gem/Label.text = "= " + str(Global.gem)
 
@@ -74,7 +73,7 @@ func _on_update_status():
 	else:
 		$ManaBar.visible = false
 
-################# fade effect ###################
+################################### fade effect ###################
 func _fade_in():
 	$Fade.visible = true
 	$AnimationPlayer.play("FadeIn")

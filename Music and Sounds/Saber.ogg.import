@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Saber.ogg-8a2799e13e09e3419f3159a762a607ef.oggstr"
+
+[deps]
+
+source_file="res://Music and Sounds/Saber.ogg"
+dest_files=[ "res://.import/Saber.ogg-8a2799e13e09e3419f3159a762a607ef.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

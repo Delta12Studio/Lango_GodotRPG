@@ -5,7 +5,7 @@
 [ext_resource path="res://White.shader" type="Shader" id=3]
 [ext_resource path="res://Player/Laduke.png" type="Texture" id=4]
 [ext_resource path="res://Player/Lyu.png" type="Texture" id=5]
-[ext_resource path="res://Music and Sounds/Haduken.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Music and Sounds/Laduke.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Player/SwordHitBox.gd" type="Script" id=7]
 [ext_resource path="res://Player/Player.gd" type="Script" id=8]
 [ext_resource path="res://Music and Sounds/Roll.ogg" type="AudioStream" id=9]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Music and Sounds/Steps.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=13]
 [ext_resource path="res://Music and Sounds/Rock.ogg" type="AudioStream" id=14]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 7.69131

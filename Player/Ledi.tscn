@@ -10,8 +10,9 @@
 [ext_resource path="res://Music and Sounds/Steps.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Shadows/MediumShadow.png" type="Texture" id=10]
 [ext_resource path="res://Player/Ledi.png" type="Texture" id=11]
-[ext_resource path="res://Music and Sounds/Lightsaber.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Music and Sounds/Saber.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Player/Saber.png" type="Texture" id=14]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )

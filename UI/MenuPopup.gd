@@ -4,27 +4,27 @@ var already_paused
 var selected_menu
 
 func change_menu_color():
-	$Resume.color = Color.gray
-	$Restart.color = Color.gray
-	$Save.color = Color.gray
-	$Load.color = Color.gray
-	$MusicOn.color = Color.gray
-	$MusicOff.color = Color.gray
-	$ShowCredits.color = Color.gray
+	$Resume.color              = Color.gray
+	$Restart.color             = Color.gray
+	$Save.color                = Color.gray
+	$Load.color                = Color.gray
+	$MusicOn.color             = Color.gray
+	$MusicOff.color            = Color.gray
+	$ShowCredits.color         = Color.gray
 
 	match selected_menu:
 		0:
-			$Resume.color = Color.greenyellow
+			$Resume.color      = Color.greenyellow
 		1:
-			$Restart.color = Color.greenyellow
+			$Restart.color     = Color.greenyellow
 		2:
-			$Save.color = Color.greenyellow
+			$Save.color        = Color.greenyellow
 		3:
-			$Load.color = Color.greenyellow
+			$Load.color        = Color.greenyellow
 		4:
-			$MusicOn.color = Color.greenyellow
+			$MusicOn.color     = Color.greenyellow
 		5:
-			$MusicOff.color = Color.greenyellow
+			$MusicOff.color    = Color.greenyellow
 		6:
 			$ShowCredits.color = Color.greenyellow
 
@@ -35,18 +35,18 @@ func resume_restart_quit():
 			# Resume game
 			if not already_paused:
 				get_tree().paused = false
-			$Save/Label.text = "SAVE"
+			$Save/Label.text      = "SAVE"
 			hide()
 
 		1:
 			# Restart game
-			get_tree().paused = false
+			get_tree().paused     = false
 			Global.reset()
 
 		2:
 			#Save game
 			Global.save_game()
-			$Save/Label.text = "SAVED"
+			$Save/Label.text      = "SAVED"
 
 		3:
 			#Load game
@@ -69,10 +69,10 @@ func _input(_event):
 	if not visible:
 		if Input.is_action_just_pressed("ui_menu"):
 			# Pause game
-			already_paused = get_tree().paused
-			get_tree().paused = true
+			already_paused      = get_tree().paused
+			get_tree().paused   = true
 			# Reset the popup
-			selected_menu = 0
+			selected_menu       = 0
 			change_menu_color()
 			# Show popup
 			popup()
@@ -81,7 +81,7 @@ func _input(_event):
 			# Resume game
 			if not already_paused:
 				get_tree().paused = false
-			$Save/Label.text = "SAVE"
+			$Save/Label.text      = "SAVE"
 			hide()
 		if Input.is_action_just_pressed("ui_down"):
 			selected_menu = (selected_menu + 1) % 7;
@@ -97,5 +97,3 @@ func _input(_event):
 		elif _event is InputEventKey:
 			if _event.scancode == KEY_ENTER:
 				resume_restart_quit()
-				
-

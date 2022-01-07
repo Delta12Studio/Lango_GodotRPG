@@ -3,22 +3,24 @@ extends Node
 export(int) var max_health = 5 setget set_max_health
 var health           = max_health setget set_health
 var health_bar       = 0 setget set_health_bar
-var repellent        = false
-var timer
-var mana             = 0
-var from
-var current_level
+
+var direction        = Vector2.ZERO
+var player           = "Player"
 var visited          = ["Level1"]
 var key_founded      = []
 var opened_doors     = []
-var direction        = Vector2.ZERO
-var cave
-var chest
-var player           = "Player"
+var mana             = 0
 var axe_equipped     = false
 var pickaxe_equipped = false
+var repellent        = false
+var current_level
+var from
+var cave
+var chest
+var timer
 var data
-################# Items ################
+
+#______________________________________________________ Items ___
 var honeycombs       = 0
 var gem              = 0
 var wood             = 0
@@ -33,7 +35,8 @@ var axe              = "empty"
 var bandana          = "empty"
 var saber            = "empty"
 var pickaxe          = "empty"
-########################################
+
+#_________________________________________________________________
 enum dangeons{ Dangeon1, Dangeon2, Dangeon3, Dangeon4, Dangeon5, Dangeon6, Dangeon7}
 enum QuestStatus { 
 	NOT_STARTED, 
@@ -44,9 +47,9 @@ enum QuestStatus {
 	THIRD_STARTED, 
 	THIRD_COMPLETED, 
 }
-var quest_status = QuestStatus.NOT_STARTED
+var quest_status   = QuestStatus.NOT_STARTED
 var dialogue_state = 0
-var restart = false
+var restart        = false
 
 signal no_health
 signal health_changed(value)
@@ -55,9 +58,11 @@ signal health_bar_size(value)
 signal repellent_time
 signal update_status
 
+###################################################################
 func _ready():
 	self.health = max_health
 
+######################################################## Health ###
 func set_max_health(value):
 	max_health = value
 	self.health = min(health, max_health)
@@ -73,6 +78,7 @@ func set_health_bar(value):
 	health_bar = value
 	emit_signal("health_bar_size", health_bar)
 
+############################################# HP Potion Effect ###
 func _on_reg_hp():
 	if health < max_health:
 		while health < max_health:
@@ -88,6 +94,7 @@ func _on_reg_hp():
 			emit_signal("health_bar_size", health_bar)
 			health_bar = 0
 
+####################################### Repellent Potion Effect ###
 func _on_repellent():
 	repellent = true
 	timer = 11
@@ -102,6 +109,7 @@ func _countdown():
 	if timer == 0:
 		print("time over")
 
+######################################################### Music ###
 func cave_play():
 	$CaveMusic.play()
 
@@ -115,9 +123,11 @@ func stop_music():
 	$Music.stop()
 	$CaveMusic.stop()
 
+########################################### Update Itens Status ###
 func _on_update_status():
 	emit_signal("update_status")
 
+######################################################### Save ###
 func save_game():
 	data = {
 		"current_level"    : current_level,
@@ -148,21 +158,24 @@ func save_game():
 		"pickaxe"          : pickaxe,
 		"key_founded"      : key_founded,
 		"opened_doors"     : opened_doors,
+}
 
-	}
+#_________________________________________________________________
 	var file = File.new()
 	file.open("user://savegame.json", File.WRITE)
 	var json = to_json(data)
 	file.store_line(json)
 	file.close()
 
+######################################################### Load ###
 func load_game():
+
 	var file = File.new()
 	if file.file_exists("user://savegame.json"):
 		file.open("user://savegame.json", File.READ)
 		data = parse_json(file.get_as_text())
 		file.close()
-
+#_________________________________________________________________
 		current_level    = data.current_level
 		from             = data.from
 		direction        = Vector2(data.direction[0], data.direction[1])
@@ -191,21 +204,22 @@ func load_game():
 		pickaxe          = data.pickaxe
 		key_founded      = data.key_founded
 		opened_doors     = data.opened_doors
-
+#_________________________________________________________________
 		if not current_level in dangeons:
-# warning-ignore:return_value_discarded
+			# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://Levels/" + current_level + ".tscn")
 		else:
 			stop_music()
 			current_level = "CaveLevel2"
-			from = null
-# warning-ignore:return_value_discarded
+			from          = null
+			# warning-ignore:return_value_discarded
 			get_tree().change_scene("res://Levels/" + current_level + ".tscn")
 			play_music()
 		get_tree().paused = false
 
-################### Restart ##########################
+####################################################### Restart ###
 func reset():
+
 	stop_music()
 	from             = null
 	direction        = Vector2.ZERO
@@ -220,7 +234,7 @@ func reset():
 	visited          = ["Level1"]
 	key_founded      = []
 	opened_doors     = []
-	################# Items ################
+#______________________________________________________ Items ___
 	honeycombs       = 0
 	gem              = 0
 	wood             = 0
@@ -235,6 +249,6 @@ func reset():
 	bandana          = "empty"
 	saber            = "empty"
 	pickaxe          = "empty"
-	########################################
-# warning-ignore:return_value_discarded
+#_________________________________________________________________
+	# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://UI/FirstMenu.tscn")
