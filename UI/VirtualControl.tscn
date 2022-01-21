@@ -66,6 +66,7 @@ normal = SubResource( 1 )
 pressed = SubResource( 2 )
 shape = SubResource( 3 )
 passby_press = true
+action = "ui_left"
 visibility_mode = 1
 
 [node name="Up" type="TouchScreenButton" parent="."]
@@ -77,6 +78,7 @@ normal = SubResource( 1 )
 pressed = SubResource( 2 )
 shape = SubResource( 3 )
 passby_press = true
+action = "ui_up"
 visibility_mode = 1
 
 [node name="Right" type="TouchScreenButton" parent="."]
@@ -88,6 +90,7 @@ normal = SubResource( 1 )
 pressed = SubResource( 2 )
 shape = SubResource( 3 )
 passby_press = true
+action = "ui_right"
 visibility_mode = 1
 
 [node name="Down" type="TouchScreenButton" parent="."]
@@ -99,6 +102,7 @@ normal = SubResource( 1 )
 pressed = SubResource( 2 )
 shape = SubResource( 3 )
 passby_press = true
+action = "ui_down"
 visibility_mode = 1
 
 [node name="Menu" type="TouchScreenButton" parent="."]
@@ -109,6 +113,7 @@ normal = SubResource( 4 )
 pressed = SubResource( 5 )
 shape = SubResource( 6 )
 passby_press = true
+action = "ui_menu"
 visibility_mode = 1
 
 [node name="J" type="TouchScreenButton" parent="."]
@@ -119,6 +124,7 @@ normal = SubResource( 7 )
 pressed = SubResource( 8 )
 shape = SubResource( 9 )
 passby_press = true
+action = "ui_attack"
 visibility_mode = 1
 
 [node name="K" type="TouchScreenButton" parent="."]
@@ -129,6 +135,7 @@ normal = SubResource( 10 )
 pressed = SubResource( 11 )
 shape = SubResource( 12 )
 passby_press = true
+action = "ui_roll"
 visibility_mode = 1
 
 [node name="i" type="TouchScreenButton" parent="."]
@@ -140,4 +147,5 @@ normal = SubResource( 13 )
 pressed = SubResource( 14 )
 shape = SubResource( 12 )
 passby_press = true
+action = "ui_inventory"
 visibility_mode = 1

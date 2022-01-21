@@ -1,8 +1,13 @@
 extends StaticBody2D
 
-onready var Wood = preload("res://World/Wood.tscn")
+onready var Wood   = preload("res://World/Wood.tscn")
+onready var Winter = preload("res://World/WinterTree.png")
 
 var cutted = false
+
+func _ready():
+	if get_parent().get_parent().get_parent().name == "Level4":
+		$Sprite.texture = Winter
 
 func _on_Area2D_area_entered(_area):
 	if Global.axe_equipped == true:

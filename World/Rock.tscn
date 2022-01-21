@@ -141,6 +141,7 @@ texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Blink = SubResource( 4 )
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_Area2D_area_entered"]
 [connection signal="body_entered" from="Circles" to="." method="_on_Circles_body_entered"]
 [connection signal="body_exited" from="Circles" to="." method="_on_Circles_body_exited"]

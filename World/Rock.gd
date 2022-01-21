@@ -1,8 +1,12 @@
 extends StaticBody2D
 
-onready var Stone = preload("res://World/Stone.tscn")
+onready var Stone  = preload("res://World/Stone.tscn")
+onready var Winter = preload("res://World/WinterRock.png")
+var breaked        = false
 
-var breaked = false
+func _ready():
+	if get_parent().get_parent().get_parent().name == "Level4":
+		$Sprite.texture = Winter
 
 func _on_Area2D_area_entered(_area):
 	if Global.pickaxe_equipped == true:

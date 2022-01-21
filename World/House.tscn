@@ -4,7 +4,7 @@
 [ext_resource path="res://Music and Sounds/Door.ogg" type="AudioStream" id=2]
 [ext_resource path="res://World/NPCHouse.png" type="Texture" id=3]
 [ext_resource path="res://World/House.gd" type="Script" id=4]
-[ext_resource path="res://World/NPCHouse1.png" type="Texture" id=5]
+[ext_resource path="res://World/WinterNPCHouse1.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "CloseDoor"
@@ -152,4 +152,5 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2( 0, 55 )
 shape = SubResource( 3 )
+
 [connection signal="body_entered" from="Door" to="." method="_on_Door_body_entered"]

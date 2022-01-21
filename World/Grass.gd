@@ -1,9 +1,15 @@
 extends Node2D
 
-const GrassEffect = preload("res://Effects/GrassEffect.tscn")
-const Drop = preload("res://World/Item.tscn")
-var rng = RandomNumberGenerator.new()
+const GrassEffect  = preload("res://Effects/GrassEffect.tscn")
+const Drop         = preload("res://World/Item.tscn")
+var rng            = RandomNumberGenerator.new()
 var my_number
+
+onready var Winter = preload("res://World/WinterGrass.png")
+
+func _ready():
+	if get_parent().get_parent().get_parent().name == "Level4":
+		$Sprite.texture = Winter
 
 func create_grass_effect():
 	var grassEffect = GrassEffect.instance()

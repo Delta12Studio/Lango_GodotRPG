@@ -1,10 +1,17 @@
 extends Node2D
 
-onready var Bomb     = preload("res://World/Bomb.tscn")
-onready var Canvas   = preload("res://World/KeyCanvas.tscn")
-onready var HealthUI = preload("res://UI/HealthUI.tscn") 
-onready var VC       = preload("res://UI/VirtualControl.tscn")
-onready var Level    = preload("res://UI/LevelName.tscn")
+onready var Bomb        = preload("res://World/Bomb.tscn")
+onready var Canvas      = preload("res://World/KeyCanvas.tscn")
+onready var HealthUI    = preload("res://UI/HealthUI.tscn") 
+onready var VC          = preload("res://UI/VirtualControl.tscn")
+onready var Level       = preload("res://UI/LevelName.tscn")
+
+onready var Cliff       = preload("res://World/Cliff.tres")
+onready var Dirt        = preload("res://World/Dirt.tres")
+onready var WinterCliff = preload("res://World/WinterCliff.tres")
+onready var WinterDirt  = preload("res://World/WinterDirt.tres")
+onready var DesertCliff = preload("res://World/DesertCliff.tres")
+onready var DesertDirt  = preload("res://World/DesertDirt.tres")
 
 ##################################################################
 func _ready():
@@ -24,6 +31,7 @@ func _ready():
 		get_node("YSort/Player").transition()
 
 	key_collect()
+	change_tileset()
 
 #################################################################
 func key_collect():
@@ -60,3 +68,12 @@ func _on_bomb():
 	var bomb = Bomb.instance()
 	add_child(bomb)
 	bomb.position = get_node("YSort/Player").position + Vector2(0,-8)
+
+########################################## Winter #############################
+func change_tileset():
+	if self.name == "Level4":
+		$Cliff.tile_set = WinterCliff
+		$Dirt.tile_set  = WinterDirt
+	if self.name == "Level1":
+		$Cliff.tile_set = DesertCliff
+		$Dirt.tile_set  = DesertDirt

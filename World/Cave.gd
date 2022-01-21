@@ -1,10 +1,13 @@
 extends StaticBody2D
 
+onready var cave = preload("res://World/DesertCave.png")
 enum level { CaveLevel1, CaveLevel2 }
 export(level) var level_type = level.CaveLevel1
 
 func _ready():
 	_cave_was_opened()
+	if get_parent().name == "Level1":
+		$Sprite.texture = cave
 
 func _opened_cave():
 	$AnimationPlayer.play("OpenCave")
