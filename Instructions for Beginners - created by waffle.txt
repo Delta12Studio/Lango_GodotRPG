@@ -1,0 +1,145 @@
+Notes created by waffle (Norm Perry) 2/26/2022
+www.archonrpg.com
+Created for Lango RPG Godot...
+
+********************************************************************
+PROJECT SETTINGS ... the important ones to look at
+Project_Settings Autoload tab : find Global.tscn there .... 
+	Localization tab :find all translation files there ...
+
+power users know to look here first,
+but new users need to know to look here...
+********************************************************************
+main project scene is Intro.tscn
+this scene just plays the intro cut-scene
+and launches the game menu scene ...
+
+get_tree().change_scene("res://UI/FirstMenu.tscn")
+*********************************************************************
+
+FirstMenu.tscn
+Has 3 menu items, NewGame,LoadGame,QuitGame
+Has 3 functions _ready,_input,change_menu_color
+and 1 custom var selected_menu
+_input only checks up/down/attack (enter key,space,j key)
+
+NewGame - get_tree().change_scene("res://Levels/InsideHouse.tscn")
+LoadGame - Global.load_game()
+quitgame - get_tree().quit()
+*********************************************************************
+
+Global scene has the magik for the game (did you see Project Settings - Autoload )
+All Player Vars .... inventory ... basic quest system
+Does not support multiple quests at once
+save_game and load_game done here in json format
+get_tree().change_scene("res://Levels/" + current_level + ".tscn")
+
+*************************************************************************
+Levels folder
+InsideHouse.tscn
+Portal system works by:
+func _on_Entrace_body_entered(body):
+	Global.direction = body.roll_vector
+	Global.from = get_parent().name
+	#print("Came from " + Global.from, " and go to " + Global.from + "Pos" + " on " + self.name + " Level")
+# warning-ignore:return_value_discarded
+	get_tree().change_scene(("res://Levels/") + (self.name) + (".tscn"))
+
+basically, the "name of the node" "Level1" in this case, is passed to
+the change_scene call as (self.name) to jump to Level1.tscn
+while Global.from holds the parrent scene loaded (InsideHouse)
+in this case ....
+
+when entering a level...
+if Global.from != null:
+	get_node("YSort/Player").set_position(get_node		(Global.from + "Pos").position)
+	get_node("YSort/Player").transition()
+from will = null at game  start. But if entering from Level1,
+the node Level1Pos will reposition the player to the door
+************************************************************************
+dialogue system
+see func talk() in NPC.gd
+
+$AnimatedSprite.play("Talk") ... to start animation for talking sprite
+dialoguePopup.npc = self   NPC (Bearnardo object is requesting to talk)
+dialoguePopup.npc_name = "Bearnardo"
+// these settings were to inform dialog object who the player is talking to
+
+Global.quest_status maintains how far along we are on quest system (1 at a time)
+Global.dialog_state maintains which dialog stage we are on withing the current quest state
+
+// _state = 0 is start of a dialog
+global.dialog_state=1			get ready for next state
+dialoguePopup.dialogue="some text"		could be a question to the player
+dialoguePopup.answers="player responce" 	players aswers could be "J" or "K"
+dialoguePopup.open() 			to show the dialog (more later)
+
+// _state=1 check player answer		player could answer "J" "K"
+if player responds with J	(var = answer set by dialoguePopup)
+	set dialogue and answers and set _state=2
+if player responds with K
+	set dialogue and answers and set _state=3
+may also set Global.quest_status or other vars as needed
+
+// _state=2 or 3
+set any other global vars ....
+$AnimatedSprite.play("Idle") 	stop talk animation
+Global.dialogue_state=0	reset state for next dialog
+dialoguePopup.close()	shut down dialogue object and resume game
+************************************************************************
+
+dialoguePopup object/scene located in NPCInsideHouse
+sets the text in the labels for the dialogs
+_ready() calls set_process_input(false)
+to ignore player input and prevent answers before the dialogue is displayed.
+func open() calls
+	get_tree().paused = true 	to pause the game
+	popup()			to display popup in modal form (can't click elsewhere)
+	$AnimationPlayer.playback_speed = 60.0/dialogue.length() 
+	$AnimationPlayer.play("ShowDialogue") ......
+the "Animation" is actually adjusting the visibility of the text boxes in the dialogue object.
+In addition to that, it adjust how much of the text is visible to create a typing effect
+
+func close() calls
+	get_tree().pause = false
+	hide()			to remove dialogue and resume game
+there is a signal connected to the 
+func _on_AnimationPlayer_animation_finished() to
+	set_process_input(true)	to resume getting player input
+_input(_event) gets player input and calls
+npc.talk("J") or npc.talk("K") to continue dialogs...
+*********************************************************************************
+
+for simple signs ....
+see Level1.tscn Popup ....
+
+the "Bed" dialog uses the same method as the "NPC" dialog
+but with a copied object
+
+
+
+************************************************************************
+Translation:
+did you see Project_Settings Localization tab?
+dialoguePopup.dialogue = "QS NS DS2 D" 
+
+looks like rubush but it gets translated to "Thank you very much"...
+In the Project, there is a folder Translation that holds a file
+language.csv (can be read using Excel).
+It is a ',' comma delimited list...
+example: ,en_US,pt_BR,es,   ... this lists each language supported,
+The first coloumn (as viewed in Excel) is the text to be translated....
+so "CREATED" gets translated to "Created with" in en_US or to
+"Criado com"(br) or "Creado com" (es) as needed, on the fly.
+This works with the Label object, but sometimes not with the
+RichText object .... 
+
+see also:
+https://www.youtube.com/watch?v=GjMHoxsl5f8
+
+
+
+
+
+
+

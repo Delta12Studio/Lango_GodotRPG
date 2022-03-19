@@ -10,13 +10,16 @@ The game features
 * a system to drop items randomly when we kill enemies and destroy grasses, 
 * animation of doors and cave entrances, 
 * a sleeping system to recover health,
-* a cave of madness,
+* a cave of madness (puzzle),
 * chests with random drop items 
 * a small quest system and more...
 
-You can learn with the development tutorials on www.delta12studio.blogspot.com
+You can learn with my tutorials on 
+https://www.youtube.com/c/DELTA12STUDIO
 
-The great intro music was made by Dark Reaven
+The great intro music was made by Dark Reaven Music
 https://www.youtube.com/watch?v=mDokP-LgiR0
+
+Thanks to waffle for the note - Instructions for Beginners
 
 Special thanks to Heartbeast Youtube channel and dadivepesce.com website.
